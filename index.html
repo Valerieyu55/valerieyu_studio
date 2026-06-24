@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valerie Yu Studio | Vibe Coding for Learning Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="dots dots-1"></div>
+        <div class="dots dots-2"></div>
+        <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="rgba(216, 181, 121, 0.2)" stroke-width="0.1"/>
+            <path d="M0,80 Q25,60 50,80 T100,80" fill="none" stroke="rgba(130, 104, 157, 0.1)" stroke-width="0.1"/>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="#projects" class="nav-btn">
+                        <img src="assets/card-icon-4.png" alt="Projects" class="nav-icon">
+                        <span>作品庫 Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#teaching" class="nav-btn">
+                        <img src="assets/card-icon-1.png" alt="Teaching" class="nav-icon">
+                        <span>教學 Teaching</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">教學模組與學習活動設計。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank">3-1 空間中的線與平面</a>
+                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank">空間幾何體探究</a>
+                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank">MATH.COURT</a>
+                            <a href="https://valerieyu55.github.io/G9/" target="_blank">G9 統計與機率</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#counseling" class="nav-btn">
+                        <img src="assets/card-icon-2.png" alt="Counseling" class="nav-icon">
+                        <span>升學組 Counseling</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">升學輔導資源與決策支援。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/math_ab/" target="_blank">數A數B分析模組</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#tools" class="nav-btn">
+                        <img src="assets/card-icon-3.png" alt="Tools" class="nav-icon">
+                        <span>教師工具 Tools</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">提升教學效率的實用工具。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-btn">
+                        <img src="assets/card-icon-5.png" alt="About" class="nav-icon">
+                        <span>關於 About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title signature-font">Valerie Yu Studio</h1>
+                <h2 class="hero-subtitle">Vibe Coding for Learning Design</h2>
+                <p class="hero-text">
+                    以程式設計結合教學、美感與實用性，<br>
+                    展示教學模組、升學輔導工具與教師效率工具。
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore Projects <i class="fa-solid fa-sparkles"></i></a>
+                    <a href="#teaching" class="btn btn-outline">View Teaching <i class="fa-solid fa-sparkles"></i></a>
+                </div>
+            </div>
+            <div class="hero-graphic">
+                <!-- Using one of the images as the main graphic or a placeholder if it's not the right one -->
+                <div class="graphic-wrapper">
+                    <!-- 請將您上傳的圖片儲存為 diamond.png 並放在同一資料夾 -->
+                    <img src="assets/hero-diamond.png" alt="Main Graphic" class="main-graphic" onerror="this.src='valerie-yu-studio-logo.png2.png'">
+                    <div class="graphic-decorations">
+                        <div class="point p1"></div>
+                        <div class="point p2"></div>
+                        <div class="point p3"></div>
+                        <div class="point p4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section: Sidebar + Featured Projects -->
+    <section id="main-content" class="main-layout-section">
+        <div class="container layout-container">
+            
+
+            <!-- Right Content: Featured Projects -->
+            <main id="projects" class="main-content">
+                <div class="section-header align-left">
+                    <h3 class="section-title"><span>精選主題</span> Featured Projects</h3>
+                    <div class="line"></div>
+                </div>
+
+                <div class="featured-list">
+                    <!-- Project 1 -->
+                    <article class="featured-item">
+                        <div class="featured-img-wrapper">
+                            <img src="assets/project-img-1.png" alt="3-1 空間中的線、平面與形體" class="featured-img">
+                        </div>
+                        <div class="featured-details">
+                            <h4 class="featured-title">3-1 空間中的線、平面與形體</h4>
+                            <p class="featured-desc">
+                                這款教學模組專為高中立體幾何單元打造，將抽象的空間概念轉化為具象的 3D 視覺互動體驗。設計理念核心在於「化繁為簡」，透過典雅乾淨的介面與直覺的操作，讓學生能自由旋轉、剖析幾何圖形，探索線與面之間的垂直與平行關係。有別於傳統平面的板書教學，本作品採用即時運算的動態模型，不僅大幅降低了學生的空間認知負荷，更激發了他們對幾何結構的好奇心與探索欲，真正實踐了「清晰設計成就更好學習」的核心願景。
+                            </p>
+                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank" class="btn btn-outline">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="featured-item">
+                        <div class="featured-img-wrapper">
+                            <img src="assets/project-img-2.png" alt="空間幾何體・動態探索系統" class="featured-img">
+                        </div>
+                        <div class="featured-details">
+                            <h4 class="featured-title">空間幾何體・動態探索系統</h4>
+                            <p class="featured-desc">
+                                本系統致力於打造一個開放式的幾何探究沙盒，讓學習者能沉浸於動態的幾何建構過程中。設計上延續了極簡美學與水晶幾何的視覺語彙，不僅介面賞心悅目，更提供了豐富的參數調節功能。使用者可以即時觀察點、線、面在三維空間中的變化軌跡，深刻理解幾何定理的推導過程。其設計理念旨在打破制式化的解題框架，賦予學生主動探索的權力，培養其嚴謹的邏輯思維與空間想像力，是一套兼具美感與深度的數位教育工具。
+                            </p>
+                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank" class="btn btn-outline">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="featured-item">
+                        <div class="featured-img-wrapper">
+                            <img src="assets/project-img-3.png" alt="課堂教案：拋物線・看見數學的軌跡" class="featured-img">
+                        </div>
+                        <div class="featured-details">
+                            <h4 class="featured-title">課堂教案：拋物線・看見數學的軌跡</h4>
+                            <p class="featured-desc">
+                                本教案將抽象的二次函數與拋物線軌跡，轉化為肉眼可見的視覺動態展演。設計理念著重於「數學的視覺化美學」，透過精準的座標系點陣圖與平滑的曲線動態，引導學生觀察參數變化對拋物線開口與頂點的影響。我們刻意濾除了多餘的視覺干擾，保留了純粹的點、線與網格，讓每一次的參數調整都能帶來直覺的視覺反饋。這不僅降低了代數學習的門檻，更讓學生能真切地「看見」隱藏在公式背後的數學規律與軌跡之美。
+                            </p>
+                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank" class="btn btn-outline">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="featured-item">
+                        <div class="featured-img-wrapper">
+                            <img src="assets/project-img-4.png" alt="114國中數學3下：統計與機率" class="featured-img">
+                        </div>
+                        <div class="featured-details">
+                            <h4 class="featured-title">114國中數學3下：統計與機率</h4>
+                            <p class="featured-desc">
+                                專為新課綱設計的統計與機率教學平台，將繁雜的數據化為清晰易讀的視覺圖表。在設計上，我們採用了現代 Dashboard 的儀表板概念，以典雅的紫灰色調搭配直覺的長條圖與圓餅圖組件，打破傳統數學教材枯燥的排版。學生不僅能快速掌握資料分布特徵，還能透過互動介面親自操作數據，理解機率的隨機性與統計意義。這套模組完美詮釋了「以設計輔助認知」，讓原本生硬的數據分析課程變得充滿現代感與探索樂趣。
+                            </p>
+                            <a href="https://valerieyu55.github.io/G9/" target="_blank" class="btn btn-outline">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="featured-item">
+                        <div class="featured-img-wrapper">
+                            <img src="assets/project-img-5.png" alt="108課綱：高二數學A與數學B選修指南" class="featured-img">
+                        </div>
+                        <div class="featured-details">
+                            <h4 class="featured-title">108課綱：高二數學A與數學B選修指南</h4>
+                            <p class="featured-desc">
+                                為了幫助高中生在面對 108 課綱的分流時不再迷惘，本指南以「探索未來路徑」為核心隱喻進行設計。視覺上運用了充滿希望感的漸層紫金山丘與道路分岔路標，柔和地傳遞出「選擇」的意象。介面內整合了數A與數B的核心差異、未來科系對應及學習策略，並透過流暢的引導式問答，協助學生釐清自身志向。這不僅是一份資訊型指南，更是一個能安定學生焦慮、陪伴他們勇敢邁向未來學術旅程的數位輔導夥伴。
+                            </p>
+                            <a href="https://valerieyu55.github.io/math_ab/" target="_blank" class="btn btn-outline">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 6 -->
+                    <article class="featured-item">
+                        <div class="featured-img-wrapper">
+                            <img src="assets/project-img-6.png" alt="代導費用 Calculator" class="featured-img">
+                        </div>
+                        <div class="featured-details">
+                            <h4 class="featured-title">代導費用 Calculator</h4>
+                            <p class="featured-desc">
+                                這是一款專為第一線教育工作者量身打造的實用效率工具。設計理念源於對教師日常繁瑣行政工作的體貼，旨在用最直覺的數位介面解決代導費用的計算痛點。我們將複雜的計費邏輯隱藏於極簡優雅的表單背後，教師只需輸入基本資訊，系統便能快速、精準地產出費用明細，並支援匯出與紀錄管理功能。整體風格摒棄了傳統系統的生硬感，以清新的留白與細緻的微互動，帶來愉悅的使用體驗，讓教師能將更多寶貴時間回歸於教學本身。
+                            </p>
+                            <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank" class="btn btn-outline">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio">
+            </div>
+            <div class="footer-slogan">
+                <div class="footer-star">✦</div>
+                <p>清晰的設計，成就更好的學習。</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:valerieyustudio@gmail.com" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> valerieyustudio@gmail.com
+                </a>
+                <span class="footer-divider">|</span>
+                <div class="footer-socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="footer-crystal">
+                    <img src="assets/footer-crystal.png" alt="Crystal Accent">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
