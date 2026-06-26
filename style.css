@@ -125,6 +125,7 @@ ul {
 .logo-img {
     height: 70px;
     object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 .nav-links {
@@ -579,6 +580,7 @@ footer {
 .footer-logo img {
     height: 65px;
     object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 .footer-slogan {
