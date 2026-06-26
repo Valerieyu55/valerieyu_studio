@@ -766,8 +766,101 @@ footer {
     font-size: 18px !important;
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        box-shadow: 0 10px 30px rgba(130, 104, 157, 0.1);
+        border-top: 1px solid var(--border-color);
+        transition: all 0.3s ease-in-out;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+    }
+    
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .nav-btn {
+        justify-content: center;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding: 10px 20px;
+        min-width: 100%;
+        background-color: var(--primary-bg);
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+    
+    .nav-item.dropdown.active .dropdown-content {
+        display: block;
+    }
+    
+    .nav-item.dropdown:hover .dropdown-content {
+        display: none;
+    }
+    .nav-item.dropdown.active:hover .dropdown-content {
+        display: block;
+    }
+
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -779,10 +872,6 @@ footer {
     
     .hero-buttons {
         justify-content: center;
-    }
-    
-    .nav-links {
-        display: none; /* In a real app, add a hamburger menu */
     }
 }
 

@@ -29,6 +29,11 @@
             <a href="#" class="logo">
                 <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
             </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <ul class="nav-links">
                 <li class="nav-item">
                     <a href="#projects" class="nav-btn">
@@ -246,5 +251,33 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (except dropdown toggle)
+        document.querySelectorAll('.nav-btn:not(.dropdown > .nav-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Handle dropdowns on mobile
+        document.querySelectorAll('.dropdown > .nav-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    btn.parentElement.classList.toggle('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
