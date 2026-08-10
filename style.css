@@ -652,6 +652,7 @@ footer {
 .footer-crystal img {
     height: 60px;
     object-fit: contain;
+    mix-blend-mode: multiply;
     animation: float 4s ease-in-out infinite;
 }
 
