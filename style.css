@@ -15,6 +15,7 @@
     --font-heading: 'Outfit', 'Noto Sans TC', sans-serif;
     --font-body: 'Outfit', 'Noto Sans TC', sans-serif;
     --font-signature: 'Pinyon Script', cursive;
+    --font-display-serif: 'Playfair Display', 'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
 }
 
 * {
@@ -307,8 +308,8 @@ ul {
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 600px;
+    flex: 1.15;
+    max-width: 680px;
 }
 
 .hero-title {
@@ -330,11 +331,29 @@ ul {
 }
 
 .hero-subtitle {
-    font-size: 24px;
-    color: var(--primary-light);
+    font-family: var(--font-display-serif);
+    font-size: clamp(17px, 1.85vw, 22.5px);
+    color: var(--primary-color);
     margin-bottom: 25px;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hero-subtitle .amp {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-color);
+    margin: 0 4px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.hero-subtitle:hover .amp {
+    transform: scale(1.15) rotate(3deg);
 }
 
 .hero-text {
@@ -1049,6 +1068,11 @@ footer {
         max-width: 100%;
     }
     
+    .hero-subtitle {
+        font-size: clamp(15px, 2.3vw, 20px);
+        white-space: nowrap;
+    }
+    
     .hero-buttons {
         justify-content: center;
     }
@@ -1057,6 +1081,12 @@ footer {
 @media (max-width: 768px) {
     .hero-title {
         font-size: 48px;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(12.5px, 3.8vw, 16.5px);
+        letter-spacing: 0.3px;
+        white-space: nowrap;
     }
     
     .layout-container {
@@ -1098,6 +1128,14 @@ footer {
     .footer-crystal {
         margin-left: 0;
         margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-subtitle {
+        font-size: clamp(10.5px, 3.4vw, 13px);
+        letter-spacing: 0;
+        white-space: nowrap;
     }
 }
 
