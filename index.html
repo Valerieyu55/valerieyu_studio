@@ -82,6 +82,7 @@
                         <p class="dropdown-desc">提升教學效率的實用工具。</p>
                         <div class="dropdown-links">
                             <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
+                            <a href="assets/downloads/LuckyDrawWidget-macOS.zip" download>課堂即時抽籤工具 (ZIP)</a>
                         </div>
                     </div>
                 </li>
@@ -306,6 +307,86 @@
         </div>
     </footer>
 
+    <!-- Teaching Hub Interactive Modal -->
+    <div class="modal-overlay" id="teaching-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-glass-container">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge"><i class="fa-solid fa-graduation-cap"></i> Interactive Teaching Hub</span>
+                <h3 class="modal-title">數位教學與工具探索中心</h3>
+                <p class="modal-subtitle">精選 6 大互動數學實驗室，以及為課堂量身打造的專屬教師數位工具</p>
+            </div>
+
+            <!-- Featured Download Card -->
+            <div class="teaching-download-card">
+                <div class="download-card-icon">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <div class="download-card-info">
+                    <div class="download-card-tag">EXCLUSIVELY FOR EDUCATORS · 專屬課堂工具</div>
+                    <h4 class="download-card-title">課堂即時抽籤小工具 (LuckyDrawWidget)</h4>
+                    <p class="download-card-desc">專為實體與線上課堂設計的互動點名與隨機抽籤輕量軟體，支援自訂名單、動態視覺抽籤與懸浮展示，提升課堂互動感與教學效率。</p>
+                    <div class="download-meta">
+                        <span><i class="fa-solid fa-file-zipper"></i> ZIP 格式 (1.0 MB)</span>
+                        <span><i class="fa-brands fa-apple"></i> macOS 獨立應用</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> 離線免安裝</span>
+                    </div>
+                </div>
+                <div class="download-card-action">
+                    <a href="assets/downloads/LuckyDrawWidget-macOS.zip" download class="btn btn-primary download-btn">
+                        立即下載工具 <i class="fa-solid fa-download"></i>
+                    </a>
+                </div>
+            </div>
+
+            <h4 class="modal-section-title"><i class="fa-solid fa-laptop-code"></i> 線上動態教學模組直達 (6 Modules)</h4>
+            <div class="teaching-grid">
+                <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank" class="teaching-card">
+                    <span class="teaching-card-badge">高中數學 3B</span>
+                    <h5>弧度量與週期性數學模型</h5>
+                    <p>首創圓弧動態展開物理引擎，結合摩天輪、潮汐生活建模與 CASIO 計算機模擬器。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank" class="teaching-card">
+                    <span class="teaching-card-badge">高中立體幾何</span>
+                    <h5>從平面到立體：空間幾何的思維躍遷</h5>
+                    <p>3D 空間幾何即時運算模型，自由旋轉與剖析線面垂直平行關係，降低認知負荷。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank" class="teaching-card">
+                    <span class="teaching-card-badge">幾何探究沙盒</span>
+                    <h5>空間幾何體・動態探索系統</h5>
+                    <p>極簡美學與水晶幾何視覺語彙，三維空間軌跡直觀推導空間幾何定理。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank" class="teaching-card">
+                    <span class="teaching-card-badge">二次函數</span>
+                    <h5>課堂教案：拋物線・看見數學的軌跡</h5>
+                    <p>純粹座標網格與拋物線動態展演，零干擾直觀看見公式背後的軌跡美感。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/store_manager/" target="_blank" class="teaching-card">
+                    <span class="teaching-card-badge">國中九年級</span>
+                    <h5>連比例與手搖飲創業專案</h5>
+                    <p>化身店長研發調飲、比例縮放與財務定價，結合教師即時進度戰情儀表板。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/G9/" target="_blank" class="teaching-card">
+                    <span class="teaching-card-badge">統計與機率</span>
+                    <h5>國中數學 3下：統計與機率</h5>
+                    <p>現代 Dashboard 儀表板與即時動態圖表，輕鬆理解隨機性與資料分布意義。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+            </div>
+
+            <div class="modal-footer-nav">
+                <a href="#projects" class="modal-switch-link" id="modal-view-all-projects">
+                    瀏覽完整作品展示牆與設計理念 <i class="fa-solid fa-arrow-down-long"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
@@ -333,7 +414,7 @@
             });
         });
 
-        // ── Project Filtering & Custom "View Teaching" Logic ──
+        // ── Project Filtering Logic ──
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectItems = document.querySelectorAll('.featured-item');
 
@@ -364,11 +445,58 @@
             });
         });
 
-        // "View Teaching" Button: Specifically filter to teaching modules & smooth scroll
+        // ── Teaching Hub Modal Logic ──
+        const teachingModal = document.getElementById('teaching-modal');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const modalViewAll = document.getElementById('modal-view-all-projects');
         const btnViewTeaching = document.getElementById('btn-view-teaching');
+
+        function openTeachingModal() {
+            if (teachingModal) {
+                teachingModal.classList.add('active');
+                teachingModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeTeachingModal() {
+            if (teachingModal) {
+                teachingModal.classList.remove('active');
+                teachingModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // "View Teaching" Button: Opens Dedicated Teaching Hub Modal with 6 Modules & Tool Download
         if (btnViewTeaching) {
             btnViewTeaching.addEventListener('click', (e) => {
                 e.preventDefault();
+                openTeachingModal();
+            });
+        }
+
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeTeachingModal);
+        }
+
+        if (teachingModal) {
+            teachingModal.addEventListener('click', (e) => {
+                if (e.target === teachingModal) {
+                    closeTeachingModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && teachingModal && teachingModal.classList.contains('active')) {
+                closeTeachingModal();
+            }
+        });
+
+        if (modalViewAll) {
+            modalViewAll.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeTeachingModal();
                 applyFilter('teaching');
                 const target = document.getElementById('projects');
                 if (target) {
@@ -377,7 +505,7 @@
             });
         }
 
-        // "Explore Projects" Button: Reset to all projects & smooth scroll
+        // "Explore Projects" Button: Reset to all projects & smooth scroll to main feed
         const btnExplore = document.getElementById('btn-explore');
         if (btnExplore) {
             btnExplore.addEventListener('click', (e) => {
