@@ -177,6 +177,10 @@
             <div class="footer-slogan">
                 <div class="footer-star">✦</div>
                 <p>清晰的設計，成就更好的學習。</p>
+                <div class="footer-live-stats" id="footer-live-stats" title="全站即時造訪指標">
+                    <span class="footer-live-dot"></span>
+                    <span>線上 <strong id="stats-online-count">1</strong> 人 · 累積造訪 <strong id="stats-total-visits">-</strong> 次</span>
+                </div>
             </div>
             <div class="footer-right">
                 <a href="mailto:valerieyu@kcislk.ntpc.edu.tw" class="footer-email">
@@ -184,7 +188,8 @@
                 </a>
                 <span class="footer-divider">|</span>
                 <div class="footer-socials">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="admin.html" class="footer-admin-link" title="余老師數據戰情室 (點擊登入查詢在線與點閱)"><i class="fa-solid fa-chart-pie"></i></a>
                 </div>
                 <div class="footer-crystal">
                     <img src="assets/footer-crystal.png" alt="Crystal Accent">
@@ -220,5 +225,11 @@
             });
         });
     </script>
+
+    <!-- Firebase SDK & Analytics Tracker -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="tracker.js"></script>
 </body>
 </html>
