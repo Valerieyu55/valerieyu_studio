@@ -261,6 +261,14 @@
         return title.replace(/[^a-zA-Z0-9_\u4e00-\u9fa5]/g, '_').substring(0, 30);
     }
 
+    // 8. 專屬快捷鍵：在任何頁面按下 Ctrl+Shift+A 或 Cmd+Shift+A 即可直達數據戰情室
+    document.addEventListener('keydown', function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+            e.preventDefault();
+            window.location.href = 'admin.html';
+        }
+    });
+
     // DOM Ready 時自動執行綁定
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', autoBindClickTracking);
