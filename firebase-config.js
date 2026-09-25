@@ -72,22 +72,25 @@ function getStoredFirebaseConfig() {
     try {
         const local = localStorage.getItem('vys_firebase_config');
         if (local) {
-            return JSON.parse(local);
+            const parsed = JSON.parse(local);
+            if (parsed && parsed.apiKey && parsed.databaseURL) {
+                return parsed;
+            }
         }
     } catch (e) {
         console.warn('Failed to parse local firebase config', e);
     }
     
-    // 【余老師專屬 Firebase 組態填寫處】
-    // 若您在 Firebase Console 建立專案後，亦可直接將其貼於下方：
+    // 【余老師專屬 Firebase 雲端資料庫正式組態】
     return {
-        apiKey: "",
-        authDomain: "",
-        databaseURL: "",
-        projectId: "",
-        storageBucket: "",
-        messagingSenderId: "",
-        appId: ""
+        apiKey: "AIzaSyBzY-NCs--lfAENbFiJn_ClOgk3LmhCSGk",
+        authDomain: "valerie-yu-studio.firebaseapp.com",
+        databaseURL: "https://valerie-yu-studio-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "valerie-yu-studio",
+        storageBucket: "valerie-yu-studio.firebasestorage.app",
+        messagingSenderId: "958979961067",
+        appId: "1:958979961067:web:b9848fed08664539920eae",
+        measurementId: "G-BTCYBQYREQ"
     };
 }
 
@@ -104,6 +107,11 @@ window.VYS_FIREBASE_CONFIG = getStoredFirebaseConfig();
                 firebase.initializeApp(config);
             }
             window.VYS_DB_INSTANCE = firebase.database();
+            if (config.measurementId && typeof firebase.analytics === 'function') {
+                try {
+                    firebase.analytics();
+                } catch (e) {}
+            }
             console.log('✨ [VYS Analytics] Firebase Realtime Database 連線成功！');
         } catch (err) {
             console.error('❌ [VYS Analytics] Firebase 初始化失敗:', err);
