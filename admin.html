@@ -1023,8 +1023,18 @@
         <div class="modal-box">
             <h3 class="modal-title"><i class="fa-solid fa-cloud"></i> Google Firebase 雲端資料庫設定</h3>
             <p class="modal-desc">
-                本系統採用 Google Firebase Realtime Database，完全免費。請前往 <a href="https://console.firebase.google.com/" target="_blank" style="color: var(--primary); text-decoration: underline;">Firebase 控制台</a> 建立專案後，將其 Web App Config 填入下方即可完成即時同步。
+                本系統採用 Google Firebase Realtime Database，完全免費。請前往 <a href="https://console.firebase.google.com/" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 600;">Firebase 控制台</a> 建立專案後，複製整段網頁設定貼在下方，系統會為您自動解析：
             </p>
+            <div class="form-group" style="background: rgba(130, 104, 157, 0.06); padding: 14px; border-radius: 14px; border: 1.5px dashed var(--primary); margin-bottom: 20px;">
+                <label class="form-label" style="color: var(--primary); font-size: 13px; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent);"></i> <strong>智慧一鍵貼上區（推薦：整段複製貼上即可）</strong>
+                </label>
+                <textarea id="cfg-smart-paste" class="form-input" rows="4" style="font-size: 12px; line-height: 1.5;" placeholder="請直接將 Firebase 頁面上的整段程式碼（例如 const firebaseConfig = { ... }）貼在這裡，按下下方按鈕即可自動填妥！"></textarea>
+                <button type="button" class="btn-action btn-accent" id="btn-auto-parse" style="margin-top: 10px; width: 100%; justify-content: center; font-size: 13px; padding: 10px;">
+                    <i class="fa-solid fa-bolt"></i> 🪄 自動辨識並帶入下方各欄位
+                </button>
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px; font-weight: 600;">或手動檢查 / 填寫以下欄位：</div>
             <div class="form-group">
                 <label class="form-label">Database URL (即時資料庫網址，必填)</label>
                 <input type="text" id="cfg-databaseURL" class="form-input" placeholder="https://your-project-default-rtdb.firebaseio.com">
@@ -1157,6 +1167,45 @@
             document.getElementById('btn-close-config').addEventListener('click', () => {
                 configModal.classList.remove('active');
             });
+
+            // 智慧一鍵解析貼上的 Firebase Config
+            const autoParseBtn = document.getElementById('btn-auto-parse');
+            if (autoParseBtn) {
+                autoParseBtn.addEventListener('click', () => {
+                    const raw = document.getElementById('cfg-smart-paste').value;
+                    if (!raw.trim()) {
+                        alert('請先在上方貼上從 Firebase 複製的內容！');
+                        return;
+                    }
+                    
+                    const apiKeyMatch = raw.match(/apiKey["']?\s*:\s*["']([^"']+)["']/i);
+                    const databaseURLMatch = raw.match(/databaseURL["']?\s*:\s*["']([^"']+)["']/i);
+                    const projectIdMatch = raw.match(/projectId["']?\s*:\s*["']([^"']+)["']/i);
+                    const authDomainMatch = raw.match(/authDomain["']?\s*:\s*["']([^"']+)["']/i);
+                    const appIdMatch = raw.match(/appId["']?\s*:\s*["']([^"']+)["']/i);
+
+                    let foundAny = false;
+                    if (apiKeyMatch) { document.getElementById('cfg-apiKey').value = apiKeyMatch[1]; foundAny = true; }
+                    if (projectIdMatch) { document.getElementById('cfg-projectId').value = projectIdMatch[1]; foundAny = true; }
+                    if (authDomainMatch) { document.getElementById('cfg-authDomain').value = authDomainMatch[1]; foundAny = true; }
+                    if (appIdMatch) { document.getElementById('cfg-appId').value = appIdMatch[1]; foundAny = true; }
+
+                    if (databaseURLMatch) {
+                        document.getElementById('cfg-databaseURL').value = databaseURLMatch[1];
+                        foundAny = true;
+                    } else if (projectIdMatch) {
+                        // 若 Firebase snippet 未包含 databaseURL，自動依據 projectId 推導標準 Realtime Database 格式
+                        document.getElementById('cfg-databaseURL').value = `https://${projectIdMatch[1]}-default-rtdb.firebaseio.com`;
+                        foundAny = true;
+                    }
+
+                    if (foundAny) {
+                        alert('✨ 成功解析並填入！請確認下方欄位後，點擊「儲存並連線」。');
+                    } else {
+                        alert('未能自動辨識出格式，請確認是否包含 apiKey 與 projectId。');
+                    }
+                });
+            }
 
             document.getElementById('btn-save-config').addEventListener('click', () => {
                 const newCfg = {
