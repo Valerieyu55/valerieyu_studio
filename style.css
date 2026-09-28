@@ -1114,7 +1114,8 @@ footer {
     aspect-ratio: 1 / 1;
     position: relative;
     z-index: 1;
-    border-radius: 28px;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 .about-portrait-img {
@@ -1123,23 +1124,18 @@ footer {
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 28px;
+    border-radius: 24px;
     position: relative;
     z-index: 1;
-    border: 3px solid rgba(255, 255, 255, 0.96);
-    outline: 1.5px solid rgba(130, 104, 157, 0.25);
-    box-shadow: 
-        0 20px 48px -10px rgba(130, 104, 157, 0.28),
-        0 8px 24px -4px rgba(216, 181, 121, 0.20),
-        inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 10px 30px -6px rgba(130, 104, 157, 0.16);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .about-portrait-card:hover .about-portrait-img {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 
-        0 28px 56px -10px rgba(130, 104, 157, 0.35),
-        0 12px 30px -4px rgba(216, 181, 121, 0.28);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -6px rgba(130, 104, 157, 0.22);
 }
 
 .about-portrait-badge {
