@@ -44,9 +44,9 @@ ul {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(16px, 2vw, 24px);
 }
 
 /* Background Decorations */
@@ -121,36 +121,57 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(10px, 1.5vw, 24px);
+}
+
+.logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
 }
 
 .logo-img {
-    height: 70px;
+    height: clamp(48px, 4vw, 70px);
+    max-height: 70px;
     object-fit: contain;
     mix-blend-mode: multiply;
+    transition: height 0.3s ease;
 }
 
 .nav-links {
     display: flex;
-    gap: 10px;
+    gap: clamp(4px, 0.7vw, 10px);
     align-items: center;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
 }
 
 .nav-item {
     position: relative;
     list-style: none;
+    flex-shrink: 0;
+    white-space: nowrap !important;
 }
 
 .nav-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
+    gap: clamp(4px, 0.5vw, 8px);
+    padding: 7px clamp(6px, 0.7vw, 12px);
     color: var(--text-main);
-    font-size: 14px;
+    font-size: clamp(12.5px, 0.9vw, 14px);
     font-weight: 500;
     text-decoration: none;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+    white-space: nowrap !important;
+    flex-shrink: 0;
+}
+
+.nav-btn span {
+    white-space: nowrap !important;
+    display: inline-block;
 }
 
 .nav-btn:hover {
@@ -159,16 +180,18 @@ ul {
 }
 
 .nav-icon {
-    width: 20px;
-    height: 20px;
+    width: clamp(17px, 1.2vw, 20px);
+    height: clamp(17px, 1.2vw, 20px);
     object-fit: contain;
     mix-blend-mode: multiply;
+    flex-shrink: 0;
 }
 
 .nav-arrow {
     font-size: 10px;
     margin-left: 2px;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .nav-item.dropdown:hover .nav-arrow {
@@ -287,10 +310,22 @@ ul {
     border: 1px solid rgba(130, 104, 157, 0.35);
     color: var(--primary-color) !important;
     font-weight: 600;
-    padding: 7px 15px;
+    padding: 7px clamp(8px, 0.9vw, 15px);
+    font-size: clamp(12.5px, 0.9vw, 14px);
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(130, 104, 157, 0.06);
     transition: all 0.25s ease;
+    white-space: nowrap !important;
+    flex-shrink: 0;
+}
+
+.nav-admin-btn span {
+    white-space: nowrap !important;
+    display: inline-block;
+}
+
+.nav-admin-btn i {
+    flex-shrink: 0;
 }
 
 .nav-admin-btn:hover {
@@ -1288,7 +1323,7 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 1080px) {
     .nav-actions-mobile {
         display: flex;
     }
