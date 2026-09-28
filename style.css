@@ -1107,6 +1107,16 @@ footer {
     border-radius: 50%;
 }
 
+.about-portrait-picture {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    z-index: 1;
+    border-radius: 28px;
+}
+
 .about-portrait-img {
     width: 100%;
     max-width: 320px;
@@ -1410,6 +1420,10 @@ footer {
     }
 
     .about-portrait-card {
+        max-width: 260px;
+    }
+
+    .about-portrait-picture {
         max-width: 260px;
     }
 

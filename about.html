@@ -25,6 +25,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Valerie Yu Studio">
     <meta name="application-name" content="Valerie Yu Studio">
+
+    <!-- Preload Critical Portrait Image for Instant Fast Loading -->
+    <link rel="preload" as="image" href="assets/about-valerie.avif" type="image/avif">
+    <link rel="preload" as="image" href="assets/about-valerie.jpg" type="image/jpeg">
 </head>
 <body>
     <!-- Background Elements -->
@@ -137,7 +141,18 @@
                 <div class="about-profile-hero">
                     <div class="about-portrait-card">
                         <div class="portrait-glow"></div>
-                        <img src="assets/about-valerie.png" alt="Valerie Yu" class="about-portrait-img">
+                        <picture class="about-portrait-picture">
+                            <source srcset="assets/about-valerie.avif" type="image/avif">
+                            <source srcset="assets/about-valerie.jpg" type="image/jpeg">
+                            <img src="assets/about-valerie.jpg" 
+                                 alt="Valerie Yu" 
+                                 class="about-portrait-img" 
+                                 width="320" 
+                                 height="320" 
+                                 loading="eager" 
+                                 fetchpriority="high" 
+                                 decoding="async">
+                        </picture>
                         <div class="about-portrait-badge">
                             <span class="portrait-sparkle">✦</span>
                             <span>Valerie Yu</span>
