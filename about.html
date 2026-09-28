@@ -45,10 +45,16 @@
             <a href="index.html" class="logo">
                 <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
             </a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions-mobile">
+                <a href="admin.html" class="mobile-quick-admin-btn" title="管理者登入 Admin" aria-label="管理者登入">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>管理登入</span>
+                </a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
             <ul class="nav-links">
                 <li class="nav-item">
@@ -109,6 +115,12 @@
                         <span>關於 About</span>
                     </a>
                 </li>
+                <li class="nav-item nav-admin-item">
+                    <a href="admin.html" class="nav-btn nav-admin-btn" title="余老師數據戰情室管理者登入">
+                        <i class="fa-solid fa-lock" style="color: var(--accent-color);"></i>
+                        <span>管理者登入 Admin</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -122,8 +134,15 @@
             </div>
 
             <article class="about-content">
-                <div class="about-img-wrapper">
-                    <img src="assets/about-me.png" alt="About Valerie Yu" class="about-img">
+                <div class="about-profile-hero">
+                    <div class="about-portrait-card">
+                        <div class="portrait-glow"></div>
+                        <img src="assets/about-valerie.png" alt="Valerie Yu (余老師)" class="about-portrait-img">
+                        <div class="about-portrait-badge">
+                            <span class="portrait-sparkle">✦</span>
+                            <span>Valerie Yu · 余老師</span>
+                        </div>
+                    </div>
                 </div>
                 <h3 class="about-heading">我是 Valerie Yu（余老師）：從 Vibe Coding 到 Agentic Coding</h3>
                 <p>身為一名熱愛數位科技與創新教學的教育工作者，我一直深信：<strong>「科技，是為了解決真實世界的難題；清晰的設計，成就更好的學習。」</strong></p>
