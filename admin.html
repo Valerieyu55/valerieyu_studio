@@ -729,6 +729,39 @@
             box-shadow: 0 10px 24px rgba(130, 104, 157, 0.4);
         }
 
+        .gate-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .gate-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: var(--font-sans);
+        }
+
+        .gate-btn-secondary:hover {
+            background: var(--card-bg);
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
         .gate-hint {
             font-size: 11.5px;
             color: var(--text-muted);
@@ -859,9 +892,14 @@
             <div class="gate-input-group">
                 <input type="password" id="gate-pass-input" class="gate-input" placeholder="請輸入管理密碼" autofocus>
             </div>
-            <button class="gate-btn" id="gate-submit-btn">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i> 登入 Login
-            </button>
+            <div class="gate-actions">
+                <button class="gate-btn" id="gate-submit-btn">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> 登入 Login
+                </button>
+                <a href="index.html" class="gate-btn-secondary" title="返回工作室首頁">
+                    <i class="fa-solid fa-house"></i> 返回首頁
+                </a>
+            </div>
             <p class="gate-hint">（請輸入您的管理者密碼以繼續）</p>
         </div>
     </div>
@@ -871,13 +909,15 @@
         <!-- Top Navigation -->
         <header class="admin-header">
             <div class="header-brand">
-                <div class="header-logo">
-                    <img src="pic/valerie-yu-studio-logo.png" alt="Valerie Yu Studio">
-                </div>
-                <div class="header-title">
-                    <h1>Valerie Yu Studio 數據戰情室</h1>
-                    <p>即時在線訪客 · 累積瀏覽人次 · 專案連結點閱即時監控</p>
-                </div>
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px; color: inherit;" title="點擊返回工作室首頁">
+                    <div class="header-logo">
+                        <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio">
+                    </div>
+                    <div class="header-title">
+                        <h1>Valerie Yu Studio 數據戰情室</h1>
+                        <p>即時在線訪客 · 累積瀏覽人次 · 專案連結點閱即時監控</p>
+                    </div>
+                </a>
             </div>
             <div class="header-actions">
                 <div class="status-pill" id="cloud-status-pill">
@@ -890,11 +930,11 @@
                 <button class="btn-action" id="btn-change-pass" title="修改管理密碼">
                     <i class="fa-solid fa-key"></i> 改密碼
                 </button>
-                <a href="index.html" class="btn-action btn-accent">
-                    <i class="fa-solid fa-house"></i> 回工作室首頁
+                <a href="index.html" class="btn-action btn-accent" title="返回工作室首頁">
+                    <i class="fa-solid fa-house"></i> 返回首頁
                 </a>
-                <button class="btn-action" id="btn-logout" title="安全登出">
-                    <i class="fa-solid fa-right-from-bracket"></i>
+                <button class="btn-action" id="btn-logout" title="安全登出並返回首頁">
+                    <i class="fa-solid fa-right-from-bracket"></i> 登出
                 </button>
             </div>
         </header>
@@ -1131,9 +1171,9 @@
 
             // 登出
             document.getElementById('btn-logout').addEventListener('click', () => {
-                if (confirm('確定要登出管理系統嗎？')) {
+                if (confirm('確定要登出管理系統並返回首頁嗎？')) {
                     sessionStorage.removeItem('vys_admin_auth');
-                    window.location.reload();
+                    window.location.href = 'index.html';
                 }
             });
 
