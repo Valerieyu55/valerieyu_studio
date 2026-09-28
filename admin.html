@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>數據戰情室 | Valerie Yu Studio Analytics Hub</title>
+    <title>管理者登入 | Valerie Yu Studio</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -854,15 +854,15 @@
             <div class="gate-icon">
                 <i class="fa-solid fa-lock"></i>
             </div>
-            <h2 class="gate-title">余老師專屬戰情室</h2>
-            <p class="gate-desc">請輸入管理密碼以解鎖即時在線人數與各專案連結點閱分析數據。</p>
+            <h2 class="gate-title">管理者登入</h2>
+            <p class="gate-desc">請輸入管理密碼以驗證身分並登入系統。</p>
             <div class="gate-input-group">
                 <input type="password" id="gate-pass-input" class="gate-input" placeholder="請輸入管理密碼" autofocus>
             </div>
             <button class="gate-btn" id="gate-submit-btn">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i> 驗證並進入戰情室
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> 登入 Login
             </button>
-            <p class="gate-hint">（預設管理密碼：<code>valerie55</code>，進入後可隨時更換）</p>
+            <p class="gate-hint">（請輸入您的管理者密碼以繼續）</p>
         </div>
     </div>
 
@@ -1101,10 +1101,12 @@
                 if (sessionStorage.getItem('vys_admin_auth') === 'granted') {
                     gateOverlay.style.display = 'none';
                     adminApp.style.display = 'block';
+                    document.title = '數據戰情室 | Valerie Yu Studio Analytics Hub';
                     loadDashboard();
                 } else {
                     gateOverlay.style.display = 'flex';
                     adminApp.style.display = 'none';
+                    document.title = '管理者登入 | Valerie Yu Studio';
                 }
             }
 
@@ -1114,9 +1116,10 @@
                     sessionStorage.setItem('vys_admin_auth', 'granted');
                     gateOverlay.style.display = 'none';
                     adminApp.style.display = 'block';
+                    document.title = '數據戰情室 | Valerie Yu Studio Analytics Hub';
                     loadDashboard();
                 } else {
-                    alert('密碼錯誤，請重新輸入！\n（若未修改過，預設密碼為：valerie55）');
+                    alert('密碼錯誤，請重新輸入！');
                     passInput.value = '';
                     passInput.focus();
                 }
@@ -1128,7 +1131,7 @@
 
             // 登出
             document.getElementById('btn-logout').addEventListener('click', () => {
-                if (confirm('確定要登出數據戰情室嗎？')) {
+                if (confirm('確定要登出管理系統嗎？')) {
                     sessionStorage.removeItem('vys_admin_auth');
                     window.location.reload();
                 }
