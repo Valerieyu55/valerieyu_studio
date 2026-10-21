@@ -6,6 +6,8 @@
 (function () {
     'use strict';
 
+    function init() {
+
     // 1. 建立或讀取當前分頁 Session ID
     let sessionId = sessionStorage.getItem('vys_session_id');
     if (!sessionId) {
@@ -274,5 +276,15 @@
         document.addEventListener('DOMContentLoaded', autoBindClickTracking);
     } else {
         autoBindClickTracking();
+    }
+
+    }
+
+    if (window.VYS_FIREBASE_READY) {
+        window.VYS_FIREBASE_READY.then(init).catch((error) => {
+            console.error('❌ [VYS Analytics] Anonymous sign-in failed:', error);
+        });
+    } else {
+        init();
     }
 })();
