@@ -107,6 +107,11 @@ window.VYS_FIREBASE_CONFIG = getStoredFirebaseConfig();
                 firebase.initializeApp(config);
             }
             window.VYS_DB_INSTANCE = firebase.database();
+            // All database requests wait until this browser has an anonymous Firebase identity.
+            // This keeps the public site registration-free while blocking unauthenticated direct requests.
+            window.VYS_FIREBASE_READY = firebase.auth().currentUser
+                ? Promise.resolve(firebase.auth().currentUser)
+                : firebase.auth().signInAnonymously().then((credential) => credential.user);
             if (config.measurementId && typeof firebase.analytics === 'function') {
                 try {
                     firebase.analytics();
