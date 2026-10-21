@@ -8,12 +8,14 @@
 
     function init() {
 
-    // 1. 建立或讀取當前分頁 Session ID
-    let sessionId = sessionStorage.getItem('vys_session_id');
-    if (!sessionId) {
-        sessionId = 'sess_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
-        sessionStorage.setItem('vys_session_id', sessionId);
+    // 1. Use the Firebase anonymous UID as the presence key.
+    // A visitor can only write or remove the entry matching this UID.
+    const currentUser = firebase.auth().currentUser;
+    if (!currentUser) {
+        console.error('❌ [VYS Analytics] No authenticated Firebase user.');
+        return;
     }
+    const sessionId = currentUser.uid;
 
     const todayStr = new Date().toISOString().slice(0, 10);
     const db = window.VYS_DB_INSTANCE;
@@ -78,8 +80,7 @@
                 userStatusRef.set({
                     joinedAt: firebase.database.ServerValue.TIMESTAMP,
                     lastActive: firebase.database.ServerValue.TIMESTAMP,
-                    path: window.location.pathname,
-                    referrer: document.referrer || 'direct'
+                    path: window.location.pathname
                 });
             }
         });
@@ -137,26 +138,9 @@
     }
 
     // 紀錄最近動態
-    function logRecentEvent(type, title) {
-        const eventItem = {
-            type: type,
-            title: title,
-            timestamp: Date.now()
-        };
-
-        if (db) {
-            const ref = db.ref('analytics/recent_events');
-            ref.push(eventItem);
-            // 僅保留最新 30 筆
-            ref.limitToLast(30);
-        } else {
-            const local = getLocalAnalytics();
-            local.recent_events = local.recent_events || [];
-            local.recent_events.unshift(eventItem);
-            if (local.recent_events.length > 30) local.recent_events.pop();
-            saveLocalAnalytics(local);
-        }
-    }
+    // Recent activity is intentionally not written by public visitors.
+    // This prevents anonymous clients from injecting arbitrary activity records.
+    function logRecentEvent() {}
 
     // 6. 核心點擊追蹤函式 (全域公開)
     window.VYS_TRACK_CLICK = function (projectKey, projectTitle, targetUrl, category) {
