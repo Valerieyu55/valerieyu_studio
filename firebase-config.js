@@ -5,6 +5,18 @@
 
 // 預設專案清單與初始權重（用於首次初始化資料庫或未設定時之本機展示）
 window.VYS_DEFAULT_PROJECTS = {
+    'napier_logarithm': {
+        title: '納皮爾的對數表：乘除化加減的歷史奇蹟',
+        category: '數學史探究',
+        url: 'https://valerieyu55.github.io/Napier_logarithm/',
+        count: 0
+    },
+    'math3b_exp_log': {
+        title: '高中數學 3B：指數與對數函數實驗室',
+        category: '高中數學',
+        url: 'https://valerieyu55.github.io/math3b-exp-log-lab/',
+        count: 0
+    },
     'measure_quest': {
         title: '測量遠征：一束光，丈量一個世界',
         category: '數學探究',

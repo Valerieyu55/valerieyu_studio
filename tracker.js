@@ -39,6 +39,8 @@
         };
         // 給予預設點閱數，呈現活潑排行榜
         const sampleCounts = {
+            'napier_logarithm': 268,
+            'math3b_exp_log': 245,
             'measure_quest': 214,
             'math3b_radian': 188,
             'store_manager': 165,
@@ -235,6 +237,8 @@
     // 輔助工具：根據網址與標題推導乾淨的 key
     function deriveProjectKey(url, title) {
         if (!url) return 'unknown';
+        if (url.includes('Napier_logarithm')) return 'napier_logarithm';
+        if (url.includes('math3b-exp-log-lab')) return 'math3b_exp_log';
         if (url.includes('measure-quest')) return 'measure_quest';
         if (url.includes('math3b-radian')) return 'math3b_radian';
         if (url.includes('store_manager')) return 'store_manager';
