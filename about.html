@@ -27,8 +27,8 @@
     <meta name="application-name" content="Valerie Yu Studio">
 
     <!-- Preload Critical Portrait Image for Instant Fast Loading -->
-    <link rel="preload" as="image" href="assets/about-valerie.avif" type="image/avif">
-    <link rel="preload" as="image" href="assets/about-valerie.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="assets/about-valerie.avif?v=20261028" type="image/avif">
+    <link rel="preload" as="image" href="assets/about-valerie.jpg?v=20261028" type="image/jpeg">
 </head>
 <body>
     <!-- Background Elements -->
@@ -50,10 +50,6 @@
                 <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
             </a>
             <div class="nav-actions-mobile">
-                <a href="admin.html" class="mobile-quick-admin-btn" title="管理者登入 Admin" aria-label="管理者登入">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>管理登入</span>
-                </a>
                 <div class="menu-toggle" id="mobile-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -74,17 +70,20 @@
                         <i class="fa-solid fa-chevron-down nav-arrow"></i>
                     </a>
                     <div class="dropdown-content">
-                        <p class="dropdown-desc">教學模組與學習活動設計。</p>
-                        <div class="dropdown-links">
-                            <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank">納皮爾的對數表</a>
-                            <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank">高中數學 3B 指數與對數實驗室</a>
-                            <a href="https://valerieyu55.github.io/measure-quest/" target="_blank">測量遠征：一束光，丈量一個世界</a>
-                            <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank">高中數學 3B 弧度量與週期性數學模型</a>
-                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank">從平面到立體：空間幾何的思維躍遷</a>
-                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank">空間幾何體探究</a>
-                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank">MATH.COURT</a>
-                            <a href="https://valerieyu55.github.io/store_manager/" target="_blank">G9 1-1 連比例課堂活動</a>
-                            <a href="https://valerieyu55.github.io/G9/" target="_blank">G9 統計與機率</a>
+                        <p class="dropdown-desc">依年段整理的教學模組。</p>
+                        <div class="dropdown-links dropdown-grouped">
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g9">國三</span> 國中 · 九年級</span>
+                            <a href="https://valerieyu55.github.io/store_manager/" target="_blank">連比例與手搖飲創業專案</a>
+                            <a href="https://valerieyu55.github.io/measure-quest/" target="_blank">測量遠征：相似形生活測量</a>
+                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank">拋物線・看見數學的軌跡</a>
+                            <a href="https://valerieyu55.github.io/G9/" target="_blank">統計與機率</a>
+                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank">3-1 從平面到立體：空間幾何</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g11">高二</span> 高中 · 二年級</span>
+                            <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank">數學 3B 弧度量與週期性模型</a>
+                            <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank">數學 3B 指數與對數實驗室</a>
+                            <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank">納皮爾的對數表（闖關遊戲）</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-all">通用</span> 跨年段通用</span>
+                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank">空間幾何體・動態探索系統</a>
                         </div>
                     </div>
                 </li>
@@ -111,7 +110,6 @@
                         <p class="dropdown-desc">提升教學效率的實用工具與後台。</p>
                         <div class="dropdown-links">
                             <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
-                            <a href="admin.html" style="color: var(--primary-color); font-weight: 600;"><i class="fa-solid fa-user-shield" style="color: var(--accent-color);"></i> 管理後台 Admin Portal</a>
                         </div>
                     </div>
                 </li>
@@ -119,12 +117,6 @@
                     <a href="about.html" class="nav-btn active">
                         <img src="assets/card-icon-5.png" alt="About" class="nav-icon">
                         <span>關於 About</span>
-                    </a>
-                </li>
-                <li class="nav-item nav-admin-item">
-                    <a href="admin.html" class="nav-btn nav-admin-btn" title="管理者登入">
-                        <i class="fa-solid fa-lock" style="color: var(--accent-color);"></i>
-                        <span>管理者登入 Admin</span>
                     </a>
                 </li>
             </ul>
@@ -144,9 +136,9 @@
                     <div class="about-portrait-card">
                         <div class="portrait-glow"></div>
                         <picture class="about-portrait-picture">
-                            <source srcset="assets/about-valerie.avif" type="image/avif">
-                            <source srcset="assets/about-valerie.jpg" type="image/jpeg">
-                            <img src="assets/about-valerie.jpg" 
+                            <source srcset="assets/about-valerie.avif?v=20261028" type="image/avif">
+                            <source srcset="assets/about-valerie.jpg?v=20261028" type="image/jpeg">
+                            <img src="assets/about-valerie.jpg?v=20261028" 
                                  alt="Valerie Yu" 
                                  class="about-portrait-img" 
                                  width="320" 
@@ -162,23 +154,54 @@
                     </div>
                 </div>
                 <h3 class="about-heading">Valerie Yu：從 Vibe Coding 到 Agentic Coding</h3>
-                <p>身為一名熱愛數位科技與創新教學的教育工作者，我一直深信：<strong>「科技，是為了解決真實世界的難題；清晰的設計，成就更好的學習。」</strong></p>
+                <p>身為一名熱愛數位科技與創新教學的教育工作者，我一直深信：</p>
+                <blockquote class="about-quote">
+                    <span class="about-quote-mark">“</span>
+                    <p>科技，是為了解決真實世界的難題；<br>清晰的設計，成就更好的學習。</p>
+                </blockquote>
                 
                 <p>因應急速演進的 AI 浪潮，未來的教育不能只停留在傳統的單向講授。當世界變化得愈快，老師更該走在浪尖，親身帶頭示範如何駕馭新科技，把教學設計的藍圖具象化為實體工具。</p>
                 
                 <p>在我的數位實驗室裡，程式開發歷經了一場深刻的思維躍遷——從直覺敏捷的 <strong>"Vibe Coding"</strong>，進一步深化為強大自主的 <strong>"Agentic Coding（代理導向協同編程）"</strong>：</p>
                 
-                <p><strong>✦ Vibe Coding（直覺敏捷創作）</strong>：不被傳統語法細節限制，純粹靠「直覺、邏輯思維與自然語言對話」來編寫程式。身為非專職工程師的教師，我不再需要被繁瑣語法卡住，而是以「學習體驗架構師」的思維，在靈感湧現的瞬間快速產出教學模組原型。</p>
-                
-                <p><strong>✦ Agentic Coding（自主代理工程）</strong>：面對大型、多模組協同的複雜教學系統（如跨學段動態課本、升學輔導數據分析平台），單一的問答對話已難以勝任。我開始深度運用 <strong>Agentic Coding</strong> 模式，讓專門化的 AI 代理（AI Agents）自主承擔架構規劃、跨檔案重構、代碼審查、終端除錯與多任務調度，真正實現端到端的自主軟體建構。</p>
+                <div class="about-compare">
+                    <div class="about-compare-card">
+                        <span class="about-compare-step">STEP 01</span>
+                        <h4><i class="fa-solid fa-feather-pointed"></i> Vibe Coding</h4>
+                        <p class="about-compare-sub">直覺敏捷創作</p>
+                        <p>不被傳統語法細節限制，純粹靠「直覺、邏輯思維與自然語言對話」來編寫程式。身為非專職工程師的教師，我不再需要被繁瑣語法卡住，而是以「學習體驗架構師」的思維，在靈感湧現的瞬間快速產出教學模組原型。</p>
+                    </div>
+                    <div class="about-compare-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="about-compare-card is-accent">
+                        <span class="about-compare-step">STEP 02</span>
+                        <h4><i class="fa-solid fa-robot"></i> Agentic Coding</h4>
+                        <p class="about-compare-sub">自主代理工程</p>
+                        <p>面對大型、多模組協同的複雜教學系統（如跨學段動態課本、升學輔導數據分析平台），單一的問答對話已難以勝任。我開始深度運用 <strong>Agentic Coding</strong> 模式，讓專門化的 AI 代理（AI Agents）自主承擔架構規劃、跨檔案重構、代碼審查、終端除錯與多任務調度，真正實現端到端的自主軟體建構。</p>
+                    </div>
+                </div>
 
                 <p>在日常開發中，我打破單一平台的束縛，構建了一套精準協同的<strong>「混合 AI 工作流（Hybrid AI Workflow）」</strong>：</p>
                 
-                <ul class="about-list">
-                    <li><i class="fa-solid fa-sparkles"></i> <strong>Gemini</strong>：協助梳理宏觀教學架構、概念鷹架拆解與教材藍圖規劃；</li>
-                    <li><i class="fa-solid fa-sparkles"></i> <strong>OpenAI Codex / ChatGPT</strong>：發揮強大的程式理解與程式碼合成能力，進行深層演算法編寫、複雜模組重構與精準除錯；</li>
-                    <li><i class="fa-solid fa-sparkles"></i> <strong>Antigravity</strong> 等次世代 Agentic 智慧編輯環境：統籌調度多智慧代理（Subagents）、即時終端反饋與工程級實踐落地。</li>
-                </ul>
+                <div class="ai-tool-grid">
+                    <div class="ai-tool-card">
+                        <span class="ai-tool-icon"><i class="fa-solid fa-diagram-project"></i></span>
+                        <span class="ai-tool-role">架構規劃</span>
+                        <h4>Gemini</h4>
+                        <p>協助梳理宏觀教學架構、概念鷹架拆解與教材藍圖規劃。</p>
+                    </div>
+                    <div class="ai-tool-card">
+                        <span class="ai-tool-icon"><i class="fa-solid fa-code"></i></span>
+                        <span class="ai-tool-role">程式實作</span>
+                        <h4>OpenAI Codex / ChatGPT</h4>
+                        <p>發揮強大的程式理解與程式碼合成能力，進行深層演算法編寫、複雜模組重構與精準除錯。</p>
+                    </div>
+                    <div class="ai-tool-card">
+                        <span class="ai-tool-icon"><i class="fa-solid fa-network-wired"></i></span>
+                        <span class="ai-tool-role">代理調度</span>
+                        <h4>Antigravity</h4>
+                        <p>等次世代 Agentic 智慧編輯環境：統籌調度多智慧代理（Subagents）、即時終端反饋與工程級實踐落地。</p>
+                    </div>
+                </div>
 
                 <p>這種「Vibe + Agentic」的雙軌驅動，徹底解放了身為教育者的創造力。我不再受限於打字的雙手，而是以更高維度的架構視野，把一個個教育痛點快速變現為兼具美感與實用性的數位工具。</p>
 
@@ -225,8 +248,7 @@
                 </a>
                 <span class="footer-divider">|</span>
                 <div class="footer-socials">
-                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="admin.html" class="footer-admin-link" title="管理者登入"><i class="fa-solid fa-chart-pie"></i></a>
+                                        <a href="admin.html" class="footer-admin-link" title="管理者登入"><i class="fa-solid fa-chart-pie"></i></a>
                 </div>
                 <div class="footer-crystal">
                     <img src="assets/footer-crystal.png" alt="Crystal Accent">
@@ -265,6 +287,7 @@
 
     <!-- Firebase SDK & Analytics Tracker -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
     <script src="firebase-config.js"></script>
