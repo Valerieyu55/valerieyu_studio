@@ -2429,3 +2429,12 @@ footer {
     .about-quote-mark { left: 14px; font-size: 52px; }
     .about-content .about-quote p { font-size: 18px; }
 }
+
+/* Screenshot-style covers (full-bleed game screens) */
+.pcard-media.is-screenshot { padding: 0; background: #1b1830; }
+.pcard-media.is-screenshot img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: normal; }
+/* Keep every cover frame at the same 16:10 size */
+.pcard-media { overflow: hidden; min-height: 0; }
+.pcard-media img { width: 100%; height: 100%; object-fit: contain; }
+.pcard-media.is-screenshot img { object-fit: cover; }
+.pcard-media:not(.is-screenshot) { padding: 8px; }
