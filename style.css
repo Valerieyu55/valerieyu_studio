@@ -2438,3 +2438,41 @@ footer {
 .pcard-media img { width: 100%; height: 100%; object-fit: contain; }
 .pcard-media.is-screenshot img { object-fit: cover; }
 .pcard-media:not(.is-screenshot) { padding: 8px; }
+
+/* =========================================================
+   Typography: 標題思源宋體 + 內文思源黑體 (2026-10)
+   ========================================================= */
+:root {
+    --font-title: 'Noto Serif TC', 'Cormorant Garamond', Georgia, 'PMingLiU', serif;
+}
+h1, h2, h3, h4, h5, h6,
+.section-title span,
+.zone-title,
+.grade-group-title,
+.pcard-title,
+.featured-title,
+.about-heading,
+.about-compare-card h4,
+.ai-tool-card h4,
+.modal-title,
+.modal-section-title,
+.teaching-card h5,
+.download-card-title,
+.footer-slogan p,
+.about-conclusion,
+.about-content .about-quote p {
+    font-family: var(--font-title);
+}
+.section-title span,
+.zone-title,
+.about-heading,
+.modal-title { font-weight: 700; letter-spacing: 1px; }
+.pcard-title,
+.grade-group-title,
+.featured-title,
+.teaching-card h5,
+.ai-tool-card h4,
+.about-compare-card h4 { font-weight: 700; letter-spacing: 0.3px; }
+/* small English captions inside serif titles stay in the UI sans */
+.zone-title small,
+.grade-group-title small { font-family: var(--font-body); }
