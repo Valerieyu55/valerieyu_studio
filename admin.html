@@ -354,6 +354,33 @@
         }
 
         /* Main Dashboard Content Layout */
+
+        /* ── 每日點閱 ── */
+        .daily-panel { margin-bottom: 25px; }
+        .daily-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+        .daily-range { display: inline-flex; gap: 6px; }
+        .daily-range button {
+            font: inherit; font-size: 12.5px; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+            border: 1px solid rgba(130, 104, 157, 0.25); background: #fff; color: var(--primary);
+        }
+        .daily-range button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .daily-body { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; }
+        .daily-chart { display: flex; align-items: flex-end; gap: 6px; height: 190px; padding: 0 2px; border-bottom: 1px solid rgba(130, 104, 157, 0.18); }
+        .daily-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; cursor: pointer; border: 0; background: none; padding: 0; font: inherit; }
+        .daily-col .v { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+        .daily-col .b { width: 100%; max-width: 34px; min-height: 2px; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%); opacity: 0.55; transition: opacity 0.2s ease; }
+        .daily-col:hover .b, .daily-col.active .b { opacity: 1; }
+        .daily-col:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+        .daily-labels { display: flex; gap: 6px; padding: 6px 2px 0; }
+        .daily-labels span { flex: 1 1 0; min-width: 0; text-align: center; font-size: 10.5px; color: var(--text-muted); white-space: nowrap; overflow: hidden; }
+        .daily-labels span.active { color: var(--primary); font-weight: 700; }
+        .daily-detail-title { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px; }
+        .daily-detail-title small { font-weight: 400; color: var(--text-muted); margin-left: 6px; }
+        .daily-detail-list { display: flex; flex-direction: column; gap: 9px; max-height: 230px; overflow-y: auto; }
+        .daily-empty { font-size: 12.5px; color: var(--text-muted); padding: 14px 0; }
+        .daily-note { font-size: 11.5px; color: var(--text-muted); margin-top: 12px; }
+        @media (max-width: 900px) { .daily-body { grid-template-columns: 1fr; } .daily-labels span:nth-child(even) { visibility: hidden; } }
+
         .dashboard-main {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -997,7 +1024,31 @@
                 </div>
                 <div class="metric-value" id="metric-total-clicks">0</div>
                 <div class="metric-subtext">
-                    <i class="fa-solid fa-bullseye"></i> 包含 9 大專案與教學實驗室
+                    <i class="fa-solid fa-bullseye"></i> 包含 13 件作品與教學實驗室
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Daily Clicks -->
+        <section class="panel-card daily-panel" id="daily-panel">
+            <div class="daily-head">
+                <h3 class="panel-title"><i class="fa-solid fa-calendar-days"></i> 每日點閱</h3>
+                <div class="daily-range" role="group" aria-label="顯示天數">
+                    <button type="button" data-days="7">近 7 天</button>
+                    <button type="button" data-days="14" class="active">近 14 天</button>
+                    <button type="button" data-days="30">近 30 天</button>
+                </div>
+            </div>
+            <div class="daily-body">
+                <div>
+                    <div class="daily-chart" id="daily-chart"></div>
+                    <div class="daily-labels" id="daily-labels"></div>
+                    <p class="daily-note">點長條可看當天各作品的點閱。日期以台灣時間計算，2026/11/2 起開始記錄。</p>
+                </div>
+                <div>
+                    <div class="daily-detail-title" id="daily-detail-title">今天</div>
+                    <div class="daily-detail-list" id="daily-detail-list"></div>
                 </div>
             </div>
         </section>
@@ -1121,8 +1172,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="firebase-config.js?v=20261102"></script>
-    <script src="tracker.js?v=20261102"></script>
+    <script src="firebase-config.js?v=20261102b"></script>
+    <script src="tracker.js?v=20261102b"></script>
     <script>
         (function() {
             'use strict';
@@ -1332,6 +1383,10 @@
                     });
                     scheduleRender();
 
+
+                    // 6. 每日點閱
+                    initDailyClicks(db);
+
                     // 5. 即時動態
                     db.ref('analytics/recent_events').limitToLast(20).on('value', (snap) => {
                         const val = snap.val() || {};
@@ -1357,6 +1412,109 @@
                     renderCategoryBreakdown(globalClicks);
                     renderActivityStream(local.recent_events || []);
                 }
+            }
+
+
+            // ── 每日點閱 ──
+            const dailyData = {};      // { 'YYYY-MM-DD': { projectKey: count } }
+            const dailyListening = {};
+            let dailyDays = 14;
+            let dailySelected = null;
+
+            function taipeiDateKey(d) {
+                const t = new Date(d.getTime() + 8 * 3600 * 1000);
+                return t.toISOString().slice(0, 10);
+            }
+
+            function dailyKeys(days) {
+                const out = [];
+                const now = new Date();
+                for (let i = days - 1; i >= 0; i--) out.push(taipeiDateKey(new Date(now.getTime() - i * 86400000)));
+                return out;
+            }
+
+            function initDailyClicks(db) {
+                const panel = document.getElementById('daily-panel');
+                panel.querySelectorAll('.daily-range button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        panel.querySelectorAll('.daily-range button').forEach(b => b.classList.toggle('active', b === btn));
+                        dailyDays = Number(btn.dataset.days);
+                        listenDaily(db);
+                        renderDaily();
+                    });
+                });
+                dailySelected = taipeiDateKey(new Date());
+                listenDaily(db);
+                renderDaily();
+            }
+
+            function listenDaily(db) {
+                dailyKeys(dailyDays).forEach(day => {
+                    if (dailyListening[day]) return;
+                    dailyListening[day] = true;
+                    db.ref('analytics/daily_clicks/' + day).on('value', (snap) => {
+                        dailyData[day] = snap.val() || {};
+                        renderDaily();
+                    }, (err) => console.warn('[VYS Admin] 無法讀取每日點閱 ' + day, err && err.code));
+                });
+            }
+
+            function dayTotal(day) {
+                const d = dailyData[day] || {};
+                return Object.values(d).reduce((a, c) => a + Number(c || 0), 0);
+            }
+
+            function renderDaily() {
+                const keys = dailyKeys(dailyDays);
+                const max = Math.max(1, ...keys.map(dayTotal));
+                const chart = document.getElementById('daily-chart');
+                const labels = document.getElementById('daily-labels');
+                chart.innerHTML = '';
+                labels.innerHTML = '';
+                keys.forEach(day => {
+                    const total = dayTotal(day);
+                    const col = document.createElement('button');
+                    col.type = 'button';
+                    col.className = 'daily-col' + (day === dailySelected ? ' active' : '');
+                    col.setAttribute('aria-label', day + ' 點閱 ' + total + ' 次');
+                    col.innerHTML = `<span class="v">${total || ''}</span><span class="b" style="height:${Math.round((total / max) * 150)}px"></span>`;
+                    col.addEventListener('click', () => { dailySelected = day; renderDaily(); });
+                    chart.appendChild(col);
+                    const lb = document.createElement('span');
+                    lb.textContent = day.slice(5).replace('-', '/');
+                    if (day === dailySelected) lb.className = 'active';
+                    labels.appendChild(lb);
+                });
+                renderDailyDetail();
+            }
+
+            function renderDailyDetail() {
+                const day = dailySelected;
+                const isToday = day === taipeiDateKey(new Date());
+                const data = dailyData[day] || {};
+                const total = dayTotal(day);
+                document.getElementById('daily-detail-title').innerHTML =
+                    `${isToday ? '今天' : day.replace(/-/g, '/')}<small>共 ${total} 次點閱</small>`;
+                const list = document.getElementById('daily-detail-list');
+                const defaults = window.VYS_DEFAULT_PROJECTS || {};
+                const rows = Object.entries(data).map(([k, c]) => ({
+                    title: (defaults[k] && defaults[k].title) || k,
+                    category: (defaults[k] && defaults[k].category) || '',
+                    count: Number(c || 0)
+                })).filter(r => r.count > 0).sort((a, b) => b.count - a.count);
+                if (!rows.length) {
+                    list.innerHTML = '<p class="daily-empty">這天還沒有點閱紀錄。</p>';
+                    return;
+                }
+                const top = rows[0].count;
+                list.innerHTML = rows.map(r => `
+                    <div>
+                        <div style="display:flex; justify-content:space-between; gap:10px; font-size:12px; font-family: var(--font-sans);">
+                            <span style="font-weight:600; color: var(--text-heading); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${r.title}</span>
+                            <span style="color: var(--text-muted); white-space:nowrap;">${r.category ? r.category + ' · ' : ''}${r.count} 次</span>
+                        </div>
+                        <div class="bar-container" style="margin-top:3px; height:6px;"><div class="bar-fill" style="width:${Math.round(r.count / top * 100)}%"></div></div>
+                    </div>`).join('');
             }
 
             // 渲染排行榜表格

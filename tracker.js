@@ -151,22 +151,30 @@
 
         if (db) {
             const itemRef = db.ref('analytics/clicks/' + projectKey);
+            // 資料庫規則：既有紀錄的 title / url / category 不可更改，只能把 count 加 1。
+            // 顯示用的名稱與領域由後台依 firebase-config.js 決定，這裡只在第一次建立時寫入。
             itemRef.transaction(function (item) {
                 if (!item) {
-                    item = {
+                    return {
                         title: projectTitle || projectKey,
                         url: targetUrl || '',
                         category: category || '一般',
-                        count: 0,
-                        lastClicked: 0
+                        count: 1,
+                        lastClicked: Date.now()
                     };
                 }
                 item.count = (item.count || 0) + 1;
                 item.lastClicked = Date.now();
-                if (projectTitle) item.title = projectTitle;
-                if (targetUrl) item.url = targetUrl;
-                if (category) item.category = category;
                 return item;
+            }, function (err) {
+                if (err) console.warn('[VYS Analytics] 點閱寫入失敗', projectKey, err.code || err);
+            });
+
+            // 每日點閱：analytics/daily_clicks/<台灣日期>/<作品>
+            db.ref('analytics/daily_clicks/' + localDateKey() + '/' + projectKey).transaction(function (current) {
+                return (current || 0) + 1;
+            }, function (err) {
+                if (err) console.warn('[VYS Analytics] 每日點閱寫入失敗', projectKey, err.code || err);
             });
 
             logRecentEvent('click', projectTitle || projectKey);
@@ -233,6 +241,14 @@
             });
         }
     }
+
+    // 輔助工具：台灣時間的日期字串 YYYY-MM-DD（每日點閱用）
+    function localDateKey(d) {
+        d = d || new Date();
+        const t = new Date(d.getTime() + 8 * 3600 * 1000);
+        return t.toISOString().slice(0, 10);
+    }
+    window.VYS_LOCAL_DATE_KEY = localDateKey;
 
     // 輔助工具：領域一律以 firebase-config.js 的年段／分區為準，讓後台分佈一致
     function categoryFor(key, fallback) {
