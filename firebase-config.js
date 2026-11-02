@@ -5,78 +5,20 @@
 
 // 預設專案清單與初始權重（用於首次初始化資料庫或未設定時之本機展示）
 window.VYS_DEFAULT_PROJECTS = {
-    'napier_logarithm': {
-        title: '納皮爾的對數表：乘除化加減的歷史奇蹟',
-        category: '數學史探究',
-        url: 'https://valerieyu55.github.io/Napier_logarithm/',
-        count: 0
-    },
-    'math3b_exp_log': {
-        title: '高中數學 3B：指數與對數函數實驗室',
-        category: '高中數學',
-        url: 'https://valerieyu55.github.io/math3b-exp-log-lab/',
-        count: 0
-    },
-    'measure_quest': {
-        title: '測量遠征：一束光，丈量一個世界',
-        category: '數學探究',
-        url: 'https://valerieyu55.github.io/measure-quest/',
-        count: 0
-    },
-    'math3b_radian': {
-        title: '高中數學 3B：弧度量與週期性數學模型',
-        category: '高中數學',
-        url: 'https://valerieyu55.github.io/math3b-radian-periodic-lab/',
-        count: 0
-    },
-    'store_manager': {
-        title: '國中數學 3上：1-1 連比例與手搖飲創業專案',
-        category: '國中數學',
-        url: 'https://valerieyu55.github.io/store_manager/',
-        count: 0
-    },
-    'geometry_3d': {
-        title: '從平面到立體：空間幾何的思維躍遷',
-        category: '高中數學',
-        url: 'https://valerieyu55.github.io/3-1-geometry/index.html',
-        count: 0
-    },
-    'geometry_qdes': {
-        title: '空間幾何體・動態探索系統',
-        category: '幾何探究',
-        url: 'https://valerieyu55.github.io/geometry_qdes/',
-        count: 0
-    },
-    'parabola_court': {
-        title: '課堂教案：拋物線・看見數學的軌跡',
-        category: '二次函數',
-        url: 'https://valerieyu55.github.io/MATH.COURT/',
-        count: 0
-    },
-    'g9_stat_prob': {
-        title: '國中數學 3下：統計與機率',
-        category: '國中數學',
-        url: 'https://valerieyu55.github.io/G9/',
-        count: 0
-    },
-    'math_ab_guide': {
-        title: '108課綱：高二數學A與數學B選修指南',
-        category: '升學輔導',
-        url: 'https://valerieyu55.github.io/math_ab/',
-        count: 0
-    },
-    'proxy_calculator': {
-        title: '代導費用 Calculator',
-        category: '教師工具',
-        url: 'https://valerieyu55.github.io/proxy-teacher-calculator/',
-        count: 0
-    },
-    'teaching_hub_modal': {
-        title: '數位教學探索中心 (Teaching Hub)',
-        category: '教學互動',
-        url: '#teaching-modal',
-        count: 0
-    }
+    'mathoria': { title: 'MATHORIA 數域魔法學院：G9 數學冒險地圖', category: '九年級', url: 'https://valerieyu55.github.io/Mathoria/', count: 0 },
+    'store_manager': { title: '國中數學 3上：1-1 連比例與手搖飲創業專案', category: '九年級', url: 'https://valerieyu55.github.io/store_manager/cup/', count: 0 },
+    'similar_tea_shop': { title: '比不比熟成紅茶：相似形像素手搖飲經營遊戲', category: '九年級', url: 'https://valerieyu55.github.io/similar-tea-shop/', count: 0 },
+    'measure_quest': { title: '測量遠征：一束光，丈量一個世界', category: '九年級', url: 'https://valerieyu55.github.io/measure-quest/', count: 0 },
+    'parabola_court': { title: '課堂教案：拋物線・看見數學的軌跡', category: '九年級', url: 'https://valerieyu55.github.io/MATH.COURT/', count: 0 },
+    'g9_stat_prob': { title: '國中數學 3下：統計與機率', category: '九年級', url: 'https://valerieyu55.github.io/G9/', count: 0 },
+    'geometry_3d': { title: '從平面到立體：空間幾何的思維躍遷', category: '九年級', url: 'https://valerieyu55.github.io/3-1-geometry/index.html', count: 0 },
+    'math3b_radian': { title: '高中數學 3B：弧度量與週期性數學模型', category: '十一年級', url: 'https://valerieyu55.github.io/math3b-radian-periodic-lab/', count: 0 },
+    'math3b_exp_log': { title: '高中數學 3B：指數與對數函數實驗室', category: '十一年級', url: 'https://valerieyu55.github.io/math3b-exp-log-lab/', count: 0 },
+    'napier_logarithm': { title: '納皮爾的對數表：乘除化加減的歷史奇蹟', category: '十一年級', url: 'https://valerieyu55.github.io/Napier_logarithm/', count: 0 },
+    'geometry_qdes': { title: '空間幾何體・動態探索系統', category: '跨年段通用', url: 'https://valerieyu55.github.io/geometry_qdes/', count: 0 },
+    'math_ab_guide': { title: '108課綱：高二數學A與數學B選修指南', category: '升學輔導', url: 'https://valerieyu55.github.io/math_ab/', count: 0 },
+    'proxy_calculator': { title: '代導費用 Calculator', category: '教師工具', url: 'https://valerieyu55.github.io/proxy-teacher-calculator/', count: 0 },
+    'teaching_hub_modal': { title: '數位教學探索中心 (Teaching Hub 彈窗)', category: '教學導覽', url: '#teaching-modal', count: 0 }
 };
 
 // 取得 Firebase 組態（優先讀取 localStorage 中管理員設定的組態，若無則讀取靜態預設）

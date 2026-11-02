@@ -1143,7 +1143,8 @@
                     gateOverlay.style.display = 'none';
                     adminApp.style.display = 'block';
                     document.title = '數據戰情室 | Valerie Yu Studio Analytics Hub';
-                    loadDashboard();
+                    // 等匿名登入完成再讀資料，避免一開始就被規則拒絕
+                    (window.VYS_FIREBASE_READY || Promise.resolve()).then(loadDashboard, loadDashboard);
                 } else {
                     gateOverlay.style.display = 'flex';
                     adminApp.style.display = 'none';
@@ -1158,7 +1159,8 @@
                     gateOverlay.style.display = 'none';
                     adminApp.style.display = 'block';
                     document.title = '數據戰情室 | Valerie Yu Studio Analytics Hub';
-                    loadDashboard();
+                    // 等匿名登入完成再讀資料，避免一開始就被規則拒絕
+                    (window.VYS_FIREBASE_READY || Promise.resolve()).then(loadDashboard, loadDashboard);
                 } else {
                     alert('密碼錯誤，請重新輸入！');
                     passInput.value = '';
@@ -1304,17 +1306,31 @@
                     });
 
                     // 4. 點閱排行
-                    db.ref('analytics/clicks').on('value', (snap) => {
-                        const data = snap.val() || {};
-                        // 合併預設作品
-                        const merged = JSON.parse(JSON.stringify(window.VYS_DEFAULT_PROJECTS || {}));
-                        for (const k in data) {
-                            merged[k] = Object.assign(merged[k] || {}, data[k]);
-                        }
-                        globalClicks = merged;
-                        renderLeaderboard(globalClicks);
-                        renderCategoryBreakdown(globalClicks);
+                    // 資料庫規則只允許逐筆讀取 analytics/clicks/<作品>，不能一次讀整份清單，
+                    // 所以依 firebase-config.js 的作品清單逐一監聽；新增作品時記得也加進那份清單。
+                    const defaults = window.VYS_DEFAULT_PROJECTS || {};
+                    globalClicks = JSON.parse(JSON.stringify(defaults));
+                    let renderTimer = null;
+                    const scheduleRender = () => {
+                        clearTimeout(renderTimer);
+                        renderTimer = setTimeout(() => {
+                            renderLeaderboard(globalClicks);
+                            renderCategoryBreakdown(globalClicks);
+                        }, 120);
+                    };
+                    Object.keys(defaults).forEach((key) => {
+                        db.ref('analytics/clicks/' + key).on('value', (snap) => {
+                            const live = snap.val() || {};
+                            globalClicks[key] = Object.assign({}, defaults[key], live, {
+                                // 領域以作品清單的年段／分區為準，舊紀錄的細分標籤不影響分佈圖
+                                category: defaults[key].category,
+                                title: defaults[key].title,
+                                url: defaults[key].url
+                            });
+                            scheduleRender();
+                        }, (err) => console.warn('[VYS Admin] 無法讀取 ' + key, err && err.code));
                     });
+                    scheduleRender();
 
                     // 5. 即時動態
                     db.ref('analytics/recent_events').limitToLast(20).on('value', (snap) => {

@@ -192,20 +192,20 @@
 
     // 7. 自動掛載各作品卡片與按鈕的點擊監聽器
     function autoBindClickTracking() {
-        // 對象 A: 首頁專案卡片中的 View Project 按鈕
-        document.querySelectorAll('.featured-item').forEach(card => {
-            const titleEl = card.querySelector('.featured-title');
-            const linkEl = card.querySelector('.featured-details a.btn');
-            const tagEl = card.querySelector('.featured-tag');
-            if (!linkEl || !titleEl) return;
-
+        // 對象 A: 作品庫卡片（封面、標題、開啟作品按鈕都算一次點閱）
+        const ZONE_LABEL = { counseling: '升學輔導', tools: '教師工具' };
+        const GRADE_LABEL = { g9: '九年級', g10: '十年級', g11: '十一年級', all: '跨年段通用' };
+        document.querySelectorAll('.pcard').forEach(card => {
+            const titleEl = card.querySelector('.pcard-title');
+            if (!titleEl) return;
             const title = titleEl.textContent.trim();
-            const url = linkEl.getAttribute('href');
-            const category = tagEl ? tagEl.textContent.trim() : '教學模組';
-            const key = deriveProjectKey(url, title);
-
-            linkEl.addEventListener('click', function () {
-                window.VYS_TRACK_CLICK(key, title, url, category);
+            card.querySelectorAll('a[href^="http"]').forEach(linkEl => {
+                const url = linkEl.getAttribute('href');
+                const key = deriveProjectKey(url, title);
+                const category = categoryFor(key, ZONE_LABEL[card.dataset.zone] || GRADE_LABEL[card.dataset.grade] || '教學模組');
+                linkEl.addEventListener('click', function () {
+                    window.VYS_TRACK_CLICK(key, title, url, category);
+                });
             });
         });
 
@@ -217,8 +217,8 @@
             if (!titleEl || !url) return;
 
             const title = titleEl.textContent.trim();
-            const category = badgeEl ? badgeEl.textContent.trim() : '教學實驗室';
             const key = deriveProjectKey(url, title);
+            const category = categoryFor(key, badgeEl ? badgeEl.textContent.split('·')[0].trim() : '教學實驗室');
 
             card.addEventListener('click', function () {
                 window.VYS_TRACK_CLICK(key, title, url, category);
@@ -234,9 +234,17 @@
         }
     }
 
+    // 輔助工具：領域一律以 firebase-config.js 的年段／分區為準，讓後台分佈一致
+    function categoryFor(key, fallback) {
+        const d = (window.VYS_DEFAULT_PROJECTS || {})[key];
+        return (d && d.category) || fallback;
+    }
+
     // 輔助工具：根據網址與標題推導乾淨的 key
     function deriveProjectKey(url, title) {
         if (!url) return 'unknown';
+        if (url.includes('Mathoria')) return 'mathoria';
+        if (url.includes('similar-tea-shop')) return 'similar_tea_shop';
         if (url.includes('Napier_logarithm')) return 'napier_logarithm';
         if (url.includes('math3b-exp-log-lab')) return 'math3b_exp_log';
         if (url.includes('measure-quest')) return 'measure_quest';
@@ -245,7 +253,7 @@
         if (url.includes('3-1-geometry')) return 'geometry_3d';
         if (url.includes('geometry_qdes')) return 'geometry_qdes';
         if (url.includes('MATH.COURT')) return 'parabola_court';
-        if (url.includes('G9')) return 'g9_stat_prob';
+        if (url.includes('/G9/')) return 'g9_stat_prob';
         if (url.includes('math_ab')) return 'math_ab_guide';
         if (url.includes('proxy-teacher-calculator')) return 'proxy_calculator';
         return title.replace(/[^a-zA-Z0-9_\u4e00-\u9fa5]/g, '_').substring(0, 30);
