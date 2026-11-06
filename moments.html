@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iansui&family=Gaegu:wght@400;700&display=swap">
-    <link rel="stylesheet" href="sketch.css?v=20261106">
+    <link rel="stylesheet" href="sketch.css?v=20261106b">
 
     <!-- Favicon & Chrome / PWA Shortcut Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -137,12 +137,13 @@
 
     <main class="container" id="moments">
         <div class="mo-intro">
+            <figure class="sk-cutout mo-q" aria-hidden="true"><img src="assets/q/v-idea.webp" alt="" width="460" height="460"></figure>
             <h1>課堂風景</h1>
             <p>教材做好之後，真正的故事發生在教室裡。這裡記下學生動手量、動手算、動手做的樣子，還有每堂課留給我的一點點筆記。</p>
         </div>
 
         <div class="mo-filters" id="mo-filters" role="group" aria-label="依年段篩選"></div>
-        <div class="mo-wall" id="mo-wall" aria-live="polite"></div>
+        <div class="mo-wall-wrap"><img class="sk-pal mo-pal" src="assets/q/pal-circle.webp" alt="" aria-hidden="true" loading="lazy"><div class="mo-wall" id="mo-wall" aria-live="polite"></div></div>
         <p class="mo-soon" id="mo-soon" hidden>第一批課堂照片整理中，<b>敬請期待</b> ✦</p>
     </main>
 
@@ -228,6 +229,9 @@
     </script>
 
     <!-- Footer -->
+    <div class="sk-parade" aria-hidden="true">
+        <img src="assets/q/pal-tri.webp" alt="" loading="lazy" style="--i:0"><img src="assets/q/pal-square.webp" alt="" loading="lazy" style="--i:1"><img src="assets/q/pal-circle.webp" alt="" loading="lazy" style="--i:2"><img src="assets/q/pal-hex.webp" alt="" loading="lazy" style="--i:3"><img src="assets/q/pal-crystal.webp" alt="" loading="lazy" style="--i:4">
+    </div>
     <footer>
         <div class="container footer-container">
             <div class="footer-logo">

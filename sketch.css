@@ -306,3 +306,28 @@
     .sketch-page .about-portrait-picture,
     .sketch-page .about-portrait-img { max-width: 100%; }
 }
+
+/* =========================================================
+   Q 版角色（蠟筆 Valerie＋幾何小夥伴）
+   ========================================================= */
+.sk-cutout { margin: 0; pointer-events: none; }
+.sk-cutout img { display: block; width: 100%; height: auto; }
+.sk-hero-q { position: relative; z-index: 1; width: min(100%, 420px); animation: sk-bob 3.2s ease-in-out infinite; transform-origin: 50% 95%; }
+.sk-point-q { position: absolute; z-index: 3; width: 150px; right: -10px; top: -96px; transform: rotate(4deg); }
+.sk-pal { display: block; height: auto; pointer-events: none; animation: sk-bob 2.8s ease-in-out infinite; transform-origin: 50% 92%; }
+.sketch-page .zone-head .sk-pal { width: 78px; order: 3; margin-left: auto; margin-right: 120px; }
+.sketch-page .grade-group-head .sk-pal-sm { width: 52px; order: 3; animation-delay: -1s; }
+.sk-parade { display: flex; justify-content: center; align-items: flex-end; gap: clamp(8px, 2.4vw, 26px); padding: 30px 16px 0; }
+.sk-parade img { width: clamp(52px, 7vw, 86px); height: auto; animation: sk-bob 2.2s ease-in-out infinite; animation-delay: calc(var(--i) * -.4s); transform-origin: 50% 92%; }
+.mo-intro { position: relative; }
+.mo-q { width: 170px; margin: 0 auto -6px; animation: sk-bob 3s ease-in-out infinite; transform-origin: 50% 95%; }
+.mo-wall-wrap { position: relative; }
+.mo-pal { position: absolute; width: 96px; left: -20px; top: -40px; z-index: 3; }
+@keyframes sk-bob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-7px) rotate(-1.5deg); } }
+@media (max-width: 900px) {
+    .sk-point-q { width: 104px; top: -70px; right: 0; }
+    .sketch-page .zone-head .sk-pal { width: 58px; margin-right: 0; }
+    .sketch-page .grade-group-head .sk-pal-sm { display: none; }
+    .mo-pal { width: 70px; left: -6px; top: -30px; }
+}
+@media (prefers-reduced-motion: reduce) { .sk-hero-q, .sk-pal, .sk-parade img, .mo-q { animation: none; } }
