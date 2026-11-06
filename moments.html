@@ -159,7 +159,18 @@
              linkText: '測量遠征'                 // 連結文字（可省略）
            }
            ※ 照片若拍到學生正臉，請先確認已取得同意或做模糊處理。 */
-        const MOMENTS = [];
+        const MOMENTS = [
+            {
+                date: '2026-11-03',
+                grade: '九年級',
+                title: '測量遠征成果發表會',
+                note: '五支小組帶著自己量出來的書櫃、樓梯、大樓上台。這次頒了五個獎，每個獎都附上報告裡的具體證據。整套課程設計、學生的路徑和常見迷思，都整理在教學亮點裡。',
+                photo: 'moments/2026-11-03-measure-quest.webp',
+                alt: '頒獎典禮簡報封面：測量遠征成果發表會，2026 年 11 月 3 日',
+                link: 'spotlight-measure-quest.html',
+                linkText: '看完整教學亮點'
+            }
+        ];
 
         const wall = document.getElementById('mo-wall');
         const filters = document.getElementById('mo-filters');
@@ -192,7 +203,7 @@
                     <div class="mo-meta"><span>${esc(m.grade)}</span><span>${esc(fmt(m.date))}</span></div>
                     <h3>${esc(m.title)}</h3>
                     <p>${esc(m.note)}</p>
-                    ${m.link ? `<a class="mo-link" href="${esc(m.link)}" target="_blank" rel="noopener">${esc(m.linkText || '相關教材')} →</a>` : ''}
+                    ${m.link ? `<a class="mo-link" href="${esc(m.link)}"${/^https?:/.test(m.link) ? ' target="_blank" rel="noopener"' : ''}>${esc(m.linkText || '相關教材')} →</a>` : ''}
                 </article>`).join('');
         }
 

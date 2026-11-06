@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>測量遠征教學亮點 | Valerie Yu Studio</title>
+    <meta name="description" content="九年級相似形 PBL「測量遠征」：學生用相似三角形量出爬不上去、走不過去的高度與距離。課程設計、學生路徑、成果、迷思與評量。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iansui&family=Gaegu:wght@400;700&display=swap">
+    <link rel="stylesheet" href="sketch.css?v=20261106">
+
+    <!-- Favicon & Chrome / PWA Shortcut Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#82689d">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Valerie Yu Studio">
+    <meta name="application-name" content="Valerie Yu Studio">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <style>
+.spot{
+  --paper:#fbf9fd; --card:#fffefc; --ink:#4a3b5c; --ink2:#5d4f6e; --muted:#7a6c8a; --rule:#e5ddee;
+  --grid:rgba(130,104,157,.07); --blue:#82689d; --blue-soft:#efe8f6; --sun:#a67c2e; --sun-soft:#f6ecd8; --pen:#c0392b;
+  --navy:#4a3b5c; --on-navy:#f8f4fc; --on-navy-2:#d3c7e0;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace;
+  --hand:'Iansui',"LXGW WenKai TC","Kaiti TC",cursive;
+  position:relative; z-index:1; overflow-x:clip;
+}
+.spot .spwrap{max-width:1120px}
+.spot .sp-back{display:inline-flex;gap:6px;align-items:center;font-family:var(--hand);font-size:1.05rem;color:var(--blue);text-decoration:none;margin-top:28px}
+.spot .sp-back:hover{text-decoration:underline}
+.spot .sp-end{border-top:1px dashed var(--rule);margin-top:10px;padding-block:28px 56px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.spot .sp-end b{color:var(--ink);font-family:var(--display)}
+.spot .sp-end a{font-family:var(--hand);font-size:1.05rem}
+.spot,.spot *{box-sizing:border-box}
+.spot{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.spot .spwrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.spot h1,.spot h2,.spot h3{font-family:var(--display);font-weight:900;margin:0;text-wrap:balance;line-height:1.25;color:var(--ink)}
+.spot p{margin:0}
+.spot a{color:var(--blue)}
+.spot .spk{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.spot .lede{font-size:1.08rem;color:var(--ink2);max-width:62ch}
+.spot .mono{font-family:var(--mono)}
+.spot section{padding-block:72px}
+.spot .sec-head{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 28px;margin-bottom:34px}
+.spot .sec-head .no{font-family:var(--mono);font-size:.82rem;color:var(--sun);padding-top:10px;border-top:2px solid var(--sun)}
+.spot .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.spot .sec-head .lede{grid-column:2;margin-top:6px}
+@media (max-width:700px){.spot .sec-head{grid-template-columns:1fr}
+.spot .sec-head .lede{grid-column:1}
+.spot .sec-head .no{justify-self:start;padding-right:8px}}
+.spot .sphero{padding-block:44px 30px}
+.spot .hero-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.spot .brand{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.spot .brand b{color:var(--ink);font-weight:500}
+.spot .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:center;padding-top:34px}
+.spot .sphero h1{font-size:clamp(3rem,8vw,5.6rem);letter-spacing:.06em;line-height:1.05}
+.spot .sphero .sub{font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,2.2vw,1.45rem);color:var(--ink2);margin-top:14px;line-height:1.55}
+.spot .sphero .sub em{font-style:normal;color:var(--sun)}
+.spot .meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin-top:26px;font-size:.92rem}
+.spot .meta dt{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;padding-top:3px}
+.spot .meta dd{margin:0;color:var(--ink)}
+.spot .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.spot .spbtn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.95rem;font-weight:700;text-decoration:none;border-radius:999px;padding:10px 20px;border:1.5px solid var(--blue);color:var(--blue);background:transparent}
+.spot .spbtn.solid{background:var(--blue);color:var(--card)}
+.spot .spbtn:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.spot .fig{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:10px;box-shadow:0 10px 30px rgba(20,33,63,.08)}
+.spot .hero-fig svg{display:block;width:100%;height:auto}
+.spot .hero-fig figcaption{font-family:var(--hand);color:var(--pen);font-size:1rem;padding:6px 6px 2px}
+@media (max-width:860px){.spot .hero-grid{grid-template-columns:1fr}}
+.spot .ray{stroke-dasharray:6 6;animation:flow 2.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-24}}
+@media (prefers-reduced-motion:reduce){.spot .ray{animation:none}}
+.spot .strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:42px}
+.spot .strip>div{padding:16px 18px;border-left:1px solid var(--rule)}
+.spot .strip>div:first-child{border-left:0}
+.spot .strip b{display:block;font-family:var(--display);font-size:2.1rem;line-height:1.1;color:var(--ink)}
+.spot .strip b small{font-size:1rem;margin-left:4px}
+.spot .strip span{font-size:.86rem;color:var(--muted)}
+@media (max-width:700px){.spot .strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+.spot .strip>div:nth-child(3){border-left:0}
+.spot .strip>div:nth-child(n+3){border-top:1px solid var(--rule)}}
+.spot .quote{font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:900;line-height:1.5;max-width:30ch;border-left:4px solid var(--sun);padding-left:20px;margin-bottom:34px}
+.spot .tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.spot .task{background:var(--card);border:1px solid var(--rule);border-radius:4px;display:flex;flex-direction:column}
+.spot .task svg{display:block;width:100%;height:auto;border-bottom:1px solid var(--rule)}
+.spot .task .in{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px}
+.spot .task .tn{font-family:var(--mono);font-size:.78rem;color:var(--sun)}
+.spot .task h3{font-size:1.25rem}
+.spot .task p{font-size:.92rem;color:var(--ink2)}
+.spot .task .pair{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:.84rem;margin-top:4px;padding-top:10px;border-top:1px dashed var(--rule)}
+.spot .task .pair dt{font-family:var(--mono);font-size:.72rem;color:var(--muted);padding-top:2px}
+.spot .task .pair dd{margin:0;color:var(--ink)}
+@media (max-width:860px){.spot .tasks{grid-template-columns:1fr}}
+.spot .journey{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:40px;align-items:start}
+.spot .steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.spot .steps li{counter-increment:s;position:relative;padding:0 0 22px 52px;border-left:1px solid var(--rule);margin-left:17px}
+.spot .steps li:last-child{border-left-color:transparent;padding-bottom:0}
+.spot .steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:-17px;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--paper);border:1.5px solid var(--blue);color:var(--blue);font-family:var(--mono);font-size:.82rem;display:grid;place-items:center}
+.spot .steps h3{font-size:1.08rem}
+.spot .steps p{font-size:.93rem;color:var(--ink2);margin-top:2px}
+.spot .phases{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.spot .phases span{font-size:.8rem;border:1px solid var(--blue);color:var(--blue);border-radius:999px;padding:1px 10px}
+.spot .shots{display:grid;gap:18px;position:sticky;top:20px}
+.spot .shot{margin:0}
+.spot .shot .frame{background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 10px 30px rgba(20,33,63,.08)}
+.spot .shot .bar{display:flex;gap:5px;padding:7px 10px;border-bottom:1px solid var(--rule);background:var(--paper)}
+.spot .shot .bar i{width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.spot .shot img{display:block;width:100%;height:auto}
+.spot .shot figcaption{font-size:.82rem;color:var(--muted);margin-top:6px}
+.spot .shot figcaption b{color:var(--ink);font-weight:700}
+@media (max-width:900px){.spot .journey{grid-template-columns:1fr}
+.spot .shots{position:static}}
+.spot .band{background:var(--navy);color:var(--on-navy);background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}
+.spot .band h2,.spot .band h3{color:var(--on-navy)}
+.spot .band .lede,.spot .band p{color:var(--on-navy-2)}
+.spot .band .spk{color:#F6D27A}
+.spot .band .sec-head .no{color:#F6D27A;border-top-color:#F6D27A}
+.spot .feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:4px;overflow:hidden}
+.spot .feat>div{background:var(--navy);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.spot .feat h3{font-size:1.06rem}
+.spot .feat p{font-size:.9rem}
+.spot .feat .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:#F6D27A;text-transform:uppercase}
+.spot .band-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:900px){.spot .band-grid,.spot .feat{grid-template-columns:1fr}}
+.spot .band .shot .frame{border-color:rgba(255,255,255,.15)}
+.spot .band .shot figcaption{color:var(--on-navy-2)}
+.spot .band .shot figcaption b{color:var(--on-navy)}
+.spot .tbl-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--rule);border-radius:4px}
+.spot table{border-collapse:collapse;width:100%;min-width:720px;font-size:.92rem}
+.spot th{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.spot td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+.spot tr:last-child td{border-bottom:0}
+.spot td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.spot .team b{font-family:var(--display);font-weight:900;display:block}
+.spot .team span{font-size:.8rem;color:var(--muted)}
+.spot .minbar{display:flex;align-items:center;gap:8px}
+.spot .minbar i{display:block;height:8px;border-radius:4px;background:var(--blue)}
+.spot .award{display:inline-block;background:var(--sun-soft);color:var(--ink);border:1px solid var(--sun);border-radius:999px;padding:1px 10px;font-size:.82rem;font-weight:700;white-space:nowrap}
+.spot .tnote{font-size:.8rem;color:var(--muted);margin-top:10px}
+.spot .ceremony{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
+.spot .ceremony img{display:block;width:100%;height:auto;border-radius:4px;border:1px solid var(--rule)}
+.spot .ceremony figure{margin:0}
+.spot .ceremony figcaption{font-size:.8rem;color:var(--muted);margin-top:4px}
+@media (max-width:760px){.spot .ceremony{grid-template-columns:1fr}}
+.spot .pens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.spot .pen{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.spot .pen h3{font-size:1.06rem}
+.spot .pen .saw{font-size:.9rem;color:var(--ink2)}
+.spot .pen .note{font-family:var(--hand);font-size:1.05rem;color:var(--pen);line-height:1.6;border-top:1px dashed var(--rule);padding-top:8px}
+.spot .pen .note::before{content:"紅筆　";font-family:var(--mono);font-size:.7rem;letter-spacing:.1em}
+@media (max-width:760px){.spot .pens{grid-template-columns:1fr}}
+.spot .assess{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:start}
+.spot .weights{display:flex;height:44px;border-radius:4px;overflow:hidden;border:1px solid var(--rule)}
+.spot .weights div{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.78rem;color:#fff;min-width:0}
+.spot .wlegend{display:grid;grid-template-columns:auto 1fr auto;gap:8px 12px;margin-top:16px;font-size:.92rem;align-items:center}
+.spot .wlegend i{width:12px;height:12px;border-radius:2px;display:block}
+.spot .wlegend .p{font-family:var(--mono);color:var(--muted)}
+.spot .fbk{display:flex;flex-direction:column;gap:12px}
+.spot .fbk div{background:var(--card);border:1px solid var(--rule);border-left:4px solid;border-radius:4px;padding:12px 16px}
+.spot .fbk h3{font-size:1rem}
+.spot .fbk p{font-size:.9rem;color:var(--ink2)}
+.spot .fbk .a{border-left-color:#2E7A4F}
+.spot .fbk .b{border-left-color:var(--sun)}
+.spot .fbk .c{border-left-color:var(--pen)}
+@media (max-width:860px){.spot .assess{grid-template-columns:1fr}}
+.spot .try{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.spot .try>div{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.spot .try h3{font-size:1.1rem}
+.spot .try p,.spot .try li{font-size:.92rem;color:var(--ink2)}
+.spot .try ul{margin:0;padding-left:1.1em}
+.spot .url{font-family:var(--mono);font-size:.86rem;background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:8px 10px;word-break:break-all;color:var(--ink)}
+@media (max-width:860px){.spot .try{grid-template-columns:1fr}}
+    </style>
+</head>
+<body class="sketch-page">
+    <!-- Background Elements -->
+    <div class="bg-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="dots dots-1"></div>
+        <div class="dots dots-2"></div>
+        <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="rgba(216, 181, 121, 0.2)" stroke-width="0.1"/>
+            <path d="M0,80 Q25,60 50,80 T100,80" fill="none" stroke="rgba(130, 104, 157, 0.1)" stroke-width="0.1"/>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" title="回到首頁">
+                <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
+            </a>
+            <div class="nav-actions-mobile">
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="works.html#projects" class="nav-btn">
+                        <img src="assets/card-icon-4.png" alt="Projects" class="nav-icon">
+                        <span>作品收集 Works</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="works.html#teaching" class="nav-btn">
+                        <img src="assets/card-icon-1.png" alt="Teaching" class="nav-icon">
+                        <span>教學 Teaching</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">依年段整理的教學模組。</p>
+                        <div class="dropdown-links dropdown-grouped">
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g9">九年級</span> 國中 · 九年級</span>
+                            <a href="https://valerieyu55.github.io/Mathoria/" target="_blank">MATHORIA 數域魔法學院（G9 冒險地圖）</a>
+                            <a href="https://valerieyu55.github.io/store_manager/cup/" target="_blank">連比例與手搖飲創業專案</a>
+                            <a href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank">比不比熟成紅茶（相似形遊戲）</a>
+                            <a href="https://valerieyu55.github.io/measure-quest/" target="_blank">測量遠征：相似形生活測量</a>
+                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank">拋物線・看見數學的軌跡</a>
+                            <a href="https://valerieyu55.github.io/G9/" target="_blank">統計與機率</a>
+                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank">3-1 從平面到立體：空間幾何</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g11">十一年級</span> 高中 · 十一年級</span>
+                            <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank">數學 3B 弧度量與週期性模型</a>
+                            <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank">數學 3B 指數與對數實驗室</a>
+                            <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank">納皮爾的對數表（闖關遊戲）</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-all">通用</span> 跨年段通用</span>
+                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank">空間幾何體・動態探索系統</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="works.html#counseling" class="nav-btn">
+                        <img src="assets/card-icon-2.png" alt="Counseling" class="nav-icon">
+                        <span>升學組 Counseling</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">升學輔導資源與決策支援。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/math_ab/" target="_blank">數A數B分析模組</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="works.html#tools" class="nav-btn">
+                        <img src="assets/card-icon-3.png" alt="Tools" class="nav-icon">
+                        <span>教師工具 Tools</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">提升教學效率的實用工具與後台。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="moments.html" class="nav-btn active">
+                        <i class="fa-solid fa-camera-retro nav-fa"></i>
+                        <span>課堂風景 Moments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-btn">
+                        <img src="assets/card-icon-5.png" alt="About" class="nav-icon">
+                        <span>關於 About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<main class="spot" id="spotlight">
+<div class="spwrap"><a class="sp-back" href="moments.html">← 回到課堂風景</a></div>
+<div class="spwrap sphero">
+  <div class="hero-top">
+    <div class="brand"><b>Teaching Spotlight</b> · 國中數學 九年級</div>
+    <div class="brand">Valerie Yu Studio</div>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <div class="spk">相似形 PBL · 1-1 連比例 ～ 1-4 相似三角形的應用</div>
+      <h1 style="margin-top:12px">測量遠征</h1>
+      <p class="sub">爬不上去、走不過去的東西，<br>用<em>相似三角形</em>量出來。</p>
+      <dl class="meta">
+        <dt>設計與授課</dt><dd>Valerie 老師</dd>
+        <dt>實施對象</dt><dd>G9 直升 H 班，5 支小組</dd>
+        <dt>實施期間</dt><dd>2026 年 10 月 19 日起，11 月 3 日成果發表會</dd>
+        <dt>學生網站</dt><dd>學生免登入，手機、平板、電腦都能用</dd>
+      </dl>
+      <div class="cta">
+        <a class="spbtn solid" href="https://valerieyu55.github.io/measure-quest/" target="_blank" rel="noopener">打開學生網站 ↗</a>
+        <a class="spbtn" href="#try">想在班上試試</a>
+      </div>
+    </div>
+    <figure class="fig hero-fig" style="margin:0">
+      <svg viewBox="0 0 640 400" role="img" aria-label="泰勒斯用木棍影子量金字塔：兩個相似三角形">
+        <defs><pattern id="hg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-opacity=".08"/></pattern></defs>
+        <rect width="640" height="400" fill="url(#hg)" style="color:var(--blue)"/>
+        <circle cx="70" cy="62" r="30" fill-opacity=".9" style="fill:var(--sun)"/>
+        <g stroke-width="2" fill="none" style="stroke:var(--sun)"><line class="ray" x1="96" y1="76" x2="520" y2="330"/><line class="ray" x1="96" y1="25" x2="605" y2="330"/><line class="ray" x1="96" y1="128" x2="300" y2="250"/></g>
+        <path d="M120 330 L250 168 L380 330 Z" stroke-width="1.5" style="fill:var(--sun-soft);stroke:var(--ink)"/>
+        <path d="M250 168 L250 330 L520 330 Z" fill-opacity=".16" stroke-width="1.5" style="fill:var(--blue);stroke:var(--blue)"/>
+        <line x1="548" y1="296" x2="548" y2="330" stroke-width="3" style="stroke:var(--ink)"/>
+        <path d="M548 296 L548 330 L605 330 Z" fill-opacity=".3" stroke-width="1.5" style="fill:var(--blue);stroke:var(--blue)"/>
+        <line x1="40" y1="330" x2="620" y2="330" stroke-width="1.5" style="stroke:var(--ink)"/>
+        <polyline points="250,318 262,318 262,330" fill="none" stroke-width="1" style="stroke:var(--ink)"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="15" style="fill:var(--ink)">
+          <text x="232" y="256" text-anchor="end">H</text>
+          <text x="540" y="318" text-anchor="end">h</text>
+          <text x="385" y="356" text-anchor="middle">S</text>
+          <text x="577" y="356" text-anchor="middle">s</text>
+        </g>
+        <g stroke-width="1" style="stroke:var(--muted)"><line x1="250" y1="345" x2="520" y2="345"/><line x1="548" y1="345" x2="605" y2="345"/><line x1="250" y1="340" x2="250" y2="350"/><line x1="520" y1="340" x2="520" y2="350"/><line x1="548" y1="340" x2="548" y2="350"/><line x1="605" y1="340" x2="605" y2="350"/></g>
+        <g font-family="IBM Plex Mono, monospace" style="fill:var(--ink)"><rect x="400" y="40" width="210" height="74" rx="4" style="fill:var(--card);stroke:var(--rule)"/><text x="416" y="68" font-size="18">H : h = S : s</text><text x="416" y="96" font-size="13" style="fill:var(--muted)">AA · 平行光的同位角</text></g>
+      </svg>
+      <figcaption>同一時刻的陽光互相平行：金字塔和木棍的影子三角形是相似的。</figcaption>
+    </figure>
+  </div>
+  <div class="strip">
+    <div><b>3<small>種</small></b><span>量不到的樣子：高度、坡度、距離</span></div>
+    <div><b>4<small>階段</small></b><span>情境探索 → 提出猜想 → 設計測量 → 驗證分享</span></div>
+    <div><b>3<small>層</small></b><span>提示，卡住再打開，網頁記錄打開次數</span></div>
+    <div><b>6<small>部分</small></b><span>學習歷程報告，自動檢查格式後匯出 Word</span></div>
+  </div>
+</div>
+
+
+<section class="spwrap" id="why">
+  <div class="sec-head"><div class="no">01 / 設計理念</div><h2>從課本例題，走到真的量不到的地方</h2>
+    <p class="lede">課本的相似應用題，三角形都已經畫好了。這門課要學生自己在校園、社區找一個量不到的東西，自己造出一對相似三角形，再用量得到的長度推算出來。</p></div>
+  <p class="quote">量不到的東西只有三種樣子，每一種要用不同的方式造出相似三角形。</p>
+  <div class="tasks">
+    <article class="task">
+      <svg viewBox="0 0 300 150" aria-hidden="true"><rect width="300" height="150" style="fill:var(--paper)"/><circle cx="26" cy="16" r="12" style="fill:var(--sun)"/><line class="ray" x1="44" y1="8" x2="244" y2="128" stroke-width="1.6" style="stroke:var(--sun)"/><line class="ray" x1="150" y1="42.8" x2="292" y2="128" stroke-width="1.6" style="stroke:var(--sun)"/><rect x="70" y="44" width="34" height="84" style="fill:var(--sun-soft);stroke:var(--ink)"/><path d="M104 44 L104 128 L244 128 Z" fill-opacity=".18" style="fill:var(--blue);stroke:var(--blue)"/><line x1="262" y1="110" x2="262" y2="128" stroke-width="2.5" style="stroke:var(--ink)"/><path d="M262 110 L262 128 L292 128Z" fill-opacity=".3" style="fill:var(--blue);stroke:var(--blue)"/><line x1="16" y1="128" x2="292" y2="128" style="stroke:var(--ink)"/></svg>
+      <div class="in"><span class="tn">TASK 01 · 高度</span><h3>影子與高度</h3><p>往上量不到。借太陽的平行光，讓建築和 1 公尺標竿各留下一個影子三角形。</p>
+        <dl class="pair"><dt>戶外</dt><dd>大樓、廟宇屋脊、鐘樓、路燈</dd><dt>室內</dt><dd>改用鏡子反射：入射角＝反射角</dd><dt>相似依據</dt><dd>兩個直角＋平行光的同位角</dd></dl></div>
+    </article>
+    <article class="task">
+      <svg viewBox="0 0 300 150" aria-hidden="true"><rect width="300" height="150" style="fill:var(--paper)"/><path d="M30 128 L250 128 L250 46 Z" fill-opacity=".12" style="fill:var(--blue);stroke:var(--blue)"/><line x1="16" y1="128" x2="292" y2="128" style="stroke:var(--ink)"/><line x1="250" y1="46" x2="250" y2="128" stroke-dasharray="3 3" style="stroke:var(--ink)"/><line x1="96" y1="103" x2="152" y2="103" stroke-width="3" style="stroke:var(--sun)"/><line x1="152" y1="103" x2="152" y2="82" stroke-width="2" style="stroke:var(--sun)"/><text x="124" y="98" font-family="IBM Plex Mono,monospace" font-size="12" text-anchor="middle" style="fill:var(--ink)">r</text><text x="160" y="96" font-family="IBM Plex Mono,monospace" font-size="12" style="fill:var(--ink)">v</text><text x="258" y="92" font-family="IBM Plex Mono,monospace" font-size="12" style="fill:var(--ink)">H</text><text x="140" y="144" font-family="IBM Plex Mono,monospace" font-size="12" text-anchor="middle" style="fill:var(--muted)">X</text></svg>
+      <div class="in"><span class="tn">TASK 02 · 坡度</span><h3>坡道與比例</h3><p>斜的量不到。用水平直尺和鉛直落差，在坡面上切出一個小三角形，再推到整段坡道。</p>
+        <dl class="pair"><dt>戶外</dt><dd>捷運站或社區的無障礙坡道</dd><dt>室內</dt><dd>樓梯：一階深度當 r、一階高度當 v</dd><dt>延伸</dt><dd>算出坡度，對照無障礙規定 1/12</dd></dl></div>
+    </article>
+    <article class="task">
+      <svg viewBox="0 0 300 150" aria-hidden="true"><rect width="300" height="150" style="fill:var(--paper)"/><rect x="0" y="0" width="300" height="34" fill-opacity=".1" style="fill:var(--blue)"/><text x="150" y="22" font-family="Noto Sans TC,sans-serif" font-size="11" text-anchor="middle" style="fill:var(--muted)">走不過去的區域</text><circle cx="60" cy="40" r="5" style="fill:var(--ink)"/><line x1="60" y1="40" x2="60" y2="96" style="stroke:var(--ink)"/><line x1="30" y1="96" x2="280" y2="96" style="stroke:var(--ink)"/><line x1="60" y1="40" x2="250" y2="134" stroke-width="1.6" style="stroke:var(--sun)"/><line x1="216" y1="96" x2="216" y2="134" style="stroke:var(--ink)"/><line x1="216" y1="134" x2="250" y2="134" style="stroke:var(--ink)"/><g font-family="IBM Plex Mono,monospace" font-size="12" style="fill:var(--ink)"><text x="46" y="38">B</text><text x="46" y="110">A</text><text x="174" y="112">C</text><text x="206" y="92">D</text><text x="254" y="140">E</text></g></svg>
+      <div class="in"><span class="tn">TASK 03 · 距離</span><h3>視角與距離</h3><p>走不過去。用直角和「三點對準」，把對岸的距離搬到自己這一側量。</p>
+        <dl class="pair"><dt>戶外</dt><dd>馬路、河道對面的建築</dd><dt>室內</dt><dd>使用中的走廊、球場、停車場</dd><dt>相似依據</dt><dd>兩個直角＋對頂角</dd></dl></div>
+    </article>
+  </div>
+</section>
+
+<section class="spwrap" id="journey">
+  <div class="sec-head"><div class="no">02 / 學生的路徑</div><h2>一個網站，從故事走到學習歷程</h2>
+    <p class="lede">學生不用登入，進站就能開始。每一步都存在自己的裝置，做完的任務會自動進入成果展，最後整理成一份可上傳的學習歷程。</p></div>
+  <div class="journey">
+    <ol class="steps">
+      <li><h3>故事起點：泰勒斯的影子</h3><p>全班一起拖動太陽仰角，觀察木棍和金字塔的「高 ÷ 影長」始終相等，討論「一定要等影長＝棍長嗎？」</p></li>
+      <li><h3>選任務、選場地</h3><p>三張任務卡，每張可選戶外或室內，測量對象可從清單挑或自訂。下雨天一樣能做。</p></li>
+      <li><h3>四個階段完成一個任務</h3><p>每個階段都要先寫自己的想法；示意圖、已知量表、三次測量紀錄都在同一頁。</p><div class="phases"><span>01 情境探索</span><span>02 提出猜想</span><span>03 設計測量</span><span>04 驗證分享</span></div></li>
+      <li><h3>三層提示與「用紀錄表驗算」</h3><p>提示從觀察條件、找相似三角形到對應邊，一層一層打開。按驗算才看得到推算值和公式，學生要先自己算。</p></li>
+      <li><h3>找另一種方法比較</h3><p>每個任務都要寫比較對象與差異百分比，練習「用第二種方法證明答案」。</p></li>
+      <li><h3>學習歷程報告</h3><p>小組命名、檔名格式、重點摘要、動機與過程、核心成果、心得反思六個部分；組名與檔名格式沒通過檢查就無法匯出 Word。</p></li>
+    </ol>
+    <div class="shots">
+      <figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="assets/spotlight/workspace_sample.webp" alt="任務一「影子與高度」的驗證分享畫面：示意圖、推理過程、驗算結果與提示" loading="lazy"></div><figcaption><b>任務頁</b>：左邊是測量條件與已打開的提示，右邊是學生的推理、驗算與比較（擬答範例畫面）。</figcaption></figure>
+      <figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="assets/spotlight/portfolio.webp" alt="學習歷程報告頁：六個部分與匯出 Word 按鈕" loading="lazy"></div><figcaption><b>學習歷程</b>：右側即時檢查格式，完成後匯出 Word。</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+<section class="spwrap" id="teacher">
+  <div class="sec-head"><div class="no">03 / 老師端</div><h2>學生怎麼學的，看得見</h2>
+    <p class="lede">網站會把每組的操作歷程同步到老師的 Google 試算表。批改時看的不只是最後的報告，還有他們花了多少時間、卡在哪裡、有沒有自己驗算。</p></div>
+  <div class="band-grid">
+    <div class="feat">
+      <div><span class="tag">Learning trail</span><h3>學習軌跡</h3><p>記錄每個區塊的投入時間、打開提示次數、按驗算次數、貼上 20 字以上的文字與帶入草稿。報告最後一頁自動附上摘要。</p></div>
+      <div><span class="tag">Student records</span><h3>學生紀錄</h3><p>依日期與類型篩選全班裝置，預設顯示最近三天。點一組可預覽他們的填寫畫面，也能匯出該組 Word。</p></div>
+      <div><span class="tag">Sample answers</span><h3>擬答範例</h3><p>用學生看到的版面檢視完整示範答案與模擬數據，可下載擬答版 Word 當評分參考。</p></div>
+      <div><span class="tag">Class folders</span><h3>班級資料夾</h3><p>每班一個資料夾，收好開場影片、成果回饋、獎狀、頒獎簡報與照片影片。全部以教師密碼加密。</p></div>
+    </div>
+    <figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="assets/spotlight/backend.webp" alt="教師後台的班級資料夾畫面" loading="lazy"></div><figcaption><b>教師後台</b>：班級資料夾依「學期-班級-日期」分類，下次換班使用只要新增一個資料夾。</figcaption></figure>
+  </div>
+</section>
+</div>
+
+<section class="spwrap" id="results">
+  <div class="sec-head"><div class="no">04 / 這一輪的成果</div><h2>五組，五種測量遠征</h2>
+    <p class="lede">從校樹、路燈到 20 公里外的台北 101，各組選的對象都不一樣。下表的時間與次數由網站自動記錄，獎項依報告中的證據頒發。</p></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>小組</th><th>三個任務量了什麼</th><th>投入時間</th><th>提示</th><th>驗算</th><th>獎項</th></tr></thead>
+      <tbody>
+        <tr><td class="team"><b>902 第 3 組</b></td><td>教室櫃子（鏡子反射）、樓梯、走廊</td><td class="num"><div class="minbar"><i style="width:100px"></i>345 分</div></td><td class="num">0</td><td class="num">26</td><td><span class="award">金牌探究獎</span></td></tr>
+        <tr><td class="team"><b>901 第 1 組</b></td><td>校樹、社區坡道、馬路對面的大樓</td><td class="num"><div class="minbar"><i style="width:65px"></i>225 分</div></td><td class="num">9</td><td class="num">13</td><td><span class="award">最佳驗證獎</span></td></tr>
+        <tr><td class="team"><b>903 第 3 組</b></td><td>圖書館書櫃（鏡子）、社區坡道、閱覽區</td><td class="num"><div class="minbar"><i style="width:43px"></i>150 分</div></td><td class="num">0</td><td class="num">4</td><td><span class="award">細節觀察獎</span></td></tr>
+        <tr><td class="team"><b>902 第 5 組</b></td><td>路燈、捷運站坡道、台北 101</td><td class="num"><div class="minbar"><i style="width:42px"></i>145 分</div></td><td class="num">9</td><td class="num">7</td><td><span class="award">最大膽挑戰獎</span></td></tr>
+        <tr><td class="team"><b>901 第 2 組</b></td><td>樓梯、停車場（任務一待補）</td><td class="num"><div class="minbar"><i style="width:30px"></i>103 分</div></td><td class="num">1</td><td class="num">2</td><td><span class="award">跨單元連結獎</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">提示：三個任務各有 3 層，最多 9 次。驗算：按下「用紀錄表驗算」的次數。投入時間：間隔超過 5 分鐘算新的一段，合計估算。</p>
+  <div class="ceremony">
+    <figure><img src="assets/spotlight/hs-01.webp" alt="頒獎典禮簡報封面：測量遠征成果發表會" loading="lazy"><figcaption>成果發表會頒獎典禮（老師自製簡報）</figcaption></figure>
+    <figure><img src="assets/spotlight/hs-02.webp" alt="五個獎項總覽：細節觀察獎、跨單元連結獎、最大膽挑戰獎、最佳驗證獎、金牌探究獎" loading="lazy"><figcaption>五個獎，對應五種值得被看見的學習表現</figcaption></figure>
+    <figure><img src="assets/spotlight/hs-11.webp" alt="金牌探究獎的得獎依據" loading="lazy"><figcaption>每個獎都列出報告裡的具體證據</figcaption></figure>
+  </div>
+</section>
+
+<section class="spwrap" id="misconceptions">
+  <div class="sec-head"><div class="no">05 / 批改時看到的</div><h2>六個值得提前提醒的迷思</h2>
+    <p class="lede">計算本身幾乎都對，真正的落差在「數據是不是真的量得到」與「驗證是不是獨立」。以下是逐份批改後整理出的共通問題，下次上課可以先提醒。</p></div>
+  <div class="pens">
+    <div class="pen"><h3>驗證其實是同一個算式</h3><p class="saw">樓梯任務用「階數 × 階深」當水平長，再拿「階數 × 階高」當比較對象，差異 0%。</p><p class="note">哪一個量是獨立量到的？換一種方法，例如從平台邊垂下捲尺。</p></div>
+    <div class="pen"><h3>數據不符合物理事實</h3><p class="saw">15 公分直尺的影子只有 4 公分，代表太陽仰角約 75°；十月底台灣正午最高只有約 51°。</p><p class="note">用量角器畫出自己的三角形，再查當天正午仰角，學生會自己發現問題。</p></div>
+    <div class="pen"><h3>鏡子放錯位置</h3><p class="saw">人站在鏡子和書櫃之間，其實看不到頂端的倒影。</p><p class="note">要排成「書櫃—鏡子—人」，人面向書櫃往後退到倒影落在鏡心。</p></div>
+    <div class="pen"><h3>算出的不是題目要的量</h3><p class="saw">坡道的垂直高度已經直接量到，比例式算出的其實是水平長，卻寫成平台高度。</p><p class="note">先圈出「未知量」，再列比例式。</p></div>
+    <div class="pen"><h3>答案先決定好再測</h3><p class="saw">先擺成 AC : CD ＝ 3 : 1、再站在離 D 一公尺的地方，結果必然是 3 公尺。</p><p class="note">E 點要對準後才「找」出來，不能先決定。</p></div>
+    <div class="pen"><h3>單位與表格前後不一</h3><p class="saw">猜想寫「櫃子 175 公尺」；已知量表和三次測量紀錄是兩套不同的數字。</p><p class="note">同一題出現兩個答案時，停下來檢查。</p></div>
+  </div>
+</section>
+
+<section class="spwrap" id="assess">
+  <div class="sec-head"><div class="no">06 / 評量與回饋</div><h2>批改、回饋、發表，三段完成</h2>
+    <p class="lede">報告先用紅筆圈選並在旁邊寫修正指導，再發一份回饋單；成果發表會依規準評分，最後頒獎。</p></div>
+  <div class="assess">
+    <div>
+      <h3 style="font-size:1.1rem;margin-bottom:12px">成果報告評分規準（1～4 分，加權換算 100 分）</h3>
+      <div class="weights" role="img" aria-label="六個面向的權重">
+        <div style="width:25%;background:#5e4578">25%</div><div style="width:20%;background:#82689d">20%</div><div style="width:20%;background:#b8914a">20%</div><div style="width:15%;background:#8c6a2a">15%</div><div style="width:10%;background:#6f8a6a">10%</div><div style="width:10%;background:#7a6c8a">10%</div>
+      </div>
+      <div class="wlegend">
+        <i style="background:#5e4578"></i><span>數學原理：相似依據與對應邊比例式</span><span class="p">25%</span>
+        <i style="background:#82689d"></i><span>測量設計與數據：實測、單位、重複三次</span><span class="p">20%</span>
+        <i style="background:#b8914a"></i><span>驗證與誤差：獨立的第二種方法</span><span class="p">20%</span>
+        <i style="background:#8c6a2a"></i><span>示意圖與表達</span><span class="p">15%</span>
+        <i style="background:#6f8a6a"></i><span>現場回答：每位學生個別提問</span><span class="p">10%</span>
+        <i style="background:#7a6c8a"></i><span>分工與時間</span><span class="p">10%</span>
+      </div>
+    </div>
+    <div class="fbk">
+      <div class="a"><h3>肯定</h3><p>寫出這組已經做對、要保留的地方，例如「用等腰直角三角形法再驗證一次，兩個結果只差 10 公分」。</p></div>
+      <div class="b"><h3>建議</h3><p>每一條都有標題和具體的修正方式，對應報告上的紅圈編號。</p></div>
+      <div class="c"><h3>需要再次確認</h3><p>老師看不出來怎麼做的地方，請學生當面說明或重測，回饋單上留有回覆欄。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="spwrap" id="try">
+  <div class="sec-head"><div class="no">07 / 想在你的班上試試</div><h2>網站可以直接用，器材很簡單</h2>
+    <p class="lede">九年級相似形單元都適用。學生用手機或平板分組操作，戶外、室內都能做。</p></div>
+  <div class="try">
+    <div><h3>學生網站</h3><p class="url">valerieyu55.github.io/measure-quest</p><p>直接把網址給學生。請提醒學生全程使用同一台裝置與瀏覽器，不要用無痕模式。</p></div>
+    <div><h3>準備器材</h3><ul><li>捲尺、1 公尺標竿或直尺</li><li>粉筆或紙膠帶標記點位</li><li>小鏡子（室內版任務一）</li><li>手機水平儀、三角板</li></ul></div>
+    <div><h3>教師後台</h3><p>要看學生紀錄、擬答範例，或把資料接到自己的 Google 試算表，歡迎寫信給 Valerie 老師（<a href="mailto:valerieyu@kcislk.ntpc.edu.tw">valerieyu@kcislk.ntpc.edu.tw</a>）協助設定。</p></div>
+  </div>
+</section>
+<div class="spwrap sp-end"><span><b>測量遠征</b>　國中數學 相似形 PBL 專題・設計與授課：Valerie 老師</span><span><a href="works.html#projects">看更多作品 →</a></span></div>
+</main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="index.html" title="回到首頁"><picture><source srcset="assets/brand/vy-mark.webp" type="image/webp"><img src="assets/brand/vy-mark.png" alt="Valerie Yu Studio" class="sk-footer-mark" loading="lazy"></picture></a>
+            </div>
+            <div class="footer-slogan">
+                <div class="footer-star">✦</div>
+                <p>清晰的設計，成就更好的學習。</p>
+                <a href="admin.html" class="footer-live-stats" id="footer-live-stats" title="管理者登入">
+                    <span class="footer-live-dot"></span>
+                    <span>線上 <strong id="stats-online-count">1</strong> 人 · 累積造訪 <strong id="stats-total-visits">-</strong> 次 <i class="fa-solid fa-arrow-right" style="font-size: 10px; margin-left: 4px; opacity: 0.7;"></i></span>
+                </a>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:valerieyu@kcislk.ntpc.edu.tw" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> valerieyu@kcislk.ntpc.edu.tw
+                </a>
+                <span class="footer-divider">|</span>
+                <div class="footer-socials">
+                    <a href="admin.html" class="footer-admin-link" title="管理者登入"><i class="fa-solid fa-chart-pie"></i></a>
+                </div>
+                <div class="footer-crystal">
+                    <img src="assets/footer-crystal.png" alt="Crystal Accent">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (except dropdown toggle)
+        document.querySelectorAll('.nav-btn:not(.dropdown > .nav-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Handle dropdowns on mobile
+        document.querySelectorAll('.dropdown > .nav-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1080) {
+                    e.preventDefault();
+                    btn.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js?v=20261102b"></script>
+    <script src="tracker.js?v=20261102b"></script>
+    <script src="sketch.js?v=20261106"></script>
+</body>
+</html>
