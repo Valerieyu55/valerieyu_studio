@@ -81,9 +81,7 @@ a { color: inherit; }
 .curve .halo { stroke: rgba(216, 181, 121, .5); stroke-width: 12; filter: blur(5px); }
 .curve .main { stroke: url(#cg); stroke-width: 2.6; }
 .curve .tip { fill: var(--gold); filter: drop-shadow(0 0 7px rgba(216, 181, 121, .95)); }
-.curve .trail { fill: var(--primary-light); }
-.curve .trail.t1 { fill: var(--primary); }
-.curve .trail.t3 { fill: #cfcad6; }
+.curve .core { fill: #fff8e8; filter: drop-shadow(0 0 6px rgba(216, 181, 121, 1)) drop-shadow(0 0 14px rgba(216, 181, 121, .7)); }
 
 /* ---------- chapters (pinned) ---------- */
 main { position: relative; }
@@ -251,7 +249,7 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
     <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a38fbb"/><stop offset=".55" stop-color="#82689d"/><stop offset="1" stop-color="#d8b579"/></linearGradient></defs>
     <path id="curve-path" style="stroke:none"/>
     <g id="curve-layers"></g>
-    <circle class="trail t3" id="tr3" r="2.4"/><circle class="trail t2" id="tr2" r="3.4"/><circle class="trail t1" id="tr1" r="4.4"/>
+    <circle class="core" id="curve-core" r="3.2"/>
     <path class="tip" id="curve-tip" d="M0 -12 L3.2 -3.8 L12 -3.4 L5.2 2.6 L7.4 11.6 L0 6.4 L-7.4 11.6 L-5.2 2.6 L-12 -3.4 L-3.2 -3.8 Z"/>
   </svg>
 
@@ -370,7 +368,7 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
   const pathEl = document.getElementById('curve-path');
   const tip = document.getElementById('curve-tip');
   const layerBox = document.getElementById('curve-layers');
-  const trails = ['tr1', 'tr2', 'tr3'].map(id => document.getElementById(id));
+  const core = document.getElementById('curve-core');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const narrow = matchMedia('(max-width: 760px)');
   const NS = 'http://www.w3.org/2000/svg';
@@ -378,10 +376,13 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
 
   // afterimage: stacked translucent segments behind the head
   const layers = [];
-  for (let i = 0; i < 9; i++) {
-    const h = document.createElementNS(NS, 'path'); h.setAttribute('class', 'halo'); h.style.opacity = .09;
-    const m = document.createElementNS(NS, 'path'); m.setAttribute('class', 'main'); m.style.opacity = .2;
-    layerBox.append(h, m); layers.push([h, m, (i + 1) / 9]);
+  // 12 segments, longest = thinnest & faintest, shortest (nearest the head) = brightest → a slender meteor tail
+  const N = 12;
+  for (let i = 0; i < N; i++) {
+    const f = (i + 1) / N, k = 1 - i / (N - 1);
+    const h = document.createElementNS(NS, 'path'); h.setAttribute('class', 'halo'); h.style.opacity = (.03 + .08 * k).toFixed(3); h.style.strokeWidth = (3 + 7 * k).toFixed(1);
+    const m = document.createElementNS(NS, 'path'); m.setAttribute('class', 'main'); m.style.opacity = (.06 + .22 * k).toFixed(3); m.style.strokeWidth = (.7 + 2 * k).toFixed(2);
+    layerBox.append(h, m); layers.push([h, m, f]);
   }
 
   function catmull(pts) {
@@ -426,7 +427,7 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
     const dt = Math.min(64, lastT ? now - lastT : 16.7); lastT = now;
     const diff = target - drawn; drawn += Math.abs(diff) < .5 ? diff : diff * (1 - Math.pow(.88, dt / 16.7));
     const moved = Math.abs(drawn - lastDrawn); lastDrawn = drawn;
-    tail = Math.min(Math.min(innerHeight * .85, 700), tail * Math.pow(.5, dt / 250) + moved * 1.1); if (tail < .6) tail = 0;
+    tail = Math.min(Math.min(innerHeight * 1.1, 900), tail * Math.pow(.5, dt / 320) + moved * 1.6); if (tail < .6) tail = 0;
     const show = !isStatic && drawn > 2;
     layers.forEach(([h, m, f]) => {
       const seg = Math.max(.01, Math.min(drawn, tail * f));
@@ -436,9 +437,9 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
     });
     const at = L => pathEl.getPointAtLength(Math.max(0, Math.min(total, L)));
     const t = at(drawn), b = at(drawn - 4), ang = Math.atan2(t.y - b.y, t.x - b.x) * 180 / Math.PI;
-    tip.setAttribute('transform', `translate(${t.x.toFixed(1)} ${t.y.toFixed(1)}) rotate(${(ang + 90).toFixed(1)})`);
+    tip.setAttribute('transform', `translate(${t.x.toFixed(1)} ${t.y.toFixed(1)}) rotate(${(ang + 90).toFixed(1)}) scale(.62)`);
+    core.setAttribute('cx', t.x.toFixed(1)); core.setAttribute('cy', t.y.toFixed(1)); core.style.opacity = show ? Math.min(1, .5 + tail / 200) : 0;
     tip.style.opacity = show ? 1 : 0;
-    trails.forEach((c, i) => { const q = at(drawn - 16 - i * 15); c.setAttribute('cx', q.x.toFixed(1)); c.setAttribute('cy', q.y.toFixed(1)); c.style.opacity = show ? Math.min(1, .35 + tail / 120) * (1 - i * .22) : 0; });
     if (Math.abs(target - drawn) > .5 || tail > 0) anim = requestAnimationFrame(paint); else { anim = null; lastT = 0; }
   }
 
