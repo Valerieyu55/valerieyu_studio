@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iansui&family=Gaegu:wght@400;700&display=swap">
+    <link rel="stylesheet" href="sketch.css?v=20261106">
 
     <!-- Favicon & Chrome / PWA Shortcut Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -30,7 +32,7 @@
     <link rel="preload" as="image" href="assets/about-valerie.avif?v=20261028" type="image/avif">
     <link rel="preload" as="image" href="assets/about-valerie.jpg?v=20261028" type="image/jpeg">
 </head>
-<body>
+<body class="sketch-page">
     <!-- Background Elements -->
     <div class="bg-decorations">
         <div class="blob blob-1"></div>
@@ -58,13 +60,13 @@
             </div>
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a href="index.html#projects" class="nav-btn">
+                    <a href="works.html#projects" class="nav-btn">
                         <img src="assets/card-icon-4.png" alt="Projects" class="nav-icon">
-                        <span>作品庫 Projects</span>
+                        <span>作品收集 Works</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="index.html#teaching" class="nav-btn">
+                    <a href="works.html#teaching" class="nav-btn">
                         <img src="assets/card-icon-1.png" alt="Teaching" class="nav-icon">
                         <span>教學 Teaching</span>
                         <i class="fa-solid fa-chevron-down nav-arrow"></i>
@@ -89,7 +91,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="index.html#counseling" class="nav-btn">
+                    <a href="works.html#counseling" class="nav-btn">
                         <img src="assets/card-icon-2.png" alt="Counseling" class="nav-icon">
                         <span>升學組 Counseling</span>
                         <i class="fa-solid fa-chevron-down nav-arrow"></i>
@@ -102,7 +104,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="index.html#tools" class="nav-btn">
+                    <a href="works.html#tools" class="nav-btn">
                         <img src="assets/card-icon-3.png" alt="Tools" class="nav-icon">
                         <span>教師工具 Tools</span>
                         <i class="fa-solid fa-chevron-down nav-arrow"></i>
@@ -113,6 +115,12 @@
                             <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
                         </div>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a href="moments.html" class="nav-btn">
+                        <i class="fa-solid fa-camera-retro nav-fa"></i>
+                        <span>課堂風景 Moments</span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-btn active">
@@ -148,6 +156,8 @@
                                  fetchpriority="high" 
                                  decoding="async">
                         </picture>
+                        <figure class="sk-sticker sk-sticker-line" aria-hidden="true"><picture><source srcset="assets/brand/portrait-line.webp" type="image/webp"><img src="assets/brand/portrait-line.jpg" alt="" loading="lazy"></picture></figure>
+                        <figure class="sk-sticker sk-sticker-pro" aria-hidden="true"><picture><source srcset="assets/brand/portrait-pro.webp" type="image/webp"><img src="assets/brand/portrait-pro.jpg" alt="" loading="lazy"></picture></figure>
                         <div class="about-portrait-badge">
                             <span class="portrait-sparkle">✦</span>
                             <span>Valerie Yu</span>
@@ -239,7 +249,7 @@
     <footer>
         <div class="container footer-container">
             <div class="footer-logo">
-                <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio">
+                <a href="index.html" title="回到首頁"><picture><source srcset="assets/brand/vy-mark.webp" type="image/webp"><img src="assets/brand/vy-mark.png" alt="Valerie Yu Studio" class="sk-footer-mark" loading="lazy"></picture></a>
             </div>
             <div class="footer-slogan">
                 <div class="footer-star">✦</div>
@@ -299,5 +309,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
     <script src="firebase-config.js?v=20261102b"></script>
     <script src="tracker.js?v=20261102b"></script>
+    <script src="sketch.js?v=20261106"></script>
 </body>
 </html>

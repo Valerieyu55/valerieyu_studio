@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>課堂風景 | Valerie Yu Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iansui&family=Gaegu:wght@400;700&display=swap">
+    <link rel="stylesheet" href="sketch.css?v=20261106">
+
+    <!-- Favicon & Chrome / PWA Shortcut Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#82689d">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Valerie Yu Studio">
+    <meta name="application-name" content="Valerie Yu Studio">
+</head>
+<body class="sketch-page">
+    <!-- Background Elements -->
+    <div class="bg-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="dots dots-1"></div>
+        <div class="dots dots-2"></div>
+        <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="rgba(216, 181, 121, 0.2)" stroke-width="0.1"/>
+            <path d="M0,80 Q25,60 50,80 T100,80" fill="none" stroke="rgba(130, 104, 157, 0.1)" stroke-width="0.1"/>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" title="回到首頁">
+                <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
+            </a>
+            <div class="nav-actions-mobile">
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="works.html#projects" class="nav-btn">
+                        <img src="assets/card-icon-4.png" alt="Projects" class="nav-icon">
+                        <span>作品收集 Works</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="works.html#teaching" class="nav-btn">
+                        <img src="assets/card-icon-1.png" alt="Teaching" class="nav-icon">
+                        <span>教學 Teaching</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">依年段整理的教學模組。</p>
+                        <div class="dropdown-links dropdown-grouped">
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g9">九年級</span> 國中 · 九年級</span>
+                            <a href="https://valerieyu55.github.io/Mathoria/" target="_blank">MATHORIA 數域魔法學院（G9 冒險地圖）</a>
+                            <a href="https://valerieyu55.github.io/store_manager/cup/" target="_blank">連比例與手搖飲創業專案</a>
+                            <a href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank">比不比熟成紅茶（相似形遊戲）</a>
+                            <a href="https://valerieyu55.github.io/measure-quest/" target="_blank">測量遠征：相似形生活測量</a>
+                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank">拋物線・看見數學的軌跡</a>
+                            <a href="https://valerieyu55.github.io/G9/" target="_blank">統計與機率</a>
+                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank">3-1 從平面到立體：空間幾何</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g11">十一年級</span> 高中 · 十一年級</span>
+                            <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank">數學 3B 弧度量與週期性模型</a>
+                            <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank">數學 3B 指數與對數實驗室</a>
+                            <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank">納皮爾的對數表（闖關遊戲）</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-all">通用</span> 跨年段通用</span>
+                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank">空間幾何體・動態探索系統</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="works.html#counseling" class="nav-btn">
+                        <img src="assets/card-icon-2.png" alt="Counseling" class="nav-icon">
+                        <span>升學組 Counseling</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">升學輔導資源與決策支援。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/math_ab/" target="_blank">數A數B分析模組</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="works.html#tools" class="nav-btn">
+                        <img src="assets/card-icon-3.png" alt="Tools" class="nav-icon">
+                        <span>教師工具 Tools</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">提升教學效率的實用工具與後台。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="moments.html" class="nav-btn active">
+                        <i class="fa-solid fa-camera-retro nav-fa"></i>
+                        <span>課堂風景 Moments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-btn">
+                        <img src="assets/card-icon-5.png" alt="About" class="nav-icon">
+                        <span>關於 About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    <figure class="mo-banner">
+        <picture><source srcset="assets/brand/wash-banner.webp" type="image/webp"><img src="assets/brand/wash-banner.jpg" alt="Valerie Yu Studio · Find the value of you!" width="1600" height="600"></picture>
+    </figure>
+    </div>
+
+    <main class="container" id="moments">
+        <div class="mo-intro">
+            <h1>課堂風景</h1>
+            <p>教材做好之後，真正的故事發生在教室裡。這裡記下學生動手量、動手算、動手做的樣子，還有每堂課留給我的一點點筆記。</p>
+        </div>
+
+        <div class="mo-filters" id="mo-filters" role="group" aria-label="依年段篩選"></div>
+        <div class="mo-wall" id="mo-wall" aria-live="polite"></div>
+        <p class="mo-soon" id="mo-soon" hidden>第一批課堂照片整理中，<b>敬請期待</b> ✦</p>
+    </main>
+
+    <script>
+        /* ── 新增課堂紀錄：在 MOMENTS 清單最上面加一筆即可 ──
+           {
+             date: '2026-11-12',                 // 上課日期
+             grade: '九年級',                    // 九年級 / 十年級 / 十一年級 / 跨年段
+             title: '用影子量出司令台有多高',     // 這次的標題
+             note: '一句話記錄這堂課發生的事。',   // 小筆記
+             photo: 'moments/2026-11-12-shadow.jpg', // 照片放在 moments 資料夾（建議寬 1200px 以內）
+             alt: '學生在操場用捲尺量影子長度',    // 照片說明（給看不到圖的人）
+             link: 'https://valerieyu55.github.io/measure-quest/', // 相關教材（可省略）
+             linkText: '測量遠征'                 // 連結文字（可省略）
+           }
+           ※ 照片若拍到學生正臉，請先確認已取得同意或做模糊處理。 */
+        const MOMENTS = [];
+
+        const wall = document.getElementById('mo-wall');
+        const filters = document.getElementById('mo-filters');
+        const soon = document.getElementById('mo-soon');
+        const esc = t => String(t == null ? '' : t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const fmt = d => (d || '').replace(/-/g, '.');
+        const cam = '<svg viewBox="0 0 64 64" aria-hidden="true"><path class="sk-ink" d="M10 22 h10 l5 -7 h14 l5 7 h10 v28 h-44 z"/><circle class="sk-ink" cx="32" cy="35" r="9"/></svg>';
+
+        function render(grade) {
+            const rows = MOMENTS.filter(m => grade === '全部' || m.grade === grade);
+            if (!MOMENTS.length) {
+                const ph = [
+                    { t: '第一張課堂照片，會貼在這裡', g: '九年級', n: '例如：學生在操場用影子量出司令台的高度。' },
+                    { t: '學生做出來的作品', g: '十一年級', n: '例如：用弧度量畫出摩天輪的高度曲線。' },
+                    { t: '老師的課後小筆記', g: '跨年段', n: '這堂課學生卡在哪裡、哪個瞬間突然懂了。' }
+                ];
+                wall.innerHTML = ph.map(p => `
+                    <article class="mo-card">
+                        <div class="mo-photo is-empty"><div>${cam}${esc(p.t)}</div></div>
+                        <div class="mo-meta"><span>${esc(p.g)}</span><span>即將更新</span></div>
+                        <p>${esc(p.n)}</p>
+                    </article>`).join('');
+                soon.hidden = false;
+                return;
+            }
+            soon.hidden = true;
+            wall.innerHTML = rows.map(m => `
+                <article class="mo-card">
+                    <div class="mo-photo">${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(m.alt || m.title)}" loading="lazy">` : cam}</div>
+                    <div class="mo-meta"><span>${esc(m.grade)}</span><span>${esc(fmt(m.date))}</span></div>
+                    <h3>${esc(m.title)}</h3>
+                    <p>${esc(m.note)}</p>
+                    ${m.link ? `<a class="mo-link" href="${esc(m.link)}" target="_blank" rel="noopener">${esc(m.linkText || '相關教材')} →</a>` : ''}
+                </article>`).join('');
+        }
+
+        const grades = ['全部', ...new Set(MOMENTS.map(m => m.grade))];
+        if (grades.length > 2) {
+            filters.innerHTML = grades.map((g, i) => `<button type="button" aria-pressed="${i === 0}">${esc(g)}</button>`).join('');
+            filters.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+                filters.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+                render(b.textContent);
+            }));
+        } else {
+            filters.hidden = true;
+        }
+        render('全部');
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="index.html" title="回到首頁"><picture><source srcset="assets/brand/vy-mark.webp" type="image/webp"><img src="assets/brand/vy-mark.png" alt="Valerie Yu Studio" class="sk-footer-mark" loading="lazy"></picture></a>
+            </div>
+            <div class="footer-slogan">
+                <div class="footer-star">✦</div>
+                <p>清晰的設計，成就更好的學習。</p>
+                <a href="admin.html" class="footer-live-stats" id="footer-live-stats" title="管理者登入">
+                    <span class="footer-live-dot"></span>
+                    <span>線上 <strong id="stats-online-count">1</strong> 人 · 累積造訪 <strong id="stats-total-visits">-</strong> 次 <i class="fa-solid fa-arrow-right" style="font-size: 10px; margin-left: 4px; opacity: 0.7;"></i></span>
+                </a>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:valerieyu@kcislk.ntpc.edu.tw" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> valerieyu@kcislk.ntpc.edu.tw
+                </a>
+                <span class="footer-divider">|</span>
+                <div class="footer-socials">
+                    <a href="admin.html" class="footer-admin-link" title="管理者登入"><i class="fa-solid fa-chart-pie"></i></a>
+                </div>
+                <div class="footer-crystal">
+                    <img src="assets/footer-crystal.png" alt="Crystal Accent">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (except dropdown toggle)
+        document.querySelectorAll('.nav-btn:not(.dropdown > .nav-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Handle dropdowns on mobile
+        document.querySelectorAll('.dropdown > .nav-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1080) {
+                    e.preventDefault();
+                    btn.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js?v=20261102b"></script>
+    <script src="tracker.js?v=20261102b"></script>
+    <script src="sketch.js?v=20261106"></script>
+</body>
+</html>
