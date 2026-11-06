@@ -15,212 +15,460 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cactus+Classical+Serif&family=Chiron+Hei+HK:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#82689d">
-    <style>
-        /* Layout: centered column. Nav bar, hero (copy left, crystal right), two large "doors", three-item strip, footer. */
-        :root {
-            --primary: #82689d;
-            --primary-light: #a38fbb;
-            --primary-bg: #f5f2f8;
-            --primary-deep: #5d4a73;
-            --gold: #d8b579;
-            --gold-ink: #8f6a24;
-            --text: #5a5a5a;
-            --muted: #828282;
-            --border: #e6dfea;
-            --surface: rgba(255, 255, 255, 0.84);
-            --page: #fbfafc;
-            --title: 'Noto Serif TC', 'Songti TC', 'PMingLiU', serif;
-            --body: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            --sig: 'Pinyon Script', 'Snell Roundhand', cursive;
-            color-scheme: light;
-        }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            font-family: var(--body);
-            color: var(--text);
-            background:
-                radial-gradient(1100px 560px at 88% -12%, rgba(163, 143, 187, 0.3), transparent 60%),
-                radial-gradient(820px 460px at -12% 38%, rgba(216, 181, 121, 0.17), transparent 62%),
-                var(--page);
-            padding-left: max(20px, env(safe-area-inset-left, 0px));
-            padding-right: max(20px, env(safe-area-inset-right, 0px));
-            line-height: 1.75;
-        }
-        a { color: inherit; }
-        :focus-visible { outline: 3px solid rgba(130, 104, 157, 0.45); outline-offset: 3px; border-radius: 6px; }
-        .wrap { max-width: 1120px; margin: 0 auto; }
+<style>
+/* Layout: one editorial system. Four pinned chapters, each = [numbered gold label · serif headline · body · one CTA] + [one framed visual],
+   alternating left/right. A purple→gold value curve with a fading afterimage runs behind; a slim chapter rail sits under the top bar. */
+:root {
+  --ink: #3f3550;
+  --text: #5d5866;
+  --muted: #8b8594;
+  --primary: #82689d;
+  --primary-deep: #5d4a73;
+  --primary-light: #a38fbb;
+  --wash: #f4f0f8;
+  --gold: #d8b579;
+  --gold-ink: #94702c;
+  --line: #e8e2ee;
+  --card: #ffffff;
+  --page: #fbfafc;
+  --shadow: 0 24px 48px -24px rgba(74, 59, 92, .32), 0 2px 6px rgba(74, 59, 92, .05);
+  --title: 'Cactus Classical Serif', 'Noto Serif TC', 'Songti TC', 'PMingLiU', serif;
+  --body: 'Chiron Hei HK', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --sig: 'Pinyon Script', 'Snell Roundhand', cursive;
+  --tw: 400; --ls-h: .1em; --ls-b: .04em;
+  --bar-h: 64px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body {
+  margin: 0; font-family: var(--body); color: var(--text); line-height: 1.8;
+  background:
+    radial-gradient(1200px 640px at 92% -8%, rgba(163, 143, 187, .22), transparent 62%),
+    radial-gradient(900px 520px at -8% 34%, rgba(216, 181, 121, .12), transparent 62%),
+    var(--page);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: rgba(251, 250, 252, .94); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid rgba(130, 104, 157, .45); outline-offset: 3px; border-radius: 6px; }
+.gut { padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1140px; margin: 0 auto; }
 
-        /* nav */
-        .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding: 22px 0 18px; border-bottom: 1px solid var(--border); }
-        .bar .logo img { height: 46px; width: auto; display: block; }
-        .bar nav { display: flex; gap: 6px 26px; flex-wrap: wrap; }
-        .bar nav a { text-decoration: none; color: var(--muted); font-size: 15px; letter-spacing: .5px; padding: 4px 0; border-bottom: 1.5px solid transparent; transition: color .2s, border-color .2s; }
-        .bar nav a:hover { color: var(--primary); border-color: var(--gold); }
+/* ---------- top bar + chapter rail ---------- */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(251, 250, 252, .88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.bar .wrap { height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bar img.logo { height: 40px; width: auto; display: block; }
+.bar nav { display: flex; align-items: center; gap: 26px; font-size: 14.5px; letter-spacing: .5px; }
+.bar nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.bar nav a:hover { color: var(--primary); }
+.bar nav .skip { padding: 7px 16px; border-radius: 999px; border: 1px solid var(--primary-light); color: var(--primary); }
+.bar nav .skip:hover { background: var(--primary); color: #fff; }
+.rail { position: relative; height: 1px; background: var(--line); }
+.rail-fill { position: absolute; inset: 0 auto 0 0; height: 2px; top: -.5px; width: calc(var(--prog, 0) * 100%); background: linear-gradient(90deg, var(--primary-light), var(--gold)); }
+.rail-star { position: absolute; top: -6px; left: calc(var(--prog, 0) * 100%); width: 13px; height: 13px; margin-left: -6.5px; background: var(--gold); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); filter: drop-shadow(0 0 4px rgba(216, 181, 121, .9)); }
+.chapter { position: absolute; top: 10px; left: clamp(8px, calc(var(--prog, 0) * 100%), calc(100% - 210px)); font-size: 11.5px; letter-spacing: 2px; color: var(--gold-ink); white-space: nowrap; transition: opacity .3s; }
+@media (max-width: 720px) { .bar nav a:not(.skip) { display: none; } .chapter { display: none; } }
 
-        /* hero */
-        .hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 64px 0 46px; }
-        .kick { font-size: 12.5px; letter-spacing: 3px; color: var(--gold-ink); margin: 0 0 10px; font-weight: 500; }
-        .hero > div:first-child { container-type: inline-size; min-width: 0; }
-        /* 整句維持一行：字寬約為字級的 7.7 倍，依欄寬縮放 */
-        .hero h1 { margin: 0; font: 400 clamp(34px, 5vw, 72px)/1.1 var(--sig); font-size: min(72px, 12.6cqi); white-space: nowrap; color: var(--primary); }
-        .hero h2 { margin: 12px 0 18px; font: 700 clamp(20px, 2.5vw, 27px)/1.45 var(--title); color: var(--primary-deep); letter-spacing: 1px; text-wrap: balance; }
-        .hero p { margin: 0 0 26px; max-width: 31em; font-size: 16.5px; }
-        .hero p strong { color: var(--primary-deep); font-weight: 700; }
-        .cta { display: flex; gap: 12px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 26px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 500; transition: transform .25s, background .25s, color .25s; }
-        .btn-primary { background: var(--primary); color: #fff; }
-        .btn-primary i { color: var(--gold); }
-        .btn-primary:hover { background: var(--primary-deep); transform: translateY(-2px); }
-        .btn-outline { border: 1px solid var(--primary-light); color: var(--primary); background: rgba(255, 255, 255, .7); }
-        .btn-outline:hover { background: var(--primary-bg); transform: translateY(-2px); }
+/* ---------- value curve with fading afterimage ---------- */
+.curve { position: absolute; left: 0; top: 0; width: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+.curve path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.curve .halo { stroke: rgba(216, 181, 121, .5); stroke-width: 12; filter: blur(5px); }
+.curve .main { stroke: url(#cg); stroke-width: 2.6; }
+.curve .tip { fill: var(--gold); filter: drop-shadow(0 0 7px rgba(216, 181, 121, .95)); }
+.curve .trail { fill: var(--primary-light); }
+.curve .trail.t1 { fill: var(--primary); }
+.curve .trail.t3 { fill: #cfcad6; }
 
-        .crystal { position: relative; display: grid; place-items: center; min-height: 360px; }
-        .crystal img { width: min(100%, 420px); height: auto; filter: drop-shadow(0 26px 34px rgba(130, 104, 157, 0.26)); animation: float 7s ease-in-out infinite; }
-        .crystal .orbit { position: absolute; width: min(92%, 440px); aspect-ratio: 1; border: 1px dashed rgba(130, 104, 157, 0.28); border-radius: 50%; }
-        .crystal .pt { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(216, 181, 121, .2); }
-        .crystal .pt.a { top: 12%; left: 18%; } .crystal .pt.b { top: 22%; right: 10%; background: var(--primary-light); }
-        .crystal .pt.c { bottom: 16%; left: 12%; background: var(--primary-light); } .crystal .pt.d { bottom: 10%; right: 22%; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+/* ---------- chapters (pinned) ---------- */
+main { position: relative; }
+.scene { position: relative; z-index: 1; height: var(--len, 260vh); }
+.stage { position: sticky; top: calc(var(--bar-h) + env(safe-area-inset-top, 0px)); height: calc(100vh - var(--bar-h) - env(safe-area-inset-top, 0px)); display: grid; align-items: center; overflow: hidden; }
+.stage .wrap { width: 100%; box-sizing: border-box; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 84px); align-items: center; }
+.split.flip > .copy { order: 2; }
+.copy { min-width: 0; }
+.step { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .7s cubic-bezier(.16, 1, .3, 1); }
+.step.on { opacity: 1; transform: none; }
 
-        /* doors */
-        .doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; padding: 10px 0 34px; }
-        .door { display: grid; grid-template-rows: auto 1fr auto; text-decoration: none; color: inherit; background: var(--surface); border: 1px solid rgba(255, 255, 255, .95); border-radius: 26px; overflow: hidden; box-shadow: 0 18px 40px -14px rgba(130, 104, 157, 0.22); transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s; min-width: 0; }
-        .door:hover { transform: translateY(-6px); box-shadow: 0 28px 52px -16px rgba(130, 104, 157, 0.32); }
-        .door-art { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #faf8fc, #efe8f5); border-bottom: 1px solid var(--border); overflow: hidden; }
-        .collage { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 10px; padding: 16px; }
-        .collage span { background: #fff; border-radius: 12px; box-shadow: 0 6px 14px -6px rgba(130, 104, 157, .3); display: grid; place-items: center; overflow: hidden; }
-        .collage img { width: 92%; height: 92%; object-fit: contain; mix-blend-mode: multiply; transition: transform .4s; }
-        .door:hover .collage img { transform: scale(1.05); }
-        .moments-art { position: absolute; inset: 0; }
-        .moments-art img.wash { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; }
-        .polas { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 4%; }
-        .pola { width: 27%; background: #fff; padding: 7px 7px 22px; border-radius: 4px; box-shadow: 0 10px 22px -10px rgba(74, 59, 92, .45); transform: rotate(var(--r)); position: relative; }
-        .pola::before { content: ""; position: absolute; top: -9px; left: 50%; width: 44%; height: 16px; margin-left: -22%; background: rgba(216, 181, 121, .6); transform: rotate(-3deg); }
-        .pola i { display: grid; place-items: center; aspect-ratio: 1; background: repeating-linear-gradient(-45deg, #f7f2fb, #f7f2fb 8px, #efe7f7 8px, #efe7f7 16px); color: var(--primary-light); font-size: 20px; border-radius: 2px; }
-        .pola img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; }
-        .door-body { padding: 20px 24px 6px; display: grid; gap: 6px; align-content: start; }
-        .door-body .en { font-size: 12px; letter-spacing: 2.6px; color: var(--gold-ink); font-weight: 700; }
-        .door-body h3 { margin: 0; font: 700 27px/1.3 var(--title); color: var(--primary); letter-spacing: 1px; }
-        .door-body p { margin: 0; font-size: 15px; }
-        .door-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 24px 20px; font-size: 13.5px; color: var(--muted); flex-wrap: wrap; }
-        .door-foot .go { display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 999px; background: var(--primary-bg); color: var(--primary); font-weight: 700; transition: background .25s, color .25s; }
-        .door:hover .go { background: var(--primary); color: #fff; }
-        .soon { font-size: 12.5px; font-weight: 700; padding: 3px 11px; border-radius: 8px; background: rgba(216, 181, 121, .24); color: var(--gold-ink); }
+/* shared chapter typography */
+.eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-size: 12.5px; letter-spacing: 3px; color: var(--gold-ink); font-weight: 500; }
+.eyebrow b { font: 500 13px var(--body); color: var(--gold-ink); }
+.eyebrow::after { content: ""; width: 44px; height: 1px; background: var(--gold); }
+.h { font: 700 clamp(30px, 3.8vw, 46px)/1.3 var(--title); color: var(--ink); margin: 0 0 16px; letter-spacing: .5px; text-wrap: balance; }
+.h em { font-style: normal; color: var(--primary); }
+.lead { margin: 0 0 26px; font-size: 16.5px; max-width: 30em; }
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 13px 26px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 500; background: var(--primary); color: #fff; transition: background .25s, transform .25s; }
+.btn:hover { background: var(--primary-deep); transform: translateY(-2px); }
+.btn .arr { color: var(--gold); }
+.frame { background: var(--card); border-radius: 28px; box-shadow: var(--shadow); border: 1px solid rgba(255, 255, 255, .9); }
+.counter { position: absolute; right: max(24px, env(safe-area-inset-right, 0px)); bottom: 24px; font-size: 12px; letter-spacing: 2px; color: var(--muted); }
+.counter b { color: var(--primary); font-size: 15px; font-weight: 500; }
 
-        /* strip + footer */
-        .strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; padding: 26px 0; border-top: 1px dashed var(--border); }
-        .strip div { display: grid; gap: 2px; font-size: 14.5px; }
-        .strip b { font: 700 17px var(--title); color: var(--primary); }
-        .strip span { color: var(--muted); }
-        footer { display: flex; justify-content: space-between; align-items: center; gap: 10px 20px; flex-wrap: wrap; padding: 22px 0 34px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
-        footer .sig { font: 26px var(--sig); color: var(--primary); }
-        .live { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--muted); }
-        .live .dot { width: 8px; height: 8px; border-radius: 50%; background: #7bc59a; box-shadow: 0 0 0 3px rgba(123, 197, 154, .25); }
+/* 01 hero */
+.s1 .copy { container-type: inline-size; transform: translateY(calc(var(--p, 0) * -36px)); opacity: calc(1 - var(--p, 0) * 1.15); }
+.s1 .sig { margin: 0; font: 400 clamp(34px, 5vw, 72px)/1.12 var(--sig); font-size: min(72px, 12.6cqi); white-space: nowrap; color: var(--primary); }
+.s1 .h { font-size: clamp(22px, 2.5vw, 28px); color: var(--primary-deep); margin: 10px 0 16px; }
+.hint { margin-top: 26px; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 3px; color: var(--muted); }
+.hint i { width: 22px; height: 34px; border: 1.5px solid var(--primary-light); border-radius: 12px; position: relative; }
+.hint i::after { content: ""; position: absolute; left: 50%; top: 7px; width: 4px; height: 7px; margin-left: -2px; border-radius: 2px; background: var(--gold); animation: wheel 1.6s ease-in-out infinite; }
+@keyframes wheel { 0% { opacity: 0; transform: translateY(-3px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(9px); } }
+.crystal { position: relative; display: grid; place-items: center; aspect-ratio: 1; width: min(100%, 460px); justify-self: center; }
+.crystal .ring { position: absolute; inset: 3%; border: 1px dashed rgba(130, 104, 157, .3); border-radius: 50%; transform: rotate(calc(var(--p, 0) * 150deg)); }
+.crystal .ring span { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(216, 181, 121, .18); }
+.crystal .ring span:nth-child(1) { top: -4.5px; left: 50%; }
+.crystal .ring span:nth-child(2) { bottom: 13%; left: 5%; background: var(--primary-light); }
+.crystal .ring span:nth-child(3) { top: 32%; right: -4.5px; }
+.crystal .glow { position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, rgba(216, 181, 121, calc(.1 + var(--p, 0) * .4)), transparent 70%); }
+.crystal img { position: relative; width: 76%; height: auto; filter: drop-shadow(0 26px 34px rgba(130, 104, 157, .28)); transform: translateY(calc(var(--p, 0) * 26px)) rotate(calc(var(--p, 0) * 10deg)) scale(calc(1 + var(--p, 0) * .1)); }
 
-        @media (max-width: 820px) {
-            .hero, .doors, .strip { grid-template-columns: 1fr; }
-            .hero { padding-top: 34px; gap: 10px; }
-            .crystal { order: -1; min-height: 260px; }
-            .crystal img { width: min(70%, 300px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .crystal img { animation: none; }
-            .door, .btn, .collage img { transition: none; }
-        }
-    </style>
+/* 02 stuck points → value curve */
+.pains { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 12px; }
+.pain { display: flex; align-items: center; gap: 14px; font: 500 clamp(18px, 2vw, 22px)/1.45 var(--title); color: #8a8392; transition: color .5s ease calc(var(--k, 0) * .15s + .2s); }
+.pain small { font: 500 12px var(--body); letter-spacing: 2px; color: var(--gold-ink); min-width: 4.6em; }
+.mark { position: relative; flex: 0 0 auto; width: 32px; height: 32px; perspective: 400px; }
+.mark b, .mark i { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 50%; font-style: normal; backface-visibility: hidden; transition: transform .6s cubic-bezier(.34, 1.56, .64, 1) calc(var(--k, 0) * .15s); }
+.mark b { font: 700 16px var(--body); color: var(--primary); background: var(--wash); border: 1px solid var(--primary-light); }
+.mark i { font-size: 14px; color: #fff; background: linear-gradient(135deg, #e6c891, var(--gold)); transform: rotateY(180deg); box-shadow: 0 0 0 4px rgba(216, 181, 121, .2); }
+.s2.solved .mark b { transform: rotateY(180deg); }
+.s2.solved .mark i { transform: rotateY(0); }
+.s2.solved .pain { color: var(--ink); }
+.answer { font: 700 clamp(20px, 2.4vw, 28px)/1.5 var(--title); color: var(--primary); margin: 0; }
+.answer em { font-style: normal; background: linear-gradient(transparent 62%, rgba(216, 181, 121, .5) 62% 92%, transparent 92%); white-space: nowrap; }
+.graph { padding: 22px 22px 14px; }
+.graph svg { display: block; width: 100%; height: auto; overflow: visible; }
+.graph .axis { stroke: var(--ink); stroke-width: 1.4; fill: none; }
+.graph .grid line { stroke: var(--line); stroke-width: 1; }
+.graph .flat { stroke: #c9c3d1; stroke-width: 2; stroke-dasharray: 5 6; fill: none; }
+.graph .rise { stroke: url(#g2); stroke-width: 3.2; fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s cubic-bezier(.5, .1, .3, 1) .25s; }
+.s2.solved .graph .rise { stroke-dashoffset: 0; }
+.graph .dot { fill: #fff; stroke: var(--primary-light); stroke-width: 2; transition: fill .4s ease, stroke .4s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1); transform-box: fill-box; transform-origin: center; }
+.graph .dot.on { opacity: 1; }
+.s2.solved .graph .dot { fill: var(--gold); stroke: var(--gold-ink); transform: translateY(var(--lift)); }
+.graph .q { font: 700 13px var(--body); fill: var(--primary); transition: opacity .3s; }
+.s2.solved .graph .q { opacity: 0; }
+.graph .lbl { font: 12px var(--body); fill: var(--muted); }
+.graph .peak { opacity: 0; transition: opacity .5s ease 1.5s, transform .6s cubic-bezier(.34, 1.56, .64, 1) 1.5s; transform-box: fill-box; transform-origin: center; transform: scale(.4); }
+.s2.solved .graph .peak { opacity: 1; transform: none; }
+.graph .peak-t { font: 400 26px var(--sig); fill: var(--primary); }
+.graph .cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); padding: 6px 4px 0; }
+.pt { opacity: 0; transition: opacity .4s ease; }
+.pt.on { opacity: 1; }
+
+/* 03 works */
+.big { display: flex; align-items: baseline; gap: 12px; margin: 0 0 6px; }
+.big span { font: 400 clamp(64px, 8vw, 104px)/1 var(--sig); color: var(--gold); }
+.big small { font-size: 13px; letter-spacing: 2px; color: var(--muted); }
+.collage { padding: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.tile { aspect-ratio: 1; background: var(--wash); border-radius: 16px; display: grid; place-items: center; overflow: hidden;
+  opacity: 0; transform: translate(var(--fx, 0), var(--fy, 70px)) rotate(var(--fr, 6deg)) scale(.85); transition: opacity .6s ease, transform .9s cubic-bezier(.16, 1, .3, 1); }
+.tile.on { opacity: 1; transform: none; }
+.tile img { width: 90%; height: 90%; object-fit: contain; mix-blend-mode: multiply; }
+.tile:nth-child(1) { --fx: -90px; --fy: -50px; --fr: -10deg; } .tile:nth-child(2) { --fy: -90px; --fr: 8deg; } .tile:nth-child(3) { --fx: 100px; --fy: -40px; --fr: 12deg; }
+.tile:nth-child(4) { --fx: -100px; --fy: 60px; --fr: 9deg; } .tile:nth-child(5) { --fy: 100px; --fr: -8deg; } .tile:nth-child(6) { --fx: 100px; --fy: 70px; --fr: -12deg; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; padding: 0; list-style: none; }
+.tags li { font-size: 13px; padding: 5px 13px; border-radius: 999px; background: var(--wash); color: var(--primary-deep); }
+
+/* 04 moments */
+.photos { position: relative; aspect-ratio: 5 / 4; }
+.pola { position: absolute; width: 50%; background: #fff; padding: 10px 10px 36px; border-radius: 6px; box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(-70px) rotate(calc(var(--r) * 2.2)) scale(1.1); transition: opacity .35s ease, transform .6s cubic-bezier(.34, 1.56, .64, 1); }
+.pola.on { opacity: 1; transform: rotate(var(--r)); }
+.pola img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
+.pola span { position: absolute; left: 0; right: 0; bottom: 9px; text-align: center; font-size: 12.5px; letter-spacing: 1px; color: var(--muted); }
+.pola:nth-child(1) { left: 0; top: 12%; --r: -6deg; }
+.pola:nth-child(2) { left: 27%; top: 0; --r: 3deg; z-index: 2; }
+.pola:nth-child(3) { left: 50%; top: 20%; --r: 8deg; }
+.latest { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--gold-ink); background: rgba(216, 181, 121, .16); padding: 4px 12px; border-radius: 999px; margin: 0 0 18px; }
+
+/* finale */
+.finale { position: relative; z-index: 1; padding: 90px 0 30px; }
+.finale .split { align-items: center; }
+.portrait { position: relative; width: min(100%, 360px); justify-self: center; }
+.portrait .arch { border-radius: 200px 200px 28px 28px; overflow: hidden; box-shadow: var(--shadow); border: 6px solid #fff; background: var(--wash); }
+.portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; }
+.portrait::before { content: ""; position: absolute; inset: -14px -14px 14px 14px; border: 1px solid var(--gold); border-radius: 210px 210px 32px 32px; z-index: -1; }
+.portrait figcaption { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); background: #fff; padding: 6px 18px; border-radius: 999px; font: 400 22px var(--sig); color: var(--primary); box-shadow: 0 8px 18px -10px rgba(74, 59, 92, .4); white-space: nowrap; }
+.finale .h { font-family: var(--sig); font-weight: 400; font-size: clamp(44px, 6vw, 68px); color: var(--primary); margin-bottom: 8px; }
+.doors { display: grid; gap: 16px; margin-top: 18px; }
+.door { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 14px 20px 14px 14px; text-decoration: none; transition: transform .3s, box-shadow .3s; }
+.door:hover { transform: translateY(-4px); box-shadow: 0 30px 56px -24px rgba(74, 59, 92, .4); }
+.door img { width: 92px; height: 92px; object-fit: cover; border-radius: 18px; background: var(--wash); }
+.door b { display: block; font: 700 21px var(--title); color: var(--ink); }
+.door span { font-size: 14px; color: var(--muted); }
+.door em { font-style: normal; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--wash); color: var(--primary); transition: background .25s, color .25s; }
+.door:hover em { background: var(--primary); color: #fff; }
+footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 26px 0 40px; margin-top: 70px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+footer .sig { font: 26px var(--sig); color: var(--primary); }
+
+/* ---------- static mode: phones & reduced motion ---------- */
+.static .scene { height: auto; }
+.static .stage { position: relative; top: 0; height: auto; padding: 64px 0; overflow: visible; }
+.static .step, .static .tile, .static .pola, .static .pt { opacity: 1; transform: none; transition: none; }
+.static .s1 .copy { transform: none; opacity: 1; }
+.static .counter, .static .hint, .static .curve { display: none; }
+@media (max-width: 860px) {
+  .split { grid-template-columns: 1fr; gap: 30px; }
+  .split.flip > .copy { order: 0; }
+  .crystal { width: min(80%, 300px); order: -1; }
+  .door { grid-template-columns: 72px minmax(0, 1fr) auto; }
+  .door img { width: 72px; height: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { .hint i::after { animation: none; } }
+
+/* ── 字體細節：細字重、寬行距、微字距 ── */
+body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
+.h { font-weight: var(--tw); letter-spacing: var(--ls-h); }
+.pain, .answer, .door b { font-weight: var(--tw); }
+.lead { color: #4f4858; }
+.live { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--muted); }
+.live .dot { width: 8px; height: 8px; border-radius: 50%; background: #7bc59a; box-shadow: 0 0 0 3px rgba(123, 197, 154, .25); }
+.live strong { color: var(--primary); font-weight: 500; }
+</style>
 </head>
 <body>
+
+<header class="bar">
+  <div class="wrap gut">
+    <a href="index.html" aria-label="Valerie Yu Studio"><img class="logo" src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio"></a>
+    <nav aria-label="主要導覽">
+      <a href="works.html">作品收集</a>
+      <a href="moments.html">課堂風景</a>
+      <a href="about.html">關於我</a>
+      <a class="skip" href="#finale">直接看作品 →</a>
+    </nav>
+  </div>
+  <div class="rail" aria-hidden="true"><div class="rail-fill"></div><div class="rail-star"></div><span class="chapter" id="chapter">01 · FIND THE VALUE</span></div>
+</header>
+
+<main id="story">
+  <svg class="curve" id="curve" aria-hidden="true">
+    <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a38fbb"/><stop offset=".55" stop-color="#82689d"/><stop offset="1" stop-color="#d8b579"/></linearGradient></defs>
+    <path id="curve-path" style="stroke:none"/>
+    <g id="curve-layers"></g>
+    <circle class="trail t3" id="tr3" r="2.4"/><circle class="trail t2" id="tr2" r="3.4"/><circle class="trail t1" id="tr1" r="4.4"/>
+    <path class="tip" id="curve-tip" d="M0 -12 L3.2 -3.8 L12 -3.4 L5.2 2.6 L7.4 11.6 L0 6.4 L-7.4 11.6 L-5.2 2.6 L-12 -3.4 L-3.2 -3.8 Z"/>
+  </svg>
+
+  <!-- 01 -->
+  <section class="scene s1" style="--len:190vh" data-chapter="01 · FIND THE VALUE" aria-label="Find the value of you">
+    <div class="stage gut"><div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow">VALERIE YU STUDIO · LEARNING DESIGN</p>
+        <p class="sig">Find the value of you!</p>
+        <h1 class="h">清晰的設計，成就更好的學習。</h1>
+        <p class="lead">我是 Valerie 老師，教國中與高中數學，也陪學生走升學這條路。這裡收著我做的互動教材，也記下它們在教室裡真正被使用的樣子。</p>
+        <span class="hint"><i></i>SCROLL</span>
+      </div>
+      <div class="crystal" aria-hidden="true"><span class="glow"></span><span class="ring"><span></span><span></span><span></span></span><img src="assets/hero-diamond.png" alt=""></div>
+    </div><p class="counter"><b>01</b> / 04</p></div>
+  </section>
+
+  <!-- 02 -->
+  <section class="scene s2" style="--len:280vh" data-chapter="02 · WHERE STUDENTS GET STUCK" aria-label="學生卡在哪一步">
+    <div class="stage gut"><div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow step" data-at="0.02"><b>02</b> 從卡點出發</p>
+        <h2 class="h step" data-at="0.04">學生卡在哪一步？</h2>
+        <ul class="pains">
+          <li class="pain step" data-at="0.16"><span class="mark" aria-hidden="true"><b>?</b><i>✦</i></span><small>九年級</small>比例線段看不出關係</li>
+          <li class="pain step" data-at="0.3" style="--k:1"><span class="mark" aria-hidden="true"><b>?</b><i>✦</i></span><small>十一年級</small>弧度想像不出來</li>
+          <li class="pain step" data-at="0.44" style="--k:2"><span class="mark" aria-hidden="true"><b>?</b><i>✦</i></span><small>十一年級</small>對數好抽象，背了就忘</li>
+        </ul>
+        <p class="answer step" data-at="0.62">那就把那一步，<em>做成可以動手試的網頁。</em></p>
+      </div>
+      <figure class="frame graph step" data-at="0.06" style="margin:0" aria-label="價值曲線：卡點被解開後一路上升到最高點">
+        <svg viewBox="0 0 420 300">
+          <defs><linearGradient id="g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#a38fbb"/><stop offset="1" stop-color="#d8b579"/></linearGradient></defs>
+          <g class="grid"><line x1="50" y1="70" x2="400" y2="70"/><line x1="50" y1="130" x2="400" y2="130"/><line x1="50" y1="190" x2="400" y2="190"/><line x1="137" y1="24" x2="137" y2="250"/><line x1="225" y1="24" x2="225" y2="250"/><line x1="312" y1="24" x2="312" y2="250"/></g>
+          <path class="axis" d="M50 22 V250 H404 M44 30 L50 20 L56 30 M396 244 L406 250 L396 256"/>
+          <path class="flat" d="M58 236 C120 232 200 236 260 232 S360 236 396 232"/>
+          <path class="rise" pathLength="1" d="M58 236 C110 230 130 214 137 205 S190 170 225 140 S290 80 312 70 S370 52 392 48"/>
+          <g class="pt" data-at="0.16"><circle class="dot" cx="137" cy="234" r="8" style="--lift:-29px"/><text class="q" x="133" y="222">?</text><text class="lbl" x="112" y="270">比例線段</text></g>
+          <g class="pt" data-at="0.3"><circle class="dot" cx="225" cy="234" r="8" style="--lift:-94px"/><text class="q" x="221" y="222">?</text><text class="lbl" x="210" y="270">弧度</text></g>
+          <g class="pt" data-at="0.44"><circle class="dot" cx="312" cy="234" r="8" style="--lift:-164px"/><text class="q" x="308" y="222">?</text><text class="lbl" x="298" y="270">對數</text></g>
+          <g class="peak"><path d="M392 30 L396 41 L408 42 L399 49 L402 61 L392 54 L382 61 L385 49 L376 42 L388 41 Z" fill="#d8b579" stroke="#94702c" stroke-width="1.2"/><text class="peak-t" x="258" y="34">f(you) = max</text></g>
+          <text class="lbl" x="18" y="30">y</text><text class="lbl" x="404" y="276">x</text>
+        </svg>
+        <figcaption class="cap"><span>y＝理解的深度</span><span>x＝動手試的次數</span></figcaption>
+      </figure>
+    </div><p class="counter"><b>02</b> / 04</p></div>
+  </section>
+
+  <!-- 03 -->
+  <section class="scene s3" style="--len:250vh" data-chapter="03 · PROJECTS LIBRARY" aria-label="作品收集">
+    <div class="stage gut"><div class="wrap split flip">
+      <div class="copy">
+        <p class="eyebrow step" data-at="0.02"><b>03</b> 作品收集</p>
+        <p class="big step" data-at="0.06"><span>13</span><small>件互動教材與工具</small></p>
+        <h2 class="h step" data-at="0.1">每個單元，<em>都值得被好好設計</em></h2>
+        <p class="lead step" data-at="0.16">互動數位課本、PBL 專題、闖關遊戲、升學輔導與教師工具，依年段整理，打開就能用。</p>
+        <ul class="tags step" data-at="0.22"><li>九年級</li><li>十一年級</li><li>跨年段</li><li>升學輔導</li><li>教師工具</li></ul>
+        <a class="btn step" data-at="0.6" href="works.html">進入作品收集 <span class="arr">→</span></a>
+      </div>
+      <div class="frame collage" aria-hidden="true">
+        <span class="tile" data-at="0.16"><img src="assets/project-img-13.png" alt=""></span>
+        <span class="tile" data-at="0.24"><img src="assets/project-img-12.png" alt=""></span>
+        <span class="tile" data-at="0.32"><img src="assets/project-img-10.png" alt=""></span>
+        <span class="tile" data-at="0.4"><img src="assets/project-img-7.png" alt=""></span>
+        <span class="tile" data-at="0.48"><img src="assets/project-img-9.png" alt=""></span>
+        <span class="tile" data-at="0.56"><img src="assets/project-img-1.png" alt=""></span>
+      </div>
+    </div><p class="counter"><b>03</b> / 04</p></div>
+  </section>
+
+  <!-- 04 -->
+  <section class="scene s4" style="--len:230vh" data-chapter="04 · CLASSROOM MOMENTS" aria-label="課堂風景">
+    <div class="stage gut"><div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow step" data-at="0.02"><b>04</b> 課堂風景</p>
+        <h2 class="h step" data-at="0.08">教材走進教室之後</h2>
+        <p class="latest step" data-at="0.12">最新 · 九年級測量遠征成果發表</p>
+        <p class="lead step" data-at="0.18">學生拿著自己量出來的數據上台：用影子量大樓、用視角估算到台北 101 的距離，再回頭分析誤差。每一堂課的照片與筆記，都收在這裡。</p>
+        <a class="btn step" data-at="0.56" href="moments.html">看課堂風景 <span class="arr">→</span></a>
+      </div>
+      <div class="photos" aria-hidden="true">
+        <span class="pola" data-at="0.14"><img src="assets/home/m6845.webp" alt=""><span>一支直尺，量出 20 公里</span></span>
+        <span class="pola" data-at="0.28"><img src="assets/home/m6821.webp" alt=""><span>用影子量大樓</span></span>
+        <span class="pola" data-at="0.42"><img src="assets/home/m6849.webp" alt=""><span>到台北 101 的距離</span></span>
+      </div>
+    </div><p class="counter"><b>04</b> / 04</p></div>
+  </section>
+
+  <!-- finale -->
+  <section class="finale gut" id="finale" data-chapter="WHERE TO NEXT?" aria-label="網站入口">
     <div class="wrap">
-        <header class="bar">
-            <a href="index.html" class="logo" aria-label="Valerie Yu Studio 首頁"><img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio"></a>
-            <nav aria-label="主要導覽">
-                <a href="works.html">作品收集</a>
-                <a href="moments.html">課堂風景</a>
-                <a href="about.html">關於我</a>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <div>
-                <p class="kick">VIBE CODING · AGENTIC CODING · LEARNING DESIGN</p>
-                <h1>Find the value of you!</h1>
-                <h2>清晰的設計，成就更好的學習。</h2>
-                <p>我是 <strong>Valerie 老師</strong>，教國中與高中數學，也陪學生走升學這條路。這裡收著我做的互動教材，也記下它們在教室裡真正被使用的樣子。</p>
-                <div class="cta">
-                    <a class="btn btn-primary" href="works.html">進入作品收集 <i class="fa-solid fa-wand-magic-sparkles"></i></a>
-                    <a class="btn btn-outline" href="moments.html">看課堂風景 <i class="fa-solid fa-camera-retro"></i></a>
-                </div>
-            </div>
-            <div class="crystal" aria-hidden="true">
-                <span class="orbit"></span>
-                <span class="pt a"></span><span class="pt b"></span><span class="pt c"></span><span class="pt d"></span>
-                <img src="assets/hero-diamond.png" alt="" width="390" height="360">
-            </div>
-        </section>
-
-        <section class="doors" aria-label="網站入口">
-            <a class="door" href="works.html">
-                <div class="door-art">
-                    <div class="collage" aria-hidden="true">
-                        <span><img src="assets/project-img-13.png" alt="" loading="lazy"></span>
-                        <span><img src="assets/project-img-12.png" alt="" loading="lazy"></span>
-                        <span><img src="assets/project-img-10.png" alt="" loading="lazy"></span>
-                        <span><img src="assets/project-img-7.png" alt="" loading="lazy"></span>
-                        <span><img src="assets/project-img-9.png" alt="" loading="lazy"></span>
-                        <span><img src="assets/project-img-1.png" alt="" loading="lazy"></span>
-                    </div>
-                </div>
-                <div class="door-body">
-                    <span class="en">PROJECTS LIBRARY</span>
-                    <h3>作品收集</h3>
-                    <p>互動數位課本、PBL 專題、闖關遊戲、升學輔導與教師工具，依年段整理，打開就能用。</p>
-                </div>
-                <div class="door-foot"><span>九年級 · 十一年級 · 升學輔導 · 教師工具</span><span class="go">進入作品收集 <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-
-            <a class="door" href="moments.html">
-                <div class="door-art">
-                    <div class="moments-art" aria-hidden="true">
-                        <img class="wash" src="assets/brand/wash-banner.webp" alt="" loading="lazy">
-                        <div class="polas">
-                            <span class="pola" style="--r:-6deg"><img src="moments/measure-6821.webp" alt="" loading="lazy"></span>
-                            <span class="pola" style="--r:3deg"><img src="assets/brand/portrait-chibi.webp" alt="" loading="lazy"></span>
-                            <span class="pola" style="--r:-2deg"><img src="moments/measure-6849.webp" alt="" loading="lazy"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="door-body">
-                    <span class="en">CLASSROOM MOMENTS</span>
-                    <h3>課堂風景</h3>
-                    <p>學生拿著平板量影子、在手搖飲店算連比例……教材走進教室之後，每一堂課的照片與小記錄。</p>
-                </div>
-                <div class="door-foot"><span class="soon">最新：測量遠征成果發表</span><span class="go">看課堂風景 <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-        </section>
-
-        <section class="strip" aria-label="簡介">
-            <div><b>教學</b><span>國中、高中數學，G11 升學輔導</span></div>
-            <div><b>創作</b><span>把學生卡關的單元，做成能動手試的網頁</span></div>
-            <div><b>紀錄</b><span>教材在課堂上被使用的真實樣子</span></div>
-        </section>
-
-        <footer>
-            <span>© 2026 Valerie Yu Studio</span>
-            <a class="live" href="admin.html" title="管理者登入"><span class="dot"></span>線上 <strong id="stats-online-count">1</strong> 人 · 累積造訪 <strong id="stats-total-visits">-</strong> 次</a>
-            <span class="sig">Find the value of you!</span>
-        </footer>
+      <div class="split">
+        <figure class="portrait"><div class="arch"><img src="assets/brand/portrait-pro.webp" alt="Valerie 老師"></div><figcaption>Valerie Yu</figcaption></figure>
+        <div class="copy">
+          <p class="eyebrow">CHOOSE YOUR DOOR</p>
+          <h2 class="h">Where to next?</h2>
+          <p class="lead">想看我做了哪些教材，還是想看它們在教室裡的樣子？</p>
+          <div class="doors">
+            <a class="frame door" href="works.html"><img src="assets/project-img-13.png" alt=""><div><b>作品收集</b><span>13 件互動教材與工具，依年段整理</span></div><em>→</em></a>
+            <a class="frame door" href="moments.html"><img src="assets/home/m6821.webp" alt=""><div><b>課堂風景</b><span>教材在教室裡被使用的樣子</span></div><em>→</em></a>
+          </div>
+        </div>
+      </div>
+      <footer><span>© 2026 Valerie Yu Studio</span><a class="live" href="admin.html" title="管理者登入"><span class="dot"></span>線上 <strong id="stats-online-count">1</strong> 人 · 累積造訪 <strong id="stats-total-visits">-</strong> 次</a><span class="sig">Find the value of you!</span></footer>
     </div>
+  </section>
+</main>
 
+<script>
+(function () {
+  const root = document.documentElement;
+  const scenes = [...document.querySelectorAll('.scene')];
+  const chapterEls = [...document.querySelectorAll('[data-chapter]')];
+  const chapter = document.getElementById('chapter');
+  const svg = document.getElementById('curve');
+  const pathEl = document.getElementById('curve-path');
+  const tip = document.getElementById('curve-tip');
+  const layerBox = document.getElementById('curve-layers');
+  const trails = ['tr1', 'tr2', 'tr3'].map(id => document.getElementById(id));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const narrow = matchMedia('(max-width: 760px)');
+  const NS = 'http://www.w3.org/2000/svg';
+  let isStatic = false, lut = [], total = 0, drawn = 0, target = 0, anim = null, tail = 0, lastDrawn = 0, lastT = 0;
+
+  // afterimage: stacked translucent segments behind the head
+  const layers = [];
+  for (let i = 0; i < 9; i++) {
+    const h = document.createElementNS(NS, 'path'); h.setAttribute('class', 'halo'); h.style.opacity = .09;
+    const m = document.createElementNS(NS, 'path'); m.setAttribute('class', 'main'); m.style.opacity = .2;
+    layerBox.append(h, m); layers.push([h, m, (i + 1) / 9]);
+  }
+
+  function catmull(pts) {
+    let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2, t = 1 / 6;
+      d += ` C${(p1[0] + (p2[0] - p0[0]) * t).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) * t).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) * t).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) * t).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+    }
+    return d;
+  }
+
+  function buildCurve() {
+    const main = document.getElementById('story');
+    const W = main.clientWidth, H = main.scrollHeight, vh = innerHeight;
+    svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.height = H + 'px';
+    const secs = [...main.querySelectorAll('.scene, .finale')];
+    const pts = []; let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280 - .5;
+    // runs in the gutter beside each chapter's visual, crossing between chapters with one soft curl
+    const side = [.94, .06, .94, .06, .5];
+    secs.forEach((sec, i) => {
+      const top = sec.offsetTop, h = sec.offsetHeight, x = W * side[i], nx = W * (side[i + 1] ?? .5);
+      if (i === 0) pts.push([W * .7, 0]);
+      for (let k = 1; k <= 3; k++) pts.push([x + rnd() * W * .03, top + h * (k / 4) * .8 + rnd() * 24]);
+      if (i < secs.length - 1) {
+        const cy = top + h * .9, mx = (x + nx) / 2, r = Math.min(46, W * .04), dir = nx > x ? 1 : -1;
+        pts.push([x + (mx - x) * .45, cy - vh * .06]);
+        for (let k = 0; k <= 6; k++) { const a = Math.PI / 2 + dir * (k / 6) * Math.PI * 2; pts.push([mx + Math.cos(a) * r * dir, cy - Math.sin(a) * r * .9 - r * .2]); }
+        pts.push([mx + (nx - mx) * .6, cy + vh * .1]);
+      } else { pts.push([W * .5, top + 40]); }
+    });
+    const d = catmull(pts);
+    pathEl.setAttribute('d', d); layers.forEach(([h, m]) => { h.setAttribute('d', d); m.setAttribute('d', d); });
+    total = pathEl.getTotalLength();
+    lut = []; let maxY = -1;
+    for (let L = 0; L <= total; L += 6) { const q = pathEl.getPointAtLength(L); if (q.y > maxY) { maxY = q.y; lut.push([q.y, L]); } }
+    lut.push([H + 1, total]); drawn = Math.min(drawn, total);
+  }
+  function lenAtY(y) { let lo = 0, hi = lut.length - 1; while (lo < hi) { const m = (lo + hi) >> 1; if (lut[m][0] < y) lo = m + 1; else hi = m; } return lut.length ? lut[lo][1] : 0; }
+
+  function paint(now) {
+    now = now || performance.now();
+    const dt = Math.min(64, lastT ? now - lastT : 16.7); lastT = now;
+    const diff = target - drawn; drawn += Math.abs(diff) < .5 ? diff : diff * (1 - Math.pow(.88, dt / 16.7));
+    const moved = Math.abs(drawn - lastDrawn); lastDrawn = drawn;
+    tail = Math.min(Math.min(innerHeight * .85, 700), tail * Math.pow(.5, dt / 250) + moved * 1.1); if (tail < .6) tail = 0;
+    const show = !isStatic && drawn > 2;
+    layers.forEach(([h, m, f]) => {
+      const seg = Math.max(.01, Math.min(drawn, tail * f));
+      h.style.strokeDasharray = m.style.strokeDasharray = `${seg} ${total * 2 + 10}`;
+      h.style.strokeDashoffset = m.style.strokeDashoffset = -(drawn - seg);
+      h.style.visibility = m.style.visibility = show && tail > 0 ? 'visible' : 'hidden';
+    });
+    const at = L => pathEl.getPointAtLength(Math.max(0, Math.min(total, L)));
+    const t = at(drawn), b = at(drawn - 4), ang = Math.atan2(t.y - b.y, t.x - b.x) * 180 / Math.PI;
+    tip.setAttribute('transform', `translate(${t.x.toFixed(1)} ${t.y.toFixed(1)}) rotate(${(ang + 90).toFixed(1)})`);
+    tip.style.opacity = show ? 1 : 0;
+    trails.forEach((c, i) => { const q = at(drawn - 16 - i * 15); c.setAttribute('cx', q.x.toFixed(1)); c.setAttribute('cy', q.y.toFixed(1)); c.style.opacity = show ? Math.min(1, .35 + tail / 120) * (1 - i * .22) : 0; });
+    if (Math.abs(target - drawn) > .5 || tail > 0) anim = requestAnimationFrame(paint); else { anim = null; lastT = 0; }
+  }
+
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const vh = innerHeight, sy = scrollY, docMax = Math.max(1, root.scrollHeight - vh);
+    root.style.setProperty('--prog', Math.min(1, sy / docMax).toFixed(4));
+    const mainTop = document.getElementById('story').getBoundingClientRect().top + sy;
+    target = isStatic ? 0 : lenAtY(Math.max(0, sy + vh * .62 - mainTop));
+    if (!anim) anim = requestAnimationFrame(paint);
+    scenes.forEach(sc => {
+      const r = sc.getBoundingClientRect(), span = Math.max(1, sc.offsetHeight - vh);
+      const p = isStatic ? 1 : Math.min(1, Math.max(0, -r.top / span));
+      sc.style.setProperty('--p', isStatic ? 0 : p.toFixed(4));
+      sc.querySelectorAll('[data-at]').forEach(el => el.classList.toggle('on', isStatic || p >= parseFloat(el.dataset.at)));
+      const ans = sc.querySelector('.answer'); if (ans) sc.classList.toggle('solved', ans.classList.contains('on'));
+    });
+    let ch = chapterEls[0].dataset.chapter;
+    chapterEls.forEach(el => { if (el.getBoundingClientRect().top < vh * .5) ch = el.dataset.chapter; });
+    if (chapter.textContent !== ch) chapter.textContent = ch;
+  }
+  function setMode() { isStatic = reduce.matches || narrow.matches; root.classList.toggle('static', isStatic); buildCurve(); update(); }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', () => { buildCurve(); update(); });
+  reduce.addEventListener('change', setMode); narrow.addEventListener('change', setMode);
+  document.fonts && document.fonts.ready.then(() => { buildCurve(); update(); });
+  setMode();
+})();
+</script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>

@@ -12,10 +12,10 @@
     --shadow-md: 0 8px 15px rgba(130, 104, 157, 0.08);
     --shadow-lg: 0 15px 30px rgba(130, 104, 157, 0.1);
     
-    --font-heading: 'Outfit', 'Noto Sans TC', sans-serif;
-    --font-body: 'Outfit', 'Noto Sans TC', sans-serif;
+    --font-heading: 'Outfit', 'Chiron Hei HK', 'Noto Sans TC', sans-serif;
+    --font-body: 'Outfit', 'Chiron Hei HK', 'Noto Sans TC', sans-serif;
     --font-signature: 'Pinyon Script', cursive;
-    --font-display-serif: 'Playfair Display', 'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+    --font-display-serif: 'Playfair Display', 'Cormorant Garamond', 'Cactus Classical Serif', 'Noto Serif TC', Georgia, serif;
 }
 
 * {
