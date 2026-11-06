@@ -290,3 +290,19 @@
     .sk-head-doodles .sk-mini:nth-child(n+2) { display: none; }
     [data-sk-margin] { display: none; }
 }
+
+/* 關於我：只放一張大圖 */
+.sketch-page .about-portrait-card { max-width: 460px; }
+.sketch-page .about-portrait-picture,
+.sketch-page .about-portrait-img { max-width: 460px; width: 100%; }
+.sketch-page .about-portrait-picture {
+    border: 2.5px solid var(--sk-ink);
+    border-radius: 18px 26px 20px 24px;
+    box-shadow: 7px 9px 0 rgba(130, 104, 157, 0.16);
+    transform: rotate(-1.2deg);
+}
+.sketch-page .about-portrait-img { border-radius: 0; box-shadow: none; }
+@media (max-width: 768px) {
+    .sketch-page .about-portrait-picture,
+    .sketch-page .about-portrait-img { max-width: 100%; }
+}
