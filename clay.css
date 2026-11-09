@@ -1,0 +1,192 @@
+/* =========================================================
+   Valerie Yu Studio — 作品收集「軟糖 3D」風 (clay.css)
+   疊在 style.css 之後、取代 sketch.css。色系沿用網站紫金，
+   每個元件都像充氣的果凍方塊：大圓角、左上高光、右下陰影、柔和投影。
+   ========================================================= */
+.clay-page {
+    --cl-bg-a: #f7f2fb;
+    --cl-bg-b: #fbf6ee;
+    --cl-ink: #4a3b5c;
+    --cl-ink-soft: #7a6c8a;
+    --cl-purple: #82689d;
+    --cl-purple-deep: #6e5b8a;
+    --cl-purple-pale: #e9e1f3;
+    --cl-lilac: #f1ebf7;
+    --cl-gold: #d8b579;
+    --cl-gold-pale: #f6ead3;
+    --cl-cream: #fffdf9;
+    --cl-sh: rgba(110, 91, 138, .22);
+    --cl-sh-soft: rgba(110, 91, 138, .12);
+    --cl-r: 26px;
+    --cl-head: 'Huninn', 'Chiron Hei HK', 'Noto Sans TC', sans-serif;
+    /* 充氣效果：上左白高光 + 下右紫陰影 + 外部柔影 */
+    --cl-puff: inset 6px 6px 14px rgba(255, 255, 255, .95), inset -8px -10px 18px rgba(130, 104, 157, .16), 10px 16px 34px -12px var(--cl-sh);
+    --cl-puff-sm: inset 3px 3px 7px rgba(255, 255, 255, .95), inset -4px -5px 9px rgba(130, 104, 157, .18), 6px 10px 22px -10px var(--cl-sh);
+    --cl-puff-purple: inset 5px 5px 12px rgba(255, 255, 255, .35), inset -7px -8px 16px rgba(60, 40, 90, .35), 10px 14px 28px -10px rgba(110, 91, 138, .5);
+    --cl-puff-gold: inset 5px 5px 12px rgba(255, 255, 255, .55), inset -7px -8px 16px rgba(150, 110, 40, .28), 10px 14px 28px -10px rgba(196, 154, 79, .45);
+    background:
+        radial-gradient(circle at 12% 8%, rgba(216, 181, 121, .18), transparent 36%),
+        radial-gradient(circle at 88% 20%, rgba(163, 143, 187, .22), transparent 40%),
+        radial-gradient(circle at 70% 90%, rgba(216, 181, 121, .14), transparent 40%),
+        linear-gradient(170deg, var(--cl-bg-a), var(--cl-bg-b));
+    color: var(--cl-ink);
+}
+.clay-page .bg-decorations { display: none; }
+
+/* 點點底紋 */
+.clay-page::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: radial-gradient(rgba(130, 104, 157, .10) 1.2px, transparent 1.3px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+}
+
+/* ---------- 導覽列 ---------- */
+.clay-page .navbar {
+    background: rgba(255, 253, 249, .78);
+    border: 0;
+    box-shadow: 0 10px 30px -14px var(--cl-sh), inset 0 -1px 0 rgba(255, 255, 255, .9);
+}
+.clay-page .nav-btn { border-radius: 16px; }
+.clay-page .nav-btn:hover,
+.clay-page .nav-btn.active { background: var(--cl-cream); box-shadow: var(--cl-puff-sm); }
+.clay-page .dropdown-content { border: 0; border-radius: 22px; box-shadow: var(--cl-puff); background: var(--cl-cream); }
+
+/* ---------- 按鈕 ---------- */
+.clay-page .btn { border: 0; border-radius: 18px; font-family: var(--cl-head); font-weight: 400; letter-spacing: .5px; transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease; }
+.clay-page .btn-primary { background: linear-gradient(145deg, #9a82b5, var(--cl-purple-deep)); color: #fff; box-shadow: var(--cl-puff-purple); }
+.clay-page .btn-outline { background: var(--cl-cream); color: var(--cl-ink); box-shadow: var(--cl-puff-sm); }
+.clay-page .btn:hover { transform: translateY(-3px) scale(1.02); }
+.clay-page .btn:active { transform: translateY(1px) scale(.98); }
+
+/* ---------- Hero ---------- */
+.clay-page .sk-hero { padding: 56px 0 24px; }
+.clay-page .sk-kicker { font-family: var(--cl-head); color: var(--cl-purple); letter-spacing: 2px; }
+.clay-page .sk-title { font-family: var(--cl-head); font-weight: 400; color: var(--cl-ink); letter-spacing: 1px; }
+.clay-page .sk-mark {
+    display: inline-block; padding: 2px 16px; border-radius: 20px;
+    background: linear-gradient(145deg, #fff3d8, var(--cl-gold-pale)); color: #8f6a24;
+    box-shadow: var(--cl-puff-gold); transform: rotate(-2deg);
+}
+.clay-page .hero-text { color: var(--cl-ink-soft); font-size: 16.5px; line-height: 1.95; max-width: 32em; }
+.clay-page .sk-hero-art { position: relative; min-height: 360px; display: grid; place-items: center; }
+.clay-page .sk-hero-doodle { display: none; }
+.clay-page .sk-hero-q {
+    width: min(100%, 400px); margin: 0; padding: 24px;
+    border-radius: 48px; background: linear-gradient(150deg, #fff, var(--cl-lilac));
+    box-shadow: var(--cl-puff); animation: cl-bob 3.4s ease-in-out infinite;
+}
+.clay-page .sk-cutout img, .clay-page .sk-pal { width: 100%; height: auto; display: block; }
+@keyframes cl-bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+
+/* ---------- 區塊標題 ---------- */
+.clay-page .section-title span,
+.clay-page .zone-title,
+.clay-page .grade-group-title,
+.clay-page .pcard-title { font-family: var(--cl-head); font-weight: 400; }
+.clay-page .section-header .line { display: none; }
+.clay-page .sk-underline, .clay-page .sk-circle, .clay-page .sk-doodle { display: none; }
+.clay-page .sk-point-q { position: absolute; width: 140px; right: 16px; top: -92px; margin: 0; pointer-events: none; z-index: 3; }
+
+/* ---------- Finder（搜尋 + 分區） ---------- */
+.clay-page .finder {
+    background: linear-gradient(150deg, #fff, #f6f1fa);
+    border: 0; border-radius: 30px; padding: 12px;
+    box-shadow: var(--cl-puff);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.clay-page .zone-chip { border: 0; border-radius: 20px; padding: 8px 16px 8px 8px; color: var(--cl-ink); }
+.clay-page .zone-chip:hover { background: var(--cl-cream); box-shadow: var(--cl-puff-sm); }
+.clay-page .zone-chip.active { background: var(--cl-cream); color: var(--cl-ink); box-shadow: var(--cl-puff-sm); }
+.clay-page .zone-chip-text b { font-family: var(--cl-head); font-weight: 400; font-size: 15px; }
+.clay-page .zone-chip-icon {
+    width: 38px; height: 38px; border-radius: 13px; font-size: 15px; color: #fff;
+    background: linear-gradient(145deg, #a38fbb, var(--cl-purple-deep)); box-shadow: var(--cl-puff-purple);
+}
+.clay-page .zone-chip[data-zone-link="counseling"] .zone-chip-icon { background: linear-gradient(145deg, #ecd3a4, #c9a055); color: #fff; box-shadow: var(--cl-puff-gold); }
+.clay-page .zone-chip[data-zone-link="tools"] .zone-chip-icon { background: linear-gradient(145deg, #a9bccd, #5b738b); color: #fff; box-shadow: inset 5px 5px 12px rgba(255, 255, 255, .35), inset -7px -8px 16px rgba(40, 60, 80, .3), 10px 14px 28px -10px rgba(91, 115, 139, .5); }
+.clay-page .zone-chip-count { background: var(--cl-purple-pale); color: var(--cl-purple-deep); border-radius: 10px; }
+.clay-page .finder-search { border: 0; border-radius: 20px; background: var(--cl-lilac); box-shadow: inset 4px 4px 10px rgba(130, 104, 157, .16), inset -3px -3px 8px #fff; }
+.clay-page .finder-search:focus-within { box-shadow: inset 4px 4px 10px rgba(130, 104, 157, .2), inset -3px -3px 8px #fff, 0 0 0 3px rgba(216, 181, 121, .35); }
+.clay-page .finder-search input { color: var(--cl-ink); }
+
+/* ---------- 分區標題 ---------- */
+.clay-page .zone + .zone { border-top: 0; margin-top: 8px; }
+.clay-page .zone-icon {
+    width: 60px; height: 60px; border-radius: 20px; font-size: 22px;
+    background: linear-gradient(145deg, #a38fbb, var(--cl-purple-deep)); box-shadow: var(--cl-puff-purple);
+}
+.clay-page .zone-icon.gold { background: linear-gradient(145deg, #ecd3a4, #c9a055); box-shadow: var(--cl-puff-gold); }
+.clay-page .zone-icon.slate { background: linear-gradient(145deg, #a9bccd, #5b738b); box-shadow: inset 5px 5px 12px rgba(255, 255, 255, .35), inset -7px -8px 16px rgba(40, 60, 80, .3), 10px 14px 28px -10px rgba(91, 115, 139, .5); }
+.clay-page .zone-title { font-size: 30px; color: var(--cl-ink); }
+.clay-page .zone-title small { font-family: var(--cl-head); font-size: 15px; color: var(--cl-purple); letter-spacing: 2px; }
+.clay-page .zone-desc { color: var(--cl-ink-soft); }
+.clay-page .zone-head .sk-pal {
+    width: 84px; order: 3; margin-left: auto; margin-right: 24px; padding: 10px;
+    border-radius: 24px; background: linear-gradient(150deg, #fff, var(--cl-lilac)); box-shadow: var(--cl-puff-sm);
+}
+
+/* ---------- 年段分頁與標籤 ---------- */
+.clay-page .grade-tab { border: 0; background: var(--cl-cream); color: var(--cl-ink-soft); border-radius: 18px; padding: 10px 20px; font-family: var(--cl-head); font-size: 15px; box-shadow: var(--cl-puff-sm); }
+.clay-page .grade-tab:hover { color: var(--cl-ink); transform: translateY(-2px); }
+.clay-page .grade-tab.active { background: linear-gradient(145deg, #9a82b5, var(--cl-purple-deep)); color: #fff; box-shadow: var(--cl-puff-purple); }
+.clay-page .grade-tab-count { background: rgba(130, 104, 157, .12); border-radius: 10px; }
+.clay-page .grade-group-title { font-size: 22px; color: var(--cl-ink); }
+.clay-page .grade-pill { border-radius: 12px; padding: 4px 12px; font-family: var(--cl-head); font-weight: 400; box-shadow: var(--cl-puff-sm); background: var(--cl-cream); }
+.clay-page .grade-pill.grade-g9 { background: linear-gradient(145deg, #fff3d8, #f1dcae); color: #8f6a24; }
+.clay-page .grade-pill.grade-g10 { background: linear-gradient(145deg, #e4f3ee, #c6e2d9); color: #3f7266; }
+.clay-page .grade-pill.grade-g11 { background: linear-gradient(145deg, #f0e8f7, #ddd0ea); color: #634a7d; }
+.clay-page .grade-pill.grade-all, .clay-page .grade-pill.grade-teacher { background: linear-gradient(145deg, #e8eef4, #d0dbe5); color: #425b74; }
+.clay-page .grade-group-head .sk-pal-sm { width: 56px; padding: 6px; border-radius: 18px; background: linear-gradient(150deg, #fff, var(--cl-lilac)); box-shadow: var(--cl-puff-sm); }
+
+/* ---------- 作品卡 ---------- */
+.clay-page .pcard {
+    background: linear-gradient(155deg, #fff 0%, #f8f4fb 100%);
+    border: 0; border-radius: 34px; overflow: visible;
+    box-shadow: var(--cl-puff);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), box-shadow .35s ease;
+}
+.clay-page .pcard:hover { transform: translateY(-6px) scale(1.01); box-shadow: inset 6px 6px 14px rgba(255, 255, 255, .95), inset -8px -10px 18px rgba(130, 104, 157, .16), 16px 26px 44px -14px var(--cl-sh); }
+.clay-page .pcard::before { content: none; }
+.clay-page .pcard-media {
+    margin: 14px 14px 0; border: 0; border-radius: 24px; padding: 10px;
+    background: linear-gradient(150deg, var(--cl-lilac), #e9e1f3);
+    box-shadow: inset 4px 4px 10px rgba(130, 104, 157, .14), inset -4px -4px 10px #fff;
+    overflow: hidden;
+}
+.clay-page .pcard-media.is-screenshot { padding: 0; background: #1b1830; box-shadow: inset 0 0 0 4px #fff, 0 0 0 1px rgba(130, 104, 157, .1); }
+.clay-page .pcard-media img { border-radius: 16px; }
+.clay-page .pcard-body { padding: 18px 20px 20px; }
+.clay-page .pcard-topic { color: var(--cl-ink-soft); }
+.clay-page .pcard-topic i { color: var(--cl-gold); }
+.clay-page .pcard-title { font-size: 19px; line-height: 1.45; }
+.clay-page .pcard-title a { color: var(--cl-ink); }
+.clay-page .pcard-title a:hover { color: var(--cl-purple); }
+.clay-page .pcard-desc { color: var(--cl-ink-soft); line-height: 1.85; }
+.clay-page .pcard-more { font-family: var(--cl-head); color: var(--cl-purple); }
+.clay-page .pcard-foot { border-top: 0; }
+.clay-page .pcard-link {
+    font-family: var(--cl-head); font-weight: 400; font-size: 14px; padding: 9px 18px; border-radius: 16px;
+    background: linear-gradient(145deg, #9a82b5, var(--cl-purple-deep)); color: #fff; box-shadow: var(--cl-puff-purple);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease;
+}
+.clay-page .pcard-link:hover { background: linear-gradient(145deg, #ecd3a4, #c9a055); color: #fff; box-shadow: var(--cl-puff-gold); transform: translateY(-2px); }
+
+/* ---------- 教學導覽卡 ---------- */
+.clay-page .teaching-card { border: 0; border-radius: 28px; background: linear-gradient(155deg, #fff, #f8f4fb); box-shadow: var(--cl-puff); }
+.clay-page .teaching-card h5 { font-family: var(--cl-head); font-weight: 400; }
+
+/* ---------- 小夥伴遊行 ---------- */
+.clay-page .sk-parade img { padding: 8px; border-radius: 20px; background: linear-gradient(150deg, #fff, var(--cl-lilac)); box-shadow: var(--cl-puff-sm); }
+
+/* ---------- 頁尾 ---------- */
+.clay-page footer { background: linear-gradient(180deg, transparent, rgba(233, 225, 243, .7)); border-top: 0; }
+.clay-page .footer-slogan p { font-family: var(--cl-head); color: var(--cl-purple); }
+
+@media (max-width: 760px) {
+    .clay-page .pcard { border-radius: 28px; }
+    .clay-page .pcard-media { margin: 10px 10px 0; border-radius: 20px; }
+    .clay-page .zone-head .sk-pal { width: 64px; margin-right: 0; }
+    .clay-page .sk-point-q { width: 100px; top: -70px; }
+}

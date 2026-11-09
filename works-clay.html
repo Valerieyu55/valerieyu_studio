@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>作品收集 | Valerie Yu Studio</title>
+    <link rel="stylesheet" href="style.css?v=20261106c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cactus+Classical+Serif&family=Chiron+Hei+HK:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+    <link rel="stylesheet" href="clay.css?v=20261109a">
+
+    <!-- Favicon & Chrome / PWA Shortcut Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=20261109">
+    <link rel="shortcut icon" href="favicon.ico?v=20261109">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=20261109">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=20261109">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261109">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#82689d">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Valerie Yu Studio">
+    <meta name="application-name" content="Valerie Yu Studio">
+</head>
+<body class="clay-page">
+    <!-- Background Elements -->
+    <div class="bg-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="dots dots-1"></div>
+        <div class="dots dots-2"></div>
+        <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="rgba(216, 181, 121, 0.2)" stroke-width="0.1"/>
+            <path d="M0,80 Q25,60 50,80 T100,80" fill="none" stroke="rgba(130, 104, 157, 0.1)" stroke-width="0.1"/>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" title="回到首頁">
+                <img src="pic/valerie-yu-studio-logo-1.png" alt="Valerie Yu Studio" class="logo-img">
+            </a>
+            <div class="nav-actions-mobile">
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="#projects" class="nav-btn">
+                        <img src="assets/card-icon-4.png" alt="Projects" class="nav-icon">
+                        <span>作品收集 Works</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#teaching" class="nav-btn">
+                        <img src="assets/card-icon-1.png" alt="Teaching" class="nav-icon">
+                        <span>教學 Teaching</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">依年段整理的教學模組。</p>
+                        <div class="dropdown-links dropdown-grouped">
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g9">九年級</span> 國中 · 九年級</span>
+                            <a href="https://valerieyu55.github.io/Mathoria/" target="_blank">MATHORIA 數域魔法學院（G9 冒險地圖）</a>
+                            <a href="https://valerieyu55.github.io/store_manager/cup/" target="_blank">連比例與手搖飲創業專案</a>
+                            <a href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank">比不比熟成紅茶（相似形遊戲）</a>
+                            <a href="https://valerieyu55.github.io/measure-quest/" target="_blank">測量遠征：相似形生活測量</a>
+                            <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank">拋物線・看見數學的軌跡</a>
+                            <a href="https://valerieyu55.github.io/G9/" target="_blank">統計與機率</a>
+                            <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank">3-1 從平面到立體：空間幾何</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-g11">十一年級</span> 高中 · 十一年級</span>
+                            <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank">數學 3B 弧度量與週期性模型</a>
+                            <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank">數學 3B 指數與對數實驗室</a>
+                            <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank">納皮爾的對數表（闖關遊戲）</a>
+                            <span class="dropdown-group-label"><span class="grade-pill grade-all">通用</span> 跨年段通用</span>
+                            <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank">空間幾何體・動態探索系統</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#counseling" class="nav-btn">
+                        <img src="assets/card-icon-2.png" alt="Counseling" class="nav-icon">
+                        <span>升學組 Counseling</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">升學輔導資源與決策支援。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/math_ab/" target="_blank">數A數B分析模組</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#tools" class="nav-btn">
+                        <img src="assets/card-icon-3.png" alt="Tools" class="nav-icon">
+                        <span>教師工具 Tools</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <p class="dropdown-desc">提升教學效率的實用工具與後台。</p>
+                        <div class="dropdown-links">
+                            <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank">代導費用 Calculator</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="moments.html" class="nav-btn">
+                        <i class="fa-solid fa-camera-retro nav-fa"></i>
+                        <span>課堂風景 Moments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-btn">
+                        <img src="assets/card-icon-5.png" alt="About" class="nav-icon">
+                        <span>關於 About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section (sketchbook) -->
+    <section id="home" class="hero sk-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <p class="sk-kicker">Valerie Yu Studio · 作品收集</p>
+                <h1 class="sk-title"><span class="sk-mark">作品</span>收集簿</h1>
+                <p class="hero-text">我是 Valerie 老師。這本筆記本收著我用 Vibe Coding 與 Agentic Coding 做出來的互動數學教材、升學輔導工具和教師小工具，依年段整理，打開就能用。</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" id="btn-explore">翻開作品 <i class="fa-solid fa-arrow-down"></i></a>
+                    <a href="#projects" class="btn btn-outline" id="btn-view-teaching">教學模組總覽 <i class="fa-solid fa-shapes"></i></a>
+                </div>
+            </div>
+            <div class="hero-graphic sk-hero-art">
+                <figure class="sk-cutout sk-hero-q"><img src="assets/q/v-orca.webp" alt="Valerie 老師與小虎鯨的蠟筆插畫" width="560" height="496"></figure>
+                <svg class="sk-doodle sk-hero-doodle" viewBox="0 0 420 420" aria-hidden="true">
+                    <path class="sk-ink sk-gold" d="M30 360 C80 300 120 330 160 280 S230 190 270 210"/>
+                    <path class="sk-ink sk-gold" d="M262 198 L272 210 L258 216"/>
+                    <path class="sk-ink" d="M330 70 L338 90 L360 92 L343 106 L349 128 L330 116 L311 128 L317 106 L300 92 L322 90 Z"/>
+                    <path class="sk-ink sk-thin" d="M48 70 C40 60 54 46 64 56 C74 66 60 82 48 74 M70 48 l10 -8 M30 52 l-8 -8"/>
+                    <text class="sk-scrawl" x="40" y="400">f(you) = value ✦</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section: Sidebar + Featured Projects -->
+    <section id="main-content" class="main-layout-section">
+        <div class="container layout-container">
+            
+
+            <!-- Right Content: Featured Projects -->
+            <main id="projects" class="main-content">
+                <div class="section-header align-left">
+                    <h3 class="section-title"><span>作品庫</span> Projects Library</h3>
+                    <div class="line"></div>
+                </div>
+
+                <figure class="sk-cutout sk-point-q" aria-hidden="true"><img src="assets/q/v-point.webp" alt="" loading="lazy"></figure>
+                <!-- Finder: zone jump + search -->
+                <div class="finder" id="finder">
+                    <nav class="zone-nav" aria-label="作品分區">
+                        <a href="#teaching" class="zone-chip" data-zone-link="teaching">
+                            <span class="zone-chip-icon"><i class="fa-solid fa-book-open"></i></span>
+                            <span class="zone-chip-text"><b>課程教材</b><small>Teaching</small></span>
+                            <span class="zone-chip-count" data-count-zone="teaching">0</span>
+                        </a>
+                        <a href="#counseling" class="zone-chip" data-zone-link="counseling">
+                            <span class="zone-chip-icon"><i class="fa-solid fa-compass"></i></span>
+                            <span class="zone-chip-text"><b>升學輔導</b><small>Counseling</small></span>
+                            <span class="zone-chip-count" data-count-zone="counseling">0</span>
+                        </a>
+                        <a href="#tools" class="zone-chip" data-zone-link="tools">
+                            <span class="zone-chip-icon"><i class="fa-solid fa-toolbox"></i></span>
+                            <span class="zone-chip-text"><b>教師工具</b><small>Tools</small></span>
+                            <span class="zone-chip-count" data-count-zone="tools">0</span>
+                        </a>
+                    </nav>
+                    <label class="finder-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" id="project-search" placeholder="搜尋單元或關鍵字，例如：對數、相似形、二次函數" autocomplete="off" aria-label="搜尋作品">
+                    </label>
+                </div>
+                <p class="finder-status" id="finder-status" aria-live="polite" hidden></p>
+
+                <!-- Zone 1: Teaching (grouped by grade) -->
+                <section class="zone" id="teaching" data-zone="teaching">
+                    <header class="zone-head"><img class="sk-pal" src="assets/q/pal-square.webp" alt="" aria-hidden="true" loading="lazy">
+                        <span class="zone-icon"><i class="fa-solid fa-book-open"></i></span>
+                        <div>
+                            <h3 class="zone-title">課程教材 <small>Teaching Modules</small></h3>
+                            <p class="zone-desc">互動數位課本、PBL 專題與數學遊戲，依年段整理。</p>
+                        </div>
+                    </header>
+                    <div class="grade-tabs" role="tablist" aria-label="依年段篩選">
+                        <button class="grade-tab active" role="tab" aria-selected="true" data-grade="all-grades">全部年段 <span class="grade-tab-count" data-count-grade="all-grades">0</span></button>
+                        <!-- 其餘年段分頁由 JS 依 data-grade-group 自動產生 -->
+                    </div>
+
+                    <div class="grade-group" data-grade-group="g9" id="grade-g9">
+                        <div class="grade-group-head"><img class="sk-pal sk-pal-sm" src="assets/q/pal-circle.webp" alt="" aria-hidden="true" loading="lazy">
+                            <span class="grade-pill grade-g9 lg">九年級</span>
+                            <div>
+                                <h4 class="grade-group-title">國中 · 九年級 <small>Junior High · Grade 9</small></h4>
+                                <p class="grade-group-note">國中數學 3上・3下｜相似形、二次函數、統計與機率、立體圖形</p>
+                            </div>
+                            <span class="grade-group-count"><b>7</b> 件</span>
+                        </div>
+                        <div class="pcard-grid">
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-10-29" data-search="MATHORIA 數域魔法學院 G9 數學冒險地圖 九年級 遊戲化 闖關 角色進化 魔王 迷思概念 相似形 圓 推理證明 三心 二次函數 統計與機率 立體圖形 依康軒九上、九下單元打造的 G9 數學冒險世界。學生以康橋制服的 Q 版角色入學「數域魔法學院」，在浮空島地圖上依序探索相似形之森、圓環聖殿、真理審判庭、三心神殿、拋物線天空塔、機率命運島、空間魔方城到終焉試煉之地八大據點；每一站串接既有的互動課程網頁，完成任務累積 XP，角色與寵物從見習探索者一路進化為數域守護者。每章魔王都是一個常見迷思概念的化身，學生完成段考或指定挑戰後以專屬核可碼「擊破迷思」。內建訪客試玩、教師關卡預覽、Google Apps Script 教師後台（全班進度、核可碼表、CSV 匯出），以及跨裝置進度還原與原創背景音樂。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/Mathoria/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-13.png" alt="MATHORIA 數域魔法學院：G9 數學冒險地圖" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-hat-wizard"></i> 九年級全學年 · 遊戲化學習世界</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/Mathoria/" target="_blank" rel="noopener">MATHORIA 數域魔法學院：G9 數學冒險地圖</a></h4>
+                                <p class="pcard-desc">依康軒九上、九下單元打造的 G9 數學冒險世界。學生以康橋制服的 Q 版角色入學「數域魔法學院」，在浮空島地圖上依序探索相似形之森、圓環聖殿、真理審判庭、三心神殿、拋物線天空塔、機率命運島、空間魔方城到終焉試煉之地八大據點；每一站串接既有的互動課程網頁，完成任務累積 XP，角色與寵物從見習探索者一路進化為數域守護者。每章魔王都是一個常見迷思概念的化身，學生完成段考或指定挑戰後以專屬核可碼「擊破迷思」。內建訪客試玩、教師關卡預覽、Google Apps Script 教師後台（全班進度、核可碼表、CSV 匯出），以及跨裝置進度還原與原創背景音樂。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.10.29 上傳</span>
+                                    <span class="badge-updated badge-new" data-update-date="2026-10-29"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW 最新發布</span>
+                                    <a href="https://valerieyu55.github.io/Mathoria/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-09-23" data-search="國中數學 3上：1-1 連比例與手搖飲創業專案 國中九年級 · 連比例跨領域專案 九年級 以「手搖飲創業與店長養成」為情境架構的九年級連比例沉浸式課堂活動。學生化身飲料品牌創辦人與研發總監，貫穿五大核心部門任務：在「研發部」藉由破解兩張獨立配方紙的共同項基準迷思，動態操作擴分以求得三連比；在「調飲實驗室」進行比例式與毫升縮放；於「財務部」結合成本率與利潤公式制定真實售價；在「行銷部」依視覺比例規劃廣告版位；最終於「新品發表會」自主調配專屬配方並生成完整企劃書。系統內建教師即時戰情儀表板，支援全班學習進度追蹤與分析，讓抽象的比例代數化為充滿探索感與商業思維的生活化探究體驗。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/store_manager/cup/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-8.png" alt="國中數學 3上：1-1 連比例與手搖飲創業專案" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-mug-hot"></i> 國中九年級 · 連比例跨領域專案</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/store_manager/cup/" target="_blank" rel="noopener">國中數學 3上：1-1 連比例與手搖飲創業專案</a></h4>
+                                <p class="pcard-desc">以「手搖飲創業與店長養成」為情境架構的九年級連比例沉浸式課堂活動。學生化身飲料品牌創辦人與研發總監，貫穿五大核心部門任務：在「研發部」藉由破解兩張獨立配方紙的共同項基準迷思，動態操作擴分以求得三連比；在「調飲實驗室」進行比例式與毫升縮放；於「財務部」結合成本率與利潤公式制定真實售價；在「行銷部」依視覺比例規劃廣告版位；最終於「新品發表會」自主調配專屬配方並生成完整企劃書。系統內建教師即時戰情儀表板，支援全班學習進度追蹤與分析，讓抽象的比例代數化為充滿探索感與商業思維的生活化探究體驗。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.09.23 更新</span>
+                                    <span class="badge-updated" data-update-date="2026-09-23"><i class="fa-solid fa-arrows-rotate"></i> 近期更新</span>
+                                    <a href="https://valerieyu55.github.io/store_manager/cup/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-10-28" data-search="比不比熟成紅茶：相似形像素手搖飲經營遊戲 九年級 相似形 像素遊戲 連比例 比例線段 相似多邊形 相似三角形 面積比 手搖飲 以康軒九上第一章「相似形」為主軸的像素風手搖飲店經營遊戲。傍晚六點店門口燈串亮起，學生化身店長，依序解鎖五大區域：研發部（1-1 連比例）、杯身設計室（1-2 比例線段）、品牌部（1-3 相似多邊形）、吧台（1-4 相似三角形），最後在財務室終章破解「面積比＝相似比²」。整章概念約 20 分鐘玩完，內建學生排行榜、訪客試玩模式，並以 Google Apps Script 教師後台完整記錄每位學生的作答歷程，方便課後檢視各關題目與答案。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-12.png" alt="比不比熟成紅茶：相似形像素手搖飲經營遊戲" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-gamepad"></i> 相似形全章 · 像素經營遊戲</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank" rel="noopener">比不比熟成紅茶：相似形像素手搖飲經營遊戲</a></h4>
+                                <p class="pcard-desc">以康軒九上第一章「相似形」為主軸的像素風手搖飲店經營遊戲。傍晚六點店門口燈串亮起，學生化身店長，依序解鎖五大區域：研發部（1-1 連比例）、杯身設計室（1-2 比例線段）、品牌部（1-3 相似多邊形）、吧台（1-4 相似三角形），最後在財務室終章破解「面積比＝相似比²」。整章概念約 20 分鐘玩完，內建學生排行榜、訪客試玩模式，並以 Google Apps Script 教師後台完整記錄每位學生的作答歷程，方便課後檢視各關題目與答案。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.10.28 上傳</span>
+                                    <span class="badge-updated badge-new" data-update-date="2026-10-28"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW 最新發布</span>
+                                    <a href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-09-24" data-search="測量遠征：一束光，丈量一個世界 數學探究 · 相似形與生活測量遠征 九年級 「如果不能攀爬金字塔，你會怎麼測量它？」本專案以古希臘數學家泰勒斯測量埃及金字塔的歷史傳奇為起點，打造跨時空的數位數學探究體驗。學生將跟隨泰勒斯的影子思維，貫穿三大現實生活測量挑戰：藉由太陽平行光與標竿影長求解「向上量不到的高樓」、透過水平與鉛直基準剖析「斜向難測的坡度高差」，以及運用直角與三點共線對準克服「走不過去的河對岸距離」。系統內建動態模擬器、三層式鷹架提示、學生小組填寫軌跡與學習歷程報告自動匯出功能，並支援無縫同步教師 Google 試算表戰情儀表板，完美實踐新課綱探究與素養導向的數位課堂革新。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/measure-quest/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-9.png" alt="測量遠征：一束光，丈量一個世界" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-compass-drafting"></i> 數學探究 · 相似形與生活測量遠征</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/measure-quest/" target="_blank" rel="noopener">測量遠征：一束光，丈量一個世界</a></h4>
+                                <p class="pcard-desc">「如果不能攀爬金字塔，你會怎麼測量它？」本專案以古希臘數學家泰勒斯測量埃及金字塔的歷史傳奇為起點，打造跨時空的數位數學探究體驗。學生將跟隨泰勒斯的影子思維，貫穿三大現實生活測量挑戰：藉由太陽平行光與標竿影長求解「向上量不到的高樓」、透過水平與鉛直基準剖析「斜向難測的坡度高差」，以及運用直角與三點共線對準克服「走不過去的河對岸距離」。系統內建動態模擬器、三層式鷹架提示、學生小組填寫軌跡與學習歷程報告自動匯出功能，並支援無縫同步教師 Google 試算表戰情儀表板，完美實踐新課綱探究與素養導向的數位課堂革新。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.09.24 上傳</span>
+                                    <span class="badge-updated badge-new" data-update-date="2026-09-24"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW 最新發布</span>
+                                    <a href="spotlight-measure-quest.html" class="pcard-link">教學亮點 <i class="fa-solid fa-lightbulb"></i></a>
+                                    <a href="https://valerieyu55.github.io/measure-quest/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-03-12" data-search="課堂教案：拋物線・看見數學的軌跡 二次函數 · 數學軌跡視覺化 九年級 本教案將抽象的二次函數與拋物線軌跡，轉化為肉眼可見的視覺動態展演。設計理念著重於「數學的視覺化美學」，透過精準的座標系點陣圖與平滑的曲線動態，引導學生觀察參數變化對拋物線開口與頂點的影響。我們刻意濾除了多餘的視覺干擾，保留了純粹的點、線與網格，讓每一次的參數調整都能帶來直覺的視覺反饋。這不僅降低了代數學習的門檻，更讓學生能真切地「看見」隱藏在公式背後的數學規律與軌跡之美。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/MATH.COURT/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-3.png" alt="課堂教案：拋物線・看見數學的軌跡" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-chart-line"></i> 二次函數 · 數學軌跡視覺化</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank" rel="noopener">課堂教案：拋物線・看見數學的軌跡</a></h4>
+                                <p class="pcard-desc">本教案將抽象的二次函數與拋物線軌跡，轉化為肉眼可見的視覺動態展演。設計理念著重於「數學的視覺化美學」，透過精準的座標系點陣圖與平滑的曲線動態，引導學生觀察參數變化對拋物線開口與頂點的影響。我們刻意濾除了多餘的視覺干擾，保留了純粹的點、線與網格，讓每一次的參數調整都能帶來直覺的視覺反饋。這不僅降低了代數學習的門檻，更讓學生能真切地「看見」隱藏在公式背後的數學規律與軌跡之美。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.03.12 上傳</span>
+                                    
+                                    <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-04-02" data-search="國中數學 3下：統計與機率 國中九年級 · 統計與機率儀表板 九年級 專為新課綱設計的統計與機率教學平台，將繁雜的數據化為清晰易讀的視覺圖表。在設計上，我們採用了現代 Dashboard 的儀表板概念，以典雅的紫灰色調搭配直覺的長條圖與圓餅圖組件，打破傳統數學教材枯燥的排版。學生不僅能快速掌握資料分布特徵，還能透過互動介面親自操作數據，理解機率的隨機性與統計意義。這套模組完美詮釋了「以設計輔助認知」，讓原本生硬的數據分析課程變得充滿現代感與探索樂趣。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/G9/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-4.png" alt="國中數學 3下：統計與機率" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-chart-pie"></i> 國中九年級 · 統計與機率儀表板</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/G9/" target="_blank" rel="noopener">國中數學 3下：統計與機率</a></h4>
+                                <p class="pcard-desc">專為新課綱設計的統計與機率教學平台，將繁雜的數據化為清晰易讀的視覺圖表。在設計上，我們採用了現代 Dashboard 的儀表板概念，以典雅的紫灰色調搭配直覺的長條圖與圓餅圖組件，打破傳統數學教材枯燥的排版。學生不僅能快速掌握資料分布特徵，還能透過互動介面親自操作數據，理解機率的隨機性與統計意義。這套模組完美詮釋了「以設計輔助認知」，讓原本生硬的數據分析課程變得充滿現代感與探索樂趣。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.04.02 上傳</span>
+                                    
+                                    <a href="https://valerieyu55.github.io/G9/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g9" data-date="2026-04-28" data-search="從平面到立體：空間幾何的思維躍遷 國中數學 3下 · 3D 空間幾何探究 九年級 這款教學模組專為國中立體圖形單元打造，將抽象的空間概念轉化為具象的 3D 視覺互動體驗。設計理念核心在於「化繁為簡」，透過典雅乾淨的介面與直覺的操作，讓學生能自由旋轉、剖析幾何圖形，探索線與面之間的垂直與平行關係。有別於傳統平面的板書教學，本作品採用即時運算的動態模型，不僅大幅降低了學生的空間認知負荷，更激發了他們對幾何結構的好奇心與探索欲，真正實踐了「清晰設計成就更好學習」的核心願景。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-1.png" alt="從平面到立體：空間幾何的思維躍遷" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g9">九年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-cube"></i> 國中數學 3下 · 3D 空間幾何探究</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank" rel="noopener">從平面到立體：空間幾何的思維躍遷</a></h4>
+                                <p class="pcard-desc">這款教學模組專為國中立體圖形單元打造，將抽象的空間概念轉化為具象的 3D 視覺互動體驗。設計理念核心在於「化繁為簡」，透過典雅乾淨的介面與直覺的操作，讓學生能自由旋轉、剖析幾何圖形，探索線與面之間的垂直與平行關係。有別於傳統平面的板書教學，本作品採用即時運算的動態模型，不僅大幅降低了學生的空間認知負荷，更激發了他們對幾何結構的好奇心與探索欲，真正實踐了「清晰設計成就更好學習」的核心願景。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.04.28 上傳</span>
+                                    
+                                    <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        </div>
+                    </div>
+                    <div class="grade-group" data-grade-group="g11" id="grade-g11">
+                        <div class="grade-group-head"><img class="sk-pal sk-pal-sm" src="assets/q/pal-crystal.webp" alt="" aria-hidden="true" loading="lazy">
+                            <span class="grade-pill grade-g11 lg">十一年級</span>
+                            <div>
+                                <h4 class="grade-group-title">高中 · 十一年級 <small>Senior High · Grade 11</small></h4>
+                                <p class="grade-group-note">高中數學 3B｜弧度量與三角、指數與對數</p>
+                            </div>
+                            <span class="grade-group-count"><b>3</b> 件</span>
+                        </div>
+                        <div class="pcard-grid">
+                        <article class="pcard" data-zone="teaching" data-grade="g11" data-date="2026-09-22" data-search="高中數學 3B：弧度量與週期性數學模型 高中數學 3B · 數位智慧課本 十一年級 本專案為高中數學 3B 打造的沉浸式數位智慧課本，深度融合「直觀幾何探究」與「週期性生活建模」。系統首創圓弧物理「拉直展開」動態引擎，讓學生親手比對半徑刻度，直觀掌握 1 弳的實數幾何本質；並以同界角螺旋軌跡與象限動態判定，破解單位混淆之常見迷思。更進一步延伸至單位圓投影與正弦波即時生成，結合摩天輪高度、港口潮汐與月相盈虧等真實生活情境。搭配內建 CASIO 計算機模擬器與 KaTeX 零延遲數學渲染，實踐以美感科技賦能數學素養的全新課堂體驗。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-7.png" alt="高中數學 3B：弧度量與週期性數學模型" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g11">十一年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-shapes"></i> 高中數學 3B · 數位智慧課本</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank" rel="noopener">高中數學 3B：弧度量與週期性數學模型</a></h4>
+                                <p class="pcard-desc">本專案為高中數學 3B 打造的沉浸式數位智慧課本，深度融合「直觀幾何探究」與「週期性生活建模」。系統首創圓弧物理「拉直展開」動態引擎，讓學生親手比對半徑刻度，直觀掌握 1 弳的實數幾何本質；並以同界角螺旋軌跡與象限動態判定，破解單位混淆之常見迷思。更進一步延伸至單位圓投影與正弦波即時生成，結合摩天輪高度、港口潮汐與月相盈虧等真實生活情境。搭配內建 CASIO 計算機模擬器與 KaTeX 零延遲數學渲染，實踐以美感科技賦能數學素養的全新課堂體驗。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.09.22 更新</span>
+                                    <span class="badge-updated" data-update-date="2026-09-22"><i class="fa-solid fa-arrows-rotate"></i> 近期更新</span>
+                                    <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g11" data-date="2026-10-23" data-search="高中數學 3B：指數與對數函數實驗室 高中數學 3B · 數位智慧課本 十一年級 專為高中數學 3B（單元 03 指數函數、單元 04 對數、單元 05 對數函數）量身打造的現代化數位智慧課本。系統搭載動態幾何圖形畫布與「沿對稱軸 y=x 折疊」的反函數動態鏡射動畫，直觀破除指數與對數互逆之認知障礙；深度整合 CASIO 工程計算機實機操作模擬器、地震芮氏規模與分貝聲音強度等生活素養建模，並具備觀念診斷題庫與一鍵切換教室大螢幕投影模式，全方位賦能新課綱自主探究與數位課堂教學。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-11.png" alt="高中數學 3B：指數與對數函數實驗室" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g11">十一年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-chart-line"></i> 高中數學 3B · 數位智慧課本</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank" rel="noopener">高中數學 3B：指數與對數函數實驗室</a></h4>
+                                <p class="pcard-desc">專為高中數學 3B（單元 03 指數函數、單元 04 對數、單元 05 對數函數）量身打造的現代化數位智慧課本。系統搭載動態幾何圖形畫布與「沿對稱軸 y=x 折疊」的反函數動態鏡射動畫，直觀破除指數與對數互逆之認知障礙；深度整合 CASIO 工程計算機實機操作模擬器、地震芮氏規模與分貝聲音強度等生活素養建模，並具備觀念診斷題庫與一鍵切換教室大螢幕投影模式，全方位賦能新課綱自主探究與數位課堂教學。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.10.23 上傳</span>
+                                    <span class="badge-updated badge-new" data-update-date="2026-10-23"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW 最新發布</span>
+                                    <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pcard" data-zone="teaching" data-grade="g11" data-date="2026-10-23" data-search="納皮爾的對數表：乘除化加減的歷史奇蹟 數學史探究 · 乘除化加減的歷史奇蹟 十一年級 「如果沒有對數，天文學家與航海家的壽命將縮短一半。」本專案以 17 世紀蘇格蘭數學家約翰·納皮爾（John Napier）發明對數的歷史背景為核心，打造古典羊皮紙與黃銅工藝風格的沉浸式數學探索遊戲。深入演繹連續幾何運動、等比級數與等差級數對照之思維躍遷，讓學生親歷繁複天文三角運算如何奇蹟般化為優雅加減法。系統結合納皮爾算籌（Napier&#x27;s Bones）互動模擬、委託謎題與即時速算挑戰，引領學習者深刻領略對數概念的幾何本質與歷史震撼。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-10.png" alt="納皮爾的對數表：乘除化加減的歷史奇蹟" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g11">十一年級</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-scroll"></i> 數學史探究 · 乘除化加減的歷史奇蹟</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank" rel="noopener">納皮爾的對數表：乘除化加減的歷史奇蹟</a></h4>
+                                <p class="pcard-desc">「如果沒有對數，天文學家與航海家的壽命將縮短一半。」本專案以 17 世紀蘇格蘭數學家約翰·納皮爾（John Napier）發明對數的歷史背景為核心，打造古典羊皮紙與黃銅工藝風格的沉浸式數學探索遊戲。深入演繹連續幾何運動、等比級數與等差級數對照之思維躍遷，讓學生親歷繁複天文三角運算如何奇蹟般化為優雅加減法。系統結合納皮爾算籌（Napier's Bones）互動模擬、委託謎題與即時速算挑戰，引領學習者深刻領略對數概念的幾何本質與歷史震撼。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.10.23 上傳</span>
+                                    <span class="badge-updated badge-new" data-update-date="2026-10-23"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW 最新發布</span>
+                                    <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        </div>
+                    </div>
+                    <div class="grade-group" data-grade-group="all" id="grade-all">
+                        <div class="grade-group-head">
+                            <span class="grade-pill grade-all lg">通用</span>
+                            <div>
+                                <h4 class="grade-group-title">跨年段通用 <small>All Levels</small></h4>
+                                <p class="grade-group-note">不限年段，可用於任何幾何單元的探究活動</p>
+                            </div>
+                            <span class="grade-group-count"><b>1</b> 件</span>
+                        </div>
+                        <div class="pcard-grid">
+                        <article class="pcard" data-zone="teaching" data-grade="all" data-date="2026-05-18" data-search="空間幾何體・動態探索系統 幾何探究沙盒 · 水晶幾何語彙 通用 本系統致力於打造一個開放式的幾何探究沙盒，讓學習者能沉浸於動態的幾何建構過程中。設計上延續了極簡美學與水晶幾何的視覺語彙，不僅介面賞心悅目，更提供了豐富的參數調節功能。使用者可以即時觀察點、線、面在三維空間中的變化軌跡，深刻理解幾何定理的推導過程。其設計理念旨在打破制式化的解題框架，賦予學生主動探索的權力，培養其嚴謹的邏輯思維與空間想像力，是一套兼具美感與深度的數位教育工具。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/geometry_qdes/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-2.png" alt="空間幾何體・動態探索系統" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-all">通用</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-gem"></i> 幾何探究沙盒 · 水晶幾何語彙</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank" rel="noopener">空間幾何體・動態探索系統</a></h4>
+                                <p class="pcard-desc">本系統致力於打造一個開放式的幾何探究沙盒，讓學習者能沉浸於動態的幾何建構過程中。設計上延續了極簡美學與水晶幾何的視覺語彙，不僅介面賞心悅目，更提供了豐富的參數調節功能。使用者可以即時觀察點、線、面在三維空間中的變化軌跡，深刻理解幾何定理的推導過程。其設計理念旨在打破制式化的解題框架，賦予學生主動探索的權力，培養其嚴謹的邏輯思維與空間想像力，是一套兼具美感與深度的數位教育工具。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.05.18 上傳</span>
+                                    
+                                    <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Zone 2: Counseling -->
+                <section class="zone" id="counseling" data-zone="counseling">
+                    <header class="zone-head"><img class="sk-pal" src="assets/q/pal-hex.webp" alt="" aria-hidden="true" loading="lazy">
+                        <span class="zone-icon gold"><i class="fa-solid fa-compass"></i></span>
+                        <div>
+                            <h3 class="zone-title">升學輔導 <small>Counseling</small></h3>
+                            <p class="zone-desc">選修分流、升學路徑與決策支援工具。</p>
+                        </div>
+                    </header>
+                    <div class="pcard-grid">
+                        <article class="pcard" data-zone="counseling" data-grade="g10" data-date="2026-03-12" data-search="108課綱：高二數學A與數學B選修指南 升學輔導 · 108課綱選修指南 十年級選課 為了幫助高中生在面對 108 課綱的分流時不再迷惘，本指南以「探索未來路徑」為核心隱喻進行設計。視覺上運用了充滿希望感的漸層紫金山丘與道路分岔路標，柔和地傳遞出「選擇」的意象。介面內整合了數A與數B的核心差異、未來科系對應及學習策略，並透過流暢的引導式問答，協助學生釐清自身志向。這不僅是一份資訊型指南，更是一個能安定學生焦慮、陪伴他們勇敢邁向未來學術旅程的數位輔導夥伴。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/math_ab/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-5.png" alt="108課綱：高二數學A與數學B選修指南" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-g10">十年級選課</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-compass"></i> 升學輔導 · 108課綱選修指南</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/math_ab/" target="_blank" rel="noopener">108課綱：高二數學A與數學B選修指南</a></h4>
+                                <p class="pcard-desc">為了幫助高中生在面對 108 課綱的分流時不再迷惘，本指南以「探索未來路徑」為核心隱喻進行設計。視覺上運用了充滿希望感的漸層紫金山丘與道路分岔路標，柔和地傳遞出「選擇」的意象。介面內整合了數A與數B的核心差異、未來科系對應及學習策略，並透過流暢的引導式問答，協助學生釐清自身志向。這不僅是一份資訊型指南，更是一個能安定學生焦慮、陪伴他們勇敢邁向未來學術旅程的數位輔導夥伴。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.03.12 上傳</span>
+                                    
+                                    <a href="https://valerieyu55.github.io/math_ab/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Zone 3: Tools -->
+                <section class="zone" id="tools" data-zone="tools">
+                    <header class="zone-head"><img class="sk-pal" src="assets/q/pal-tri.webp" alt="" aria-hidden="true" loading="lazy">
+                        <span class="zone-icon slate"><i class="fa-solid fa-toolbox"></i></span>
+                        <div>
+                            <h3 class="zone-title">教師工具 <small>Teacher Tools</small></h3>
+                            <p class="zone-desc">減少行政庶務、把時間留給教學的效率小工具。</p>
+                        </div>
+                    </header>
+                    <div class="pcard-grid">
+                        <article class="pcard" data-zone="tools" data-grade="teacher" data-date="2026-05-07" data-search="代導費用 Calculator 教師工具 · 效率行政小幫手 教師 這是一款專為第一線教育工作者量身打造的實用效率工具。設計理念源於對教師日常繁瑣行政工作的體貼，旨在用最直覺的數位介面解決代導費用的計算痛點。我們將複雜的計費邏輯隱藏於極簡優雅的表單背後，教師只需輸入基本資訊，系統便能快速、精準地產出費用明細，並支援匯出與紀錄管理功能。整體風格摒棄了傳統系統的生硬感，以清新的留白與細緻的微互動，帶來愉悅的使用體驗，讓教師能將更多寶貴時間回歸於教學本身。">
+                            <a class="pcard-media" href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <img src="assets/project-img-6.png" alt="代導費用 Calculator" loading="lazy" decoding="async">
+                            </a>
+                            <div class="pcard-body">
+                                <div class="pcard-meta">
+                                    <span class="grade-pill grade-teacher">教師</span>
+                                    <span class="pcard-topic"><i class="fa-solid fa-calculator"></i> 教師工具 · 效率行政小幫手</span>
+                                </div>
+                                <h4 class="pcard-title"><a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank" rel="noopener">代導費用 Calculator</a></h4>
+                                <p class="pcard-desc">這是一款專為第一線教育工作者量身打造的實用效率工具。設計理念源於對教師日常繁瑣行政工作的體貼，旨在用最直覺的數位介面解決代導費用的計算痛點。我們將複雜的計費邏輯隱藏於極簡優雅的表單背後，教師只需輸入基本資訊，系統便能快速、精準地產出費用明細，並支援匯出與紀錄管理功能。整體風格摒棄了傳統系統的生硬感，以清新的留白與細緻的微互動，帶來愉悅的使用體驗，讓教師能將更多寶貴時間回歸於教學本身。</p>
+                                <button type="button" class="pcard-more" aria-expanded="false">展開說明 <i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="pcard-foot">
+                                    <span class="pcard-date"><i class="fa-regular fa-calendar"></i> 2026.05.07 上傳</span>
+                                    
+                                    <a href="https://valerieyu55.github.io/proxy-teacher-calculator/" target="_blank" rel="noopener" class="pcard-link">開啟作品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <div class="finder-empty" id="finder-empty" hidden>
+                    <i class="fa-regular fa-face-smile"></i>
+                    <p>找不到符合的作品，換個關鍵字試試看？</p>
+                    <button type="button" class="btn btn-outline" id="finder-clear">清除搜尋</button>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="sk-parade" aria-hidden="true">
+        <img src="assets/q/pal-tri.webp" alt="" loading="lazy" style="--i:0"><img src="assets/q/pal-square.webp" alt="" loading="lazy" style="--i:1"><img src="assets/q/pal-circle.webp" alt="" loading="lazy" style="--i:2"><img src="assets/q/pal-hex.webp" alt="" loading="lazy" style="--i:3"><img src="assets/q/pal-crystal.webp" alt="" loading="lazy" style="--i:4">
+    </div>
+    <footer id="about">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <a href="index.html" title="回到首頁"><picture><source srcset="assets/brand/vy-mark.webp" type="image/webp"><img src="assets/brand/vy-mark.png" alt="Valerie Yu Studio" class="sk-footer-mark" loading="lazy"></picture></a>
+            </div>
+            <div class="footer-slogan">
+                <div class="footer-star">✦</div>
+                <p>清晰的設計，成就更好的學習。</p>
+                <a href="admin.html" class="footer-live-stats" id="footer-live-stats" title="管理者登入">
+                    <span class="footer-live-dot"></span>
+                    <span>線上 <strong id="stats-online-count">1</strong> 人 · 累積造訪 <strong id="stats-total-visits">-</strong> 次 <i class="fa-solid fa-arrow-right" style="font-size: 10px; margin-left: 4px; opacity: 0.7;"></i></span>
+                </a>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:valerieyu@kcislk.ntpc.edu.tw" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> valerieyu@kcislk.ntpc.edu.tw
+                </a>
+                <span class="footer-divider">|</span>
+                <div class="footer-socials">
+                    <a href="admin.html" class="footer-admin-link" title="管理者登入"><i class="fa-solid fa-chart-pie"></i></a>
+                </div>
+                <div class="footer-crystal">
+                    <img src="assets/footer-crystal.png" alt="Crystal Accent">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Teaching Hub Interactive Modal -->
+    <div class="modal-overlay" id="teaching-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-glass-container">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge"><i class="fa-solid fa-graduation-cap"></i> Interactive Teaching Hub</span>
+                <h3 class="modal-title">數位教學探索中心</h3>
+                <p class="modal-subtitle">精選 11 大互動數學實驗室，一鍵直達線上動態探索課堂</p>
+            </div>
+
+            <h4 class="modal-section-title"><i class="fa-solid fa-laptop-code"></i> 線上動態教學模組直達 (11 Modules)</h4>
+            <div class="teaching-grid">
+                <a href="https://valerieyu55.github.io/Mathoria/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 遊戲化世界</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.10.29</span>
+                            <span class="badge-updated-sm badge-new" data-update-date="2026-10-29"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW</span>
+                        </div>
+                    </div>
+                    <h5>MATHORIA 數域魔法學院：G9 數學冒險地圖</h5>
+                    <p>八大據點串起九年級全部單元，角色四階進化、迷思魔王戰，附訪客試玩與教師後台。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/Napier_logarithm/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">十一年級 · 對數起源</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.10.23</span>
+                            <span class="badge-updated-sm badge-new" data-update-date="2026-10-23"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW</span>
+                        </div>
+                    </div>
+                    <h5>納皮爾的對數表：乘除化加減的歷史奇蹟</h5>
+                    <p>古典羊皮紙與黃銅工藝風格探索遊戲，深入納皮爾對數起源、幾何連續運動與算籌模擬謎題。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/math3b-exp-log-lab/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">十一年級 · 數學 3B</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.10.23</span>
+                            <span class="badge-updated-sm badge-new" data-update-date="2026-10-23"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW</span>
+                        </div>
+                    </div>
+                    <h5>指數與對數函數實驗室</h5>
+                    <p>反函數 y=x 對稱折疊動畫、CASIO 工程計算機模擬器、地震與分貝生活素養模擬及診斷題庫。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/measure-quest/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 相似形</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.09.24</span>
+                            <span class="badge-updated-sm badge-new" data-update-date="2026-09-24"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW</span>
+                        </div>
+                    </div>
+                    <h5>測量遠征：一束光，丈量一個世界</h5>
+                    <p>跟著泰勒斯穿越時空，運用日照影長與相似三角形破解三大生活測量挑戰，整合學習歷程與教學戰情表。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/math3b-radian-periodic-lab/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">十一年級 · 數學 3B</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.09.22 更新</span>
+                            <span class="badge-updated-sm" data-update-date="2026-09-22"><i class="fa-solid fa-arrows-rotate"></i> 更新</span>
+                        </div>
+                    </div>
+                    <h5>弧度量與週期性數學模型</h5>
+                    <p>首創圓弧動態展開物理引擎，結合摩天輪、潮汐生活建模與 CASIO 計算機模擬器。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/3-1-geometry/index.html" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 立體圖形</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar"></i> 2026.04.28</span>
+                        </div>
+                    </div>
+                    <h5>從平面到立體：空間幾何的思維躍遷</h5>
+                    <p>3D 空間幾何即時運算模型，自由旋轉與剖析線面垂直平行關係，降低認知負荷。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/geometry_qdes/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">跨年段 · 幾何沙盒</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar"></i> 2026.05.18</span>
+                        </div>
+                    </div>
+                    <h5>空間幾何體・動態探索系統</h5>
+                    <p>極簡美學與水晶幾何視覺語彙，三維空間軌跡直觀推導空間幾何定理。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/MATH.COURT/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 二次函數</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar"></i> 2026.03.12</span>
+                        </div>
+                    </div>
+                    <h5>課堂教案：拋物線・看見數學的軌跡</h5>
+                    <p>純粹座標網格與拋物線動態展演，零干擾直觀看見公式背後的軌跡美感。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                <a href="https://valerieyu55.github.io/store_manager/cup/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 連比例</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.09.23 更新</span>
+                            <span class="badge-updated-sm" data-update-date="2026-09-23"><i class="fa-solid fa-arrows-rotate"></i> 更新</span>
+                        </div>
+                    </div>
+                    <h5>連比例與手搖飲創業專案</h5>
+                    <p>化身店長研發調飲、比例縮放與財務定價，結合教師即時進度戰情儀表板。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+<a href="https://valerieyu55.github.io/similar-tea-shop/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 相似形遊戲</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar-check"></i> 2026.10.28</span>
+                            <span class="badge-updated-sm badge-new" data-update-date="2026-10-28"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW</span>
+                        </div>
+                    </div>
+                    <h5>比不比熟成紅茶：相似形像素經營遊戲</h5>
+                    <p>像素風手搖飲店五區闖關，20 分鐘玩完相似形全章，附排行榜與教師作答紀錄後台。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+                                <a href="https://valerieyu55.github.io/G9/" target="_blank" class="teaching-card">
+                    <div class="teaching-card-header">
+                        <span class="teaching-card-badge">九年級 · 統計與機率</span>
+                        <div class="teaching-card-meta">
+                            <span class="teaching-card-date"><i class="fa-regular fa-calendar"></i> 2026.04.02</span>
+                        </div>
+                    </div>
+                    <h5>國中數學 3下：統計與機率</h5>
+                    <p>現代 Dashboard 儀表板與即時動態圖表，輕鬆理解隨機性與資料分布意義。</p>
+                    <span class="teaching-card-link">進入互動實驗室 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+            </div>
+
+            <div class="modal-footer-nav">
+                <a href="#projects" class="modal-switch-link" id="modal-view-all-projects">
+                    瀏覽完整作品展示牆與設計理念 <i class="fa-solid fa-arrow-down-long"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (except dropdown toggle)
+        document.querySelectorAll('.nav-btn:not(.dropdown > .nav-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Handle dropdowns on mobile
+        document.querySelectorAll('.dropdown > .nav-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1080) {
+                    e.preventDefault();
+                    btn.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+        // ── Project Finder: 分區 × 年段 × 搜尋 ──
+        // 新增作品時：在對應年段的 .grade-group 裡加一張 .pcard 即可；
+        // 新增年段時：複製一個 .grade-group 並設定 data-grade-group（例如 g10），分頁與數量會自動產生。
+        const cards = Array.from(document.querySelectorAll('.pcard'));
+        const gradeGroups = Array.from(document.querySelectorAll('.grade-group'));
+        const gradeTabsBar = document.querySelector('.grade-tabs');
+        const searchInput = document.getElementById('project-search');
+        const finderStatus = document.getElementById('finder-status');
+        const finderEmpty = document.getElementById('finder-empty');
+        let currentGrade = 'all-grades';
+
+        // Build grade tabs from the groups present in the HTML
+        gradeGroups.forEach(group => {
+            const key = group.dataset.gradeGroup;
+            const label = group.querySelector('.grade-group-title').childNodes[0].textContent.trim();
+            const btn = document.createElement('button');
+            btn.className = 'grade-tab';
+            btn.type = 'button';
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('aria-selected', 'false');
+            btn.dataset.grade = key;
+            btn.innerHTML = `${label} <span class="grade-tab-count" data-count-grade="${key}">0</span>`;
+            gradeTabsBar.appendChild(btn);
+        });
+        const gradeTabs = Array.from(document.querySelectorAll('.grade-tab'));
+
+        function updateCounts() {
+            document.querySelectorAll('[data-count-zone]').forEach(el => {
+                el.textContent = cards.filter(c => c.dataset.zone === el.dataset.countZone).length;
+            });
+            document.querySelectorAll('[data-count-grade]').forEach(el => {
+                const k = el.dataset.countGrade;
+                el.textContent = k === 'all-grades'
+                    ? cards.filter(c => c.dataset.zone === 'teaching').length
+                    : cards.filter(c => c.dataset.zone === 'teaching' && c.dataset.grade === k).length;
+            });
+            document.querySelectorAll('.grade-group').forEach(g => {
+                const n = g.querySelectorAll('.pcard').length;
+                const b = g.querySelector('.grade-group-count b');
+                if (b) b.textContent = n;
+            });
+        }
+
+        function render() {
+            const q = (searchInput.value || '').trim().toLowerCase();
+            let shown = 0;
+            cards.forEach(card => {
+                const matchQ = !q || card.dataset.search.toLowerCase().includes(q);
+                const matchG = q || card.dataset.zone !== 'teaching' || currentGrade === 'all-grades' || card.dataset.grade === currentGrade;
+                const ok = matchQ && matchG;
+                card.hidden = !ok;
+                if (ok) shown++;
+            });
+            gradeGroups.forEach(g => {
+                g.hidden = !g.querySelector('.pcard:not([hidden])');
+            });
+            document.querySelectorAll('.zone').forEach(z => {
+                z.hidden = !!q && !z.querySelector('.pcard:not([hidden])');
+            });
+            gradeTabsBar.hidden = !!q;
+            finderStatus.hidden = !q;
+            if (q) finderStatus.textContent = `「${searchInput.value.trim()}」找到 ${shown} 件作品`;
+            finderEmpty.hidden = shown !== 0;
+        }
+
+        function setGrade(key) {
+            currentGrade = key;
+            gradeTabs.forEach(t => {
+                const on = t.dataset.grade === key;
+                t.classList.toggle('active', on);
+                t.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+            render();
+        }
+
+        function resetFinder() {
+            searchInput.value = '';
+            setGrade('all-grades');
+        }
+
+        function goToZone(zone, grade) {
+            searchInput.value = '';
+            setGrade(grade || 'all-grades');
+            const target = document.getElementById(zone) || document.getElementById('projects');
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        gradeTabs.forEach(t => t.addEventListener('click', () => {
+            setGrade(t.dataset.grade);
+            // 方便分享給學生：網址會變成 #g9 / #g11
+            history.replaceState(null, '', t.dataset.grade === 'all-grades' ? '#teaching' : '#' + t.dataset.grade);
+        }));
+        searchInput.addEventListener('input', render);
+        document.getElementById('finder-clear').addEventListener('click', () => { resetFinder(); searchInput.focus(); });
+
+        // Expand / collapse long descriptions
+        document.querySelectorAll('.pcard-more').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.pcard');
+                const open = card.classList.toggle('is-open');
+                btn.setAttribute('aria-expanded', open);
+                btn.innerHTML = open ? '收合說明 <i class="fa-solid fa-chevron-up"></i>' : '展開說明 <i class="fa-solid fa-chevron-down"></i>';
+            });
+        });
+
+        // In-page anchors (#projects / #teaching / #counseling / #tools / #g9 ...)
+        function handleHash(hash, smooth) {
+            const h = (hash || '').replace('#', '');
+            if (!h) return false;
+            if (['projects', 'teaching', 'counseling', 'tools'].includes(h)) {
+                if (h === 'projects') resetFinder();
+                goToZone(h);
+                return true;
+            }
+            if (gradeGroups.some(g => g.dataset.gradeGroup === h)) {
+                goToZone('teaching', h);
+                return true;
+            }
+            return false;
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                if (anchor.id === 'btn-explore' || anchor.id === 'btn-view-teaching' || anchor.id === 'modal-view-all-projects') return;
+                if (handleHash(anchor.getAttribute('href'))) {
+                    e.preventDefault();
+                    history.replaceState(null, '', anchor.getAttribute('href'));
+                }
+            });
+        });
+
+        // Highlight current zone chip while scrolling
+        const zoneChips = document.querySelectorAll('.zone-chip');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) {
+                        zoneChips.forEach(c => c.classList.toggle('active', c.dataset.zoneLink === en.target.id));
+                    }
+                });
+            }, { rootMargin: '-35% 0px -55% 0px' });
+            document.querySelectorAll('.zone').forEach(z => io.observe(z));
+        }
+
+        updateCounts();
+        render();
+        if (location.hash) setTimeout(() => handleHash(location.hash), 150);
+
+        // ── Teaching Hub Modal Logic ──
+        const teachingModal = document.getElementById('teaching-modal');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const modalViewAll = document.getElementById('modal-view-all-projects');
+        const btnViewTeaching = document.getElementById('btn-view-teaching');
+
+        function openTeachingModal() {
+            if (teachingModal) {
+                teachingModal.classList.add('active');
+                teachingModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeTeachingModal() {
+            if (teachingModal) {
+                teachingModal.classList.remove('active');
+                teachingModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // "View Teaching" Button: Opens Dedicated Teaching Hub Modal with 6 Modules & Tool Download
+        if (btnViewTeaching) {
+            btnViewTeaching.addEventListener('click', (e) => {
+                e.preventDefault();
+                openTeachingModal();
+            });
+        }
+
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeTeachingModal);
+        }
+
+        if (teachingModal) {
+            teachingModal.addEventListener('click', (e) => {
+                if (e.target === teachingModal) {
+                    closeTeachingModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && teachingModal && teachingModal.classList.contains('active')) {
+                closeTeachingModal();
+            }
+        });
+
+        if (modalViewAll) {
+            modalViewAll.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeTeachingModal();
+                goToZone('teaching');
+            });
+        }
+
+        // "Explore Projects" Button: reset finder & scroll to library
+        const btnExplore = document.getElementById('btn-explore');
+        if (btnExplore) {
+            btnExplore.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetFinder();
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+
+        // ── Dynamic 14-Day Recent Update Reminder Badge Logic ──
+        function initRecentUpdateBadges() {
+            const now = new Date();
+            const badges = document.querySelectorAll('[data-update-date]');
+            badges.forEach(badge => {
+                const dateStr = badge.getAttribute('data-update-date');
+                if (!dateStr) return;
+                const updateDate = new Date(dateStr + 'T00:00:00');
+                const diffTime = now.getTime() - updateDate.getTime();
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+                // Maintain reminder badge for 2 weeks (14 days)
+                if (diffDays >= 0 && diffDays <= 14) {
+                    badge.style.display = 'inline-flex';
+                    const remainingDays = 14 - diffDays;
+                    const dayText = remainingDays === 0 ? '最後 1 天' : `尚餘 ${remainingDays} 天`;
+                    badge.setAttribute('title', `新作品 / 近期更新提醒（維持兩週，${dayText}）`);
+                } else {
+                    badge.style.display = 'none';
+                }
+            });
+        }
+        initRecentUpdateBadges();
+    </script>
+
+    <!-- Firebase SDK & Analytics Tracker -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js?v=20261102b"></script>
+    <script src="tracker.js?v=20261102b"></script>
+</body>
+</html>
