@@ -2476,3 +2476,9 @@ h1, h2, h3, h4, h5, h6,
 /* small English captions inside serif titles stay in the UI sans */
 .zone-title small,
 .grade-group-title small { font-family: var(--font-body); }
+
+/* 導覽列：中寬螢幕隱藏英文，避免最右邊被切掉 */
+.nav-en { font-style: normal; }
+@media (min-width: 1081px) {
+    .nav-en { display: none; }
+}
