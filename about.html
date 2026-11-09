@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cactus+Classical+Serif&family=Chiron+Hei+HK:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iansui&family=Gaegu:wght@400;700&display=swap">
-    <link rel="stylesheet" href="sketch.css?v=20261106b">
+    <link rel="stylesheet" href="sketch.css?v=20261109a">
 
     <!-- Favicon & Chrome / PWA Shortcut Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=20261109">
@@ -29,8 +29,6 @@
     <meta name="application-name" content="Valerie Yu Studio">
 
     <!-- Preload Critical Portrait Image for Instant Fast Loading -->
-    <link rel="preload" as="image" href="assets/about-valerie.avif?v=20261028" type="image/avif">
-    <link rel="preload" as="image" href="assets/about-valerie.jpg?v=20261028" type="image/jpeg">
 </head>
 <body class="sketch-page">
     <!-- Background Elements -->
@@ -142,24 +140,23 @@
 
             <article class="about-content">
                 <div class="about-profile-hero">
-                    <div class="about-portrait-card">
-                        <div class="portrait-glow"></div>
-                        <picture class="about-portrait-picture">
-                            <source srcset="assets/about-valerie.avif?v=20261028" type="image/avif">
-                            <source srcset="assets/about-valerie.jpg?v=20261028" type="image/jpeg">
-                            <img src="assets/about-valerie.jpg?v=20261028" 
-                                 alt="Valerie Yu" 
-                                 class="about-portrait-img" 
-                                 width="320" 
-                                 height="320" 
-                                 loading="eager" 
-                                 fetchpriority="high" 
-                                 decoding="async">
-                        </picture>
-                        <div class="about-portrait-badge">
-                            <span class="portrait-sparkle">✦</span>
-                            <span>Valerie Yu</span>
+                    <div class="ab-card">
+                        <img class="ab-pal ab-pal-a" src="assets/q/pal-crystal.webp" alt="" aria-hidden="true">
+                        <img class="ab-pal ab-pal-b" src="assets/q/pal-hex.webp" alt="" aria-hidden="true">
+                        <picture><source srcset="assets/brand/vy-mark.webp" type="image/webp"><img class="ab-mark" src="assets/brand/vy-mark.png" alt="Valerie Yu Studio"></picture>
+                        <p class="ab-hi">Hi，我是 <b>Valerie 老師</b></p>
+                        <div class="ab-formula" aria-label="我等於數學老師加升學輔導加教材設計">
+                            <span class="ab-var">我</span><span class="ab-op">=</span>
+                            <span class="ab-term">數學老師</span><span class="ab-op">+</span>
+                            <span class="ab-term">升學輔導</span><span class="ab-op">+</span>
+                            <span class="ab-term is-gold">教材設計</span>
                         </div>
+                        <ul class="ab-facts">
+                            <li><b>3</b><span>個年段<br><small>九～十一年級</small></span></li>
+                            <li><b>13</b><span>件互動教材<br><small>與教師工具</small></span></li>
+                            <li><b>2</b><span>種做法<br><small>Vibe ＋ Agentic</small></span></li>
+                        </ul>
+                        <p class="ab-sign">Find the value of you!</p>
                     </div>
                 </div>
                 <h3 class="about-heading">Valerie Yu：從 Vibe Coding 到 Agentic Coding</h3>
