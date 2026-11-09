@@ -370,10 +370,17 @@
     .ab-pal { width: 58px; }
     .ab-pal-a { left: -10px; bottom: -22px; }
     .ab-pal-b { right: -8px; top: -26px; }
-    .ab-term { font-size: 16px; padding: 3px 10px; }
+    .ab-term { font-size: 14.5px; padding: 3px 7px; }
+    .ab-op { font-size: 22px; }
     .ab-facts b { font-size: 32px; }
     .ab-facts { gap: 6px; }
     .ab-facts span { font-size: 13px; }
     .ab-facts small { display: none; }
+    .ab-break { flex-basis: 100%; height: 0; }
+    .ab-formula { gap: 6px 8px; }
+    .sketch-page .about-content { padding: 26px 14px; }
+    .ab-card { margin: 4px 0 28px; }
 }
+.ab-break { display: block; }
+@media (min-width: 601px) { .ab-break { display: none; } }
 @media (prefers-reduced-motion: reduce) { .ab-pal { animation: none; } }

@@ -2482,3 +2482,12 @@ h1, h2, h3, h4, h5, h6,
 @media (min-width: 1081px) {
     .nav-en { display: none; }
 }
+
+/* 手機：分區與年段按鈕改為換行排列，不再被切掉 */
+@media (max-width: 760px) {
+    .finder { flex-direction: column; align-items: stretch; }
+    .zone-nav { flex-wrap: wrap; overflow: visible; justify-content: flex-start; }
+    .zone-chip { flex: 1 1 calc(50% - 8px); min-width: 0; }
+    .grade-tabs { flex-wrap: wrap; overflow: visible; }
+    .grade-tab { padding: 8px 14px; font-size: 13.5px; }
+}
