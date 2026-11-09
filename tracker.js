@@ -270,6 +270,7 @@
         if (url.includes('geometry_qdes')) return 'geometry_qdes';
         if (url.includes('MATH.COURT')) return 'parabola_court';
         if (url.includes('/G9/')) return 'g9_stat_prob';
+        if (url.includes('college-nav')) return 'college_nav';
         if (url.includes('math_ab')) return 'math_ab_guide';
         if (url.includes('proxy-teacher-calculator')) return 'proxy_calculator';
         return title.replace(/[^a-zA-Z0-9_\u4e00-\u9fa5]/g, '_').substring(0, 30);
