@@ -2,6 +2,7 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noarchive,noai,noimageai">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>一分鐘認識升學導航｜Valerie Yu Studio</title>
 <meta name="description" content="興趣探索、落點分析、甄選會官方資料與我的清單，一分鐘看懂升學導航。英文配音・中文字幕。">
@@ -54,7 +55,7 @@ footer{text-align:center;font-size:12px;color:rgba(255,255,255,.55);padding:0 16
   </a>
 </header>
 <main>
-  <div class="v" id="box"><video id="vid" controls playsinline preload="metadata"></video></div>
+  <div class="v" id="box"><video id="vid" controls controlsList="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata"></video></div>
   <div class="txt">
     <div class="eyebrow">VIDEO · 1 分鐘認識</div>
     <h1>一分鐘認識升學導航</h1>
@@ -82,5 +83,6 @@ footer{text-align:center;font-size:12px;color:rgba(255,255,255,.55);padding:0 16
   auto(); addEventListener('resize',auto);
 })();
 </script>
+<script>['contextmenu','dragstart'].forEach(function(ev){document.addEventListener(ev,function(e){e.preventDefault();});});</script>
 </body>
 </html>
