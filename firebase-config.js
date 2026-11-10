@@ -16,7 +16,7 @@ window.VYS_DEFAULT_PROJECTS = {
     'math3b_exp_log': { title: '高中數學 3B：指數與對數函數實驗室', category: '十一年級', url: 'https://valerieyu55.github.io/math3b-exp-log-lab/', count: 0 },
     'napier_logarithm': { title: '納皮爾的對數表：乘除化加減的歷史奇蹟', category: '十一年級', url: 'https://valerieyu55.github.io/Napier_logarithm/', count: 0 },
     'geometry_qdes': { title: '空間幾何體・動態探索系統', category: '跨年段通用', url: 'https://valerieyu55.github.io/geometry_qdes/', count: 0 },
-    'college_nav': { title: '升學導航：科系探索與落點分析系統', category: '升學輔導', url: 'https://valerieyu55.github.io/valerieyu_studio/college-nav/', count: 0 },
+    'college_nav': { title: '升學導航：科系探索與落點分析系統', category: '升學輔導', url: 'https://valyu-college-nav.pages.dev/', count: 0 },
     'math_ab_guide': { title: '108課綱：高二數學A與數學B選修指南', category: '升學輔導', url: 'https://valerieyu55.github.io/math_ab/', count: 0 },
     'proxy_calculator': { title: '代導費用 Calculator', category: '教師工具', url: 'https://valerieyu55.github.io/proxy-teacher-calculator/', count: 0 },
     'teaching_hub_modal': { title: '數位教學探索中心 (Teaching Hub 彈窗)', category: '教學導覽', url: '#teaching-modal', count: 0 }
