@@ -227,6 +227,29 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
 .live { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--muted); }
 .live .dot { width: 8px; height: 8px; border-radius: 50%; background: #7bc59a; box-shadow: 0 0 0 3px rgba(123, 197, 154, .25); }
 .live strong { color: var(--primary); font-weight: 500; }
+
+/* ---------- 升學導航推廣 ---------- */
+.news { display: flex; width: fit-content; align-items: center; gap: 10px; margin: -6px 0 4px; padding: 7px 16px 7px 7px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); border: 1px solid rgba(216, 181, 121, .45); color: var(--ink); text-decoration: none; font-size: 14px; transition: transform .25s, box-shadow .25s; }
+.news b { font: 600 11px/1 var(--body); letter-spacing: 1.5px; color: #fff; background: linear-gradient(135deg, #e3c48c, #c49a4f); padding: 6px 9px; border-radius: 999px; }
+.news span { color: var(--gold-ink); transition: transform .25s; }
+.news:hover { transform: translateY(-2px); }
+.news:hover span { transform: translateX(3px); }
+.feat { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 12px 18px 12px 12px; margin: 0 0 26px; max-width: 34em; text-decoration: none; border: 1px solid rgba(216, 181, 121, .45); transition: transform .3s, box-shadow .3s; }
+.feat:hover { transform: translateY(-3px); box-shadow: 0 30px 56px -24px rgba(74, 59, 92, .4); }
+.feat img { width: 84px; height: 84px; object-fit: cover; border-radius: 16px; background: var(--wash); }
+.feat small { display: block; font-size: 12px; letter-spacing: 1px; color: var(--gold-ink); }
+.feat b { display: block; font: 400 21px/1.35 var(--title); color: var(--ink); letter-spacing: .1em; }
+.feat span { display: block; font-size: 13.5px; line-height: 1.7; color: var(--muted); }
+.feat em { font-style: normal; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--wash); color: var(--primary); }
+.feat:hover em { background: var(--primary); color: #fff; }
+.door.is-new { border: 1px solid rgba(216, 181, 121, .5); }
+.door b i { font: 600 10px/1 var(--body); font-style: normal; letter-spacing: 1px; vertical-align: middle; color: #fff; background: linear-gradient(135deg, #e3c48c, #c49a4f); padding: 4px 7px; border-radius: 999px; margin-left: 6px; }
+@media (max-width: 760px) {
+  .news { font-size: 13px; }
+  .feat { grid-template-columns: 64px minmax(0, 1fr); }
+  .feat img { width: 64px; height: 64px; }
+  .feat em { display: none; }
+}
 </style>
 </head>
 <body>
@@ -261,6 +284,7 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
         <p class="sig">Find the value of you!</p>
         <h1 class="h">清晰的設計，成就更好的學習。</h1>
         <p class="lead">我是 Valerie 老師，教國中與高中數學，也陪學生走升學這條路。這裡收著我做的互動教材，也記下它們在教室裡真正被使用的樣子。</p>
+        <a class="news" href="https://valerieyu55.github.io/valerieyu_studio/college-nav/" target="_blank" rel="noopener"><b>NEW</b>升學導航上線：科系探索 × 落點分析 <span aria-hidden="true">→</span></a>
         <span class="hint"><i></i>SCROLL</span>
       </div>
       <div class="crystal" aria-hidden="true"><span class="glow"></span><span class="ring"><span></span><span></span><span></span></span><img src="assets/hero-diamond.png" alt=""></div>
@@ -306,7 +330,11 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
         <p class="big step" data-at="0.06"><span data-vys-count>14</span><small>件互動教材與工具</small></p>
         <h2 class="h step" data-at="0.1">每個單元，<em>都值得被好好設計</em></h2>
         <p class="lead step" data-at="0.16">互動數位課本、PBL 專題、闖關遊戲、升學輔導與教師工具，依年段整理，打開就能用。</p>
-        <ul class="tags step" data-at="0.22"><li>九年級</li><li>十一年級</li><li>跨年段</li><li>升學輔導</li><li>教師工具</li></ul>
+        <a class="frame feat step" data-at="0.3" href="https://valerieyu55.github.io/valerieyu_studio/college-nav/" target="_blank" rel="noopener">
+          <img src="assets/home/college-nav-thumb.webp" alt="">
+          <div><small>最新上線 · 十一年級升學輔導</small><b>升學導航</b><span>先認識自己，再找到方向：興趣探索、十八學群、2,240 個校系分則與落點分析。</span></div>
+          <em aria-hidden="true">→</em>
+        </a>
         <a class="btn step" data-at="0.6" href="works.html">進入作品收集 <span class="arr">→</span></a>
       </div>
       <div class="frame collage" aria-hidden="true">
@@ -349,6 +377,7 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
           <p class="lead">想看我做了哪些教材，還是想看它們在教室裡的樣子？</p>
           <div class="doors">
             <a class="frame door" href="works.html"><img src="assets/project-img-13.png" alt=""><div><b>作品收集</b><span><span data-vys-count>14</span> 件互動教材與工具，依年段整理</span></div><em>→</em></a>
+            <a class="frame door is-new" href="https://valerieyu55.github.io/valerieyu_studio/college-nav/" target="_blank" rel="noopener"><img src="assets/home/college-nav-thumb.webp" alt=""><div><b>升學導航 <i>NEW</i></b><span>高二科系探索與個人申請落點分析</span></div><em>→</em></a>
             <a class="frame door" href="moments.html"><img src="assets/home/m6821.webp" alt=""><div><b>課堂風景</b><span>教材在教室裡被使用的樣子</span></div><em>→</em></a>
           </div>
         </div>
