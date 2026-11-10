@@ -166,7 +166,14 @@
             .then(function (r) { return r.ok ? r.json() : null; })
             .then(function (g) {
                 if (!g) return;
-                var parts = [g.country, g.region && g.region !== g.city ? g.region : '', g.city].filter(Boolean);
+                var TW = { 'Taipei': '台北市', 'Taipei City': '台北市', 'New Taipei': '新北市', 'New Taipei City': '新北市', 'Taoyuan': '桃園市', 'Taoyuan City': '桃園市',
+                    'Taichung': '台中市', 'Taichung City': '台中市', 'Tainan': '台南市', 'Tainan City': '台南市', 'Kaohsiung': '高雄市', 'Kaohsiung City': '高雄市',
+                    'Keelung': '基隆市', 'Hsinchu': '新竹', 'Hsinchu City': '新竹市', 'Hsinchu County': '新竹縣', 'Miaoli': '苗栗縣', 'Changhua': '彰化縣', 'Nantou': '南投縣',
+                    'Yunlin': '雲林縣', 'Chiayi': '嘉義', 'Chiayi City': '嘉義市', 'Chiayi County': '嘉義縣', 'Pingtung': '屏東縣', 'Yilan': '宜蘭縣', 'Hualien': '花蓮縣',
+                    'Taitung': '台東縣', 'Penghu': '澎湖縣', 'Kinmen': '金門縣', 'Lienchiang': '連江縣' };
+                var C = { 'Taiwan': '台灣', 'Japan': '日本', 'Hong Kong': '香港', 'China': '中國', 'United States': '美國', 'Singapore': '新加坡', 'Malaysia': '馬來西亞' };
+                var reg = TW[g.region] || g.region || '', city = TW[g.city] || g.city || '';
+                var parts = [C[g.country] || g.country, reg, city && city !== reg && reg.indexOf(city.replace(/[市縣]$/, '')) < 0 ? city : ''].filter(Boolean);
                 geoText = parts.join('・').slice(0, 60);
                 try { sessionStorage.setItem('vys_geo', geoText); } catch (e) { }
             }).catch(function () { });
