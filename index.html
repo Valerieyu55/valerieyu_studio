@@ -250,6 +250,11 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
   .feat img { width: 64px; height: 64px; }
   .feat em { display: none; }
 }
+.newsrow { display: flex; flex-direction: column; gap: 10px; margin: -6px 0 4px; }
+.newsrow .news { margin: 0; }
+.feat + .feat { margin-top: -12px; }
+.s3 .feat span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-height: 820px) and (min-width: 761px) { .s3 .feat span { display: none; } .s3 .big span { font-size: clamp(56px, 6vw, 84px); } }
 </style>
 </head>
 <body>
@@ -284,7 +289,10 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
         <p class="sig">Find the value of you!</p>
         <h1 class="h">清晰的設計，成就更好的學習。</h1>
         <p class="lead">我是 Valerie 老師，教國中與高中數學，也陪學生走升學這條路。這裡收著我做的互動教材，也記下它們在教室裡真正被使用的樣子。</p>
-        <a class="news" href="https://valerieyu55.github.io/valerieyu_studio/college-nav/" target="_blank" rel="noopener"><b>NEW</b>升學導航上線：科系探索 × 落點分析 <span aria-hidden="true">→</span></a>
+        <div class="newsrow">
+          <a class="news" href="https://valerieyu55.github.io/valerieyu_studio/college-nav/" target="_blank" rel="noopener"><b>NEW</b>升學導航上線：科系探索 × 落點分析 <span aria-hidden="true">→</span></a>
+          <a class="news" href="https://valerieyu55.github.io/Mathoria/" target="_blank" rel="noopener"><b>NEW</b>MATHORIA 數域魔法學院：九年級數學冒險 <span aria-hidden="true">→</span></a>
+        </div>
         <span class="hint"><i></i>SCROLL</span>
       </div>
       <div class="crystal" aria-hidden="true"><span class="glow"></span><span class="ring"><span></span><span></span><span></span></span><img src="assets/hero-diamond.png" alt=""></div>
@@ -335,6 +343,11 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
           <div><small>最新上線 · 十一年級升學輔導</small><b>升學導航</b><span>先認識自己，再找到方向：興趣探索、十八學群、2,240 個校系分則與落點分析。</span></div>
           <em aria-hidden="true">→</em>
         </a>
+        <a class="frame feat step" data-at="0.4" href="https://valerieyu55.github.io/Mathoria/" target="_blank" rel="noopener">
+          <img src="assets/home/mathoria-thumb.webp" alt="">
+          <div><small>最新上線 · 九年級遊戲化學習</small><b>MATHORIA 數域魔法學院</b><span>依康軒九上、九下單元打造的數學冒險地圖：闖關、角色進化、挑戰魔王。</span></div>
+          <em aria-hidden="true">→</em>
+        </a>
         <a class="btn step" data-at="0.6" href="works.html">進入作品收集 <span class="arr">→</span></a>
       </div>
       <div class="frame collage" aria-hidden="true">
@@ -376,8 +389,9 @@ body { font-weight: 300; line-height: 1.95; letter-spacing: var(--ls-b); }
           <h2 class="h">Where to next?</h2>
           <p class="lead">想看我做了哪些教材，還是想看它們在教室裡的樣子？</p>
           <div class="doors">
-            <a class="frame door" href="works.html"><img src="assets/project-img-13.png" alt=""><div><b>作品收集</b><span><span data-vys-count>14</span> 件互動教材與工具，依年段整理</span></div><em>→</em></a>
+            <a class="frame door" href="works.html"><img src="assets/project-img-7.png" alt=""><div><b>作品收集</b><span><span data-vys-count>14</span> 件互動教材與工具，依年段整理</span></div><em>→</em></a>
             <a class="frame door is-new" href="https://valerieyu55.github.io/valerieyu_studio/college-nav/" target="_blank" rel="noopener"><img src="assets/home/college-nav-thumb.webp" alt=""><div><b>升學導航 <i>NEW</i></b><span>高二科系探索與個人申請落點分析</span></div><em>→</em></a>
+            <a class="frame door is-new" href="https://valerieyu55.github.io/Mathoria/" target="_blank" rel="noopener"><img src="assets/home/mathoria-thumb.webp" alt=""><div><b>MATHORIA <i>NEW</i></b><span>九年級數學冒險地圖，闖關挑戰魔王</span></div><em>→</em></a>
             <a class="frame door" href="moments.html"><img src="assets/home/m6821.webp" alt=""><div><b>課堂風景</b><span>教材在教室裡被使用的樣子</span></div><em>→</em></a>
           </div>
         </div>
