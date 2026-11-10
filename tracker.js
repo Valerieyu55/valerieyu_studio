@@ -276,6 +276,8 @@
         return title.replace(/[^a-zA-Z0-9_\u4e00-\u9fa5]/g, '_').substring(0, 30);
     }
 
+    window.VYS_deriveProjectKey = deriveProjectKey;
+
     // 8. 專屬快捷鍵：在任何頁面按下 Ctrl+Shift+A 或 Cmd+Shift+A 即可直達數據戰情室
     document.addEventListener('keydown', function (e) {
         if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {

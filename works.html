@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>作品收集 | Valerie Yu Studio</title>
-    <link rel="stylesheet" href="style.css?v=20261109c">
+    <link rel="stylesheet" href="style.css?v=20261110a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cactus+Classical+Serif&family=Chiron+Hei+HK:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -782,9 +782,13 @@
         });
         const gradeTabs = Array.from(document.querySelectorAll('.grade-tab'));
 
+        const live = () => cards.filter(c => !c.classList.contains('vys-off'));
         function updateCounts() {
+            const cards = live();
             document.querySelectorAll('[data-count-zone]').forEach(el => {
-                el.textContent = cards.filter(c => c.dataset.zone === el.dataset.countZone).length;
+                const n = cards.filter(c => c.dataset.zone === el.dataset.countZone).length;
+                el.textContent = n;
+                const chip = el.closest('.zone-chip'); if (chip) chip.hidden = n === 0;
             });
             document.querySelectorAll('[data-count-grade]').forEach(el => {
                 const k = el.dataset.countGrade;
@@ -793,7 +797,7 @@
                     : cards.filter(c => c.dataset.zone === 'teaching' && c.dataset.grade === k).length;
             });
             document.querySelectorAll('.grade-group').forEach(g => {
-                const n = g.querySelectorAll('.pcard').length;
+                const n = g.querySelectorAll('.pcard:not(.vys-off)').length;
                 const b = g.querySelector('.grade-group-count b');
                 if (b) b.textContent = n;
             });
@@ -805,7 +809,7 @@
             cards.forEach(card => {
                 const matchQ = !q || card.dataset.search.toLowerCase().includes(q);
                 const matchG = q || card.dataset.zone !== 'teaching' || currentGrade === 'all-grades' || card.dataset.grade === currentGrade;
-                const ok = matchQ && matchG;
+                const ok = matchQ && matchG && !card.classList.contains('vys-off');
                 card.hidden = !ok;
                 if (ok) shown++;
             });
@@ -813,13 +817,15 @@
                 g.hidden = !g.querySelector('.pcard:not([hidden])');
             });
             document.querySelectorAll('.zone').forEach(z => {
-                z.hidden = !!q && !z.querySelector('.pcard:not([hidden])');
+                z.hidden = (!!q && !z.querySelector('.pcard:not([hidden])')) || !z.querySelector('.pcard:not(.vys-off)');
             });
             gradeTabsBar.hidden = !!q;
             finderStatus.hidden = !q;
             if (q) finderStatus.textContent = `「${searchInput.value.trim()}」找到 ${shown} 件作品`;
             finderEmpty.hidden = shown !== 0;
         }
+
+        document.addEventListener('vys:visibility', () => { updateCounts(); render(); });
 
         function setGrade(key) {
             currentGrade = key;
@@ -999,8 +1005,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
-    <script src="firebase-config.js?v=20261109"></script>
-    <script src="tracker.js?v=20261109"></script>
+    <script src="firebase-config.js?v=20261110"></script>
+    <script src="tracker.js?v=20261110"></script>
+    <script src="site-visibility.js?v=20261110"></script>
     <script src="sketch.js?v=20261106"></script>
 </body>
 </html>

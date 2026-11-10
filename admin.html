@@ -355,6 +355,27 @@
 
         /* Main Dashboard Content Layout */
 
+
+        /* ── 作品顯示管理 ── */
+        .vis-panel { margin-bottom: 25px; }
+        .vis-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+        .vis-auth { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); }
+        .vis-btn { font: inherit; font-size: 13px; padding: 8px 16px; border-radius: 999px; cursor: pointer; border: 1px solid rgba(130, 104, 157, 0.3); background: #fff; color: var(--primary); }
+        .vis-btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .vis-note { font-size: 12.5px; color: var(--text-muted); margin: 0 0 14px; }
+        .vis-msg { font-size: 12.5px; margin: 0 0 12px; color: #b4532a; }
+        .vis-msg:empty { display: none; }
+        .vis-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+        .vis-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 14px; background: rgba(255, 255, 255, .7); border: 1px solid rgba(130, 104, 157, .14); }
+        .vis-item.off { opacity: .55; background: rgba(240, 236, 245, .7); }
+        .vis-item .t { flex: 1; min-width: 0; font-size: 13.5px; line-height: 1.4; color: var(--text-heading); }
+        .vis-item .t small { display: block; font-size: 11.5px; color: var(--text-muted); }
+        .vis-switch { position: relative; width: 46px; height: 26px; flex: 0 0 auto; border-radius: 999px; border: 0; cursor: pointer; background: var(--primary); transition: background .2s; }
+        .vis-switch::after { content: ""; position: absolute; top: 3px; left: 23px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.2); transition: left .2s; }
+        .vis-switch[aria-checked="false"] { background: #c9c2d2; }
+        .vis-switch[aria-checked="false"]::after { left: 3px; }
+        .vis-switch:disabled { cursor: not-allowed; opacity: .5; }
+
         /* ── 每日點閱 ── */
         .daily-panel { margin-bottom: 25px; }
         .daily-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
@@ -1030,6 +1051,21 @@
         </section>
 
 
+        <!-- Project visibility -->
+        <section class="panel-card vis-panel" id="vis-panel">
+            <div class="vis-head">
+                <h3 class="panel-title"><i class="fa-solid fa-eye"></i> 作品顯示管理</h3>
+                <div class="vis-auth">
+                    <span id="vis-who">尚未登入</span>
+                    <button type="button" class="vis-btn primary" id="vis-login"><i class="fa-brands fa-google"></i> 用 Google 登入</button>
+                    <button type="button" class="vis-btn" id="vis-logout" hidden>登出</button>
+                </div>
+            </div>
+            <p class="vis-note">關掉開關，作品就會從作品收集頁、導覽選單和作品數裡隱藏（連結本身仍然有效）。需要用你的 Google 帳號登入才能修改。</p>
+            <p class="vis-msg" id="vis-msg"></p>
+            <div class="vis-list" id="vis-list"></div>
+        </section>
+
         <!-- Daily Clicks -->
         <section class="panel-card daily-panel" id="daily-panel">
             <div class="daily-head">
@@ -1172,8 +1208,54 @@
     </div>
 
     <!-- Scripts -->
-    <script src="firebase-config.js?v=20261109"></script>
-    <script src="tracker.js?v=20261109"></script>
+    <script src="firebase-config.js?v=20261110"></script>
+    <script src="tracker.js?v=20261110"></script>
+    <script>
+    // ── 作品顯示管理（site/hidden；只有指定的 Google 帳號能寫入，由 Firebase 規則把關）──
+    (function () {
+        const list = document.getElementById('vis-list'), who = document.getElementById('vis-who'), msg = document.getElementById('vis-msg');
+        const loginBtn = document.getElementById('vis-login'), logoutBtn = document.getElementById('vis-logout');
+        const projects = Object.entries(window.VYS_DEFAULT_PROJECTS || {}).filter(([k]) => k !== 'teaching_hub_modal');
+        let hidden = {}, canEdit = false;
+        const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        function draw() {
+            list.innerHTML = projects.map(([k, p]) => {
+                const on = !hidden[k];
+                return `<div class="vis-item${on ? '' : ' off'}"><div class="t">${esc(p.title)}<small>${esc(p.category)}${on ? '' : ' · 已隱藏'}</small></div>` +
+                    `<button type="button" class="vis-switch" role="switch" aria-checked="${on}" aria-label="${esc(p.title)} 顯示" data-k="${k}" ${canEdit ? '' : 'disabled'}></button></div>`;
+            }).join('');
+        }
+        draw();
+        list.addEventListener('click', e => {
+            const b = e.target.closest('.vis-switch'); if (!b || b.disabled) return;
+            const k = b.dataset.k, hide = !hidden[k];
+            msg.textContent = '';
+            const ref = firebase.database().ref('site/hidden/' + k);
+            (hide ? ref.set(true) : ref.remove()).catch(err => {
+                msg.textContent = err && err.code === 'PERMISSION_DENIED' ? '這個帳號沒有修改權限，請改用你的 Google 帳號登入。' : '儲存失敗：' + (err && err.message);
+            });
+        });
+        loginBtn.addEventListener('click', () => {
+            msg.textContent = '';
+            firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(err => {
+                msg.textContent = '登入失敗：' + (err && (err.code === 'auth/operation-not-allowed' ? '尚未在 Firebase 開啟 Google 登入。' : err.code === 'auth/unauthorized-domain' ? '此網域尚未加入 Firebase 授權網域。' : err.message));
+            });
+        });
+        logoutBtn.addEventListener('click', () => firebase.auth().signOut().then(() => firebase.auth().signInAnonymously()));
+        (window.VYS_FIREBASE_READY || Promise.resolve()).then(() => {
+            if (!window.firebase || !firebase.apps.length) { who.textContent = 'Firebase 未連線'; loginBtn.disabled = true; return; }
+            firebase.database().ref('site/hidden').on('value', snap => { hidden = snap.val() || {}; draw(); }, err => console.warn('[VYS Admin] 無法讀取隱藏清單', err && err.code));
+            firebase.auth().onAuthStateChanged(u => {
+                const google = !!(u && !u.isAnonymous && u.email);
+                canEdit = google;
+                who.textContent = google ? '已登入：' + u.email : '尚未登入';
+                loginBtn.hidden = google; logoutBtn.hidden = !google;
+                draw();
+            });
+        }).catch(() => { who.textContent = 'Firebase 未連線'; });
+    })();
+    </script>
+
     <script>
         (function() {
             'use strict';

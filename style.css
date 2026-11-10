@@ -2491,3 +2491,7 @@ h1, h2, h3, h4, h5, h6,
     .grade-tabs { flex-wrap: wrap; overflow: visible; }
     .grade-tab { padding: 8px 14px; font-size: 13.5px; }
 }
+
+/* 後台設為隱藏的作品 */
+.vys-off { display: none !important; }
+.zone-chip[hidden], .zone[hidden] { display: none !important; }
