@@ -144,6 +144,46 @@
     // This prevents anonymous clients from injecting arbitrary activity records.
     function logRecentEvent() {}
 
+    // 5b. 點擊紀錄（瀏覽器、時間、位置）：analytics/click_log/<自動編號>
+    //     只記錄大略地區（城市層級，由網路位址推估、不存 IP、不要求定位權限）
+    //     以及點擊發生在網站的哪一頁、哪個區塊。只有老師的 Google 帳號讀得到。
+    var pendingSpot = '';
+    function uaInfo() {
+        var ua = navigator.userAgent || '';
+        var br = /Line\//i.test(ua) ? 'LINE' : /Instagram/i.test(ua) ? 'Instagram' : /FBAN|FBAV/i.test(ua) ? 'Facebook'
+            : /Edg\//i.test(ua) ? 'Edge' : /SamsungBrowser/i.test(ua) ? 'Samsung' : /OPR\//i.test(ua) ? 'Opera'
+            : /CriOS|Chrome\//i.test(ua) ? 'Chrome' : /FxiOS|Firefox\//i.test(ua) ? 'Firefox' : /Safari\//i.test(ua) ? 'Safari' : '其他';
+        var ipad = /iPad/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua));
+        var os = /iPhone|iPod/i.test(ua) || ipad ? (ipad ? 'iPadOS' : 'iOS') : /Android/i.test(ua) ? 'Android' : /CrOS/i.test(ua) ? 'ChromeOS'
+            : /Mac OS X|Macintosh/i.test(ua) ? 'macOS' : /Windows/i.test(ua) ? 'Windows' : /Linux/i.test(ua) ? 'Linux' : '其他';
+        var dev = ipad || /Tablet|Android(?!.*Mobile)/i.test(ua) ? '平板' : /Mobi|iPhone|Android/i.test(ua) ? '手機' : '電腦';
+        return { br: br, os: os, dev: dev };
+    }
+    var geoText = '';
+    try { geoText = sessionStorage.getItem('vys_geo') || ''; } catch (e) { }
+    if (!geoText && window.fetch) {
+        fetch('https://get.geojs.io/v1/ip/geo.json', { cache: 'no-store', referrerPolicy: 'no-referrer' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (g) {
+                if (!g) return;
+                var parts = [g.country, g.region && g.region !== g.city ? g.region : '', g.city].filter(Boolean);
+                geoText = parts.join('・').slice(0, 60);
+                try { sessionStorage.setItem('vys_geo', geoText); } catch (e) { }
+            }).catch(function () { });
+    }
+    function pageName() {
+        var f = (location.pathname.split('/').pop() || 'index.html');
+        return f.slice(0, 40);
+    }
+    function logClick(projectKey) {
+        if (!db || !/^[a-z0-9_]{1,40}$/.test(projectKey)) return;
+        var u = uaInfo();
+        var rec = { k: projectKey, t: firebase.database.ServerValue.TIMESTAMP, page: pageName(), spot: (pendingSpot || '其他').slice(0, 20), br: u.br, os: u.os, dev: u.dev };
+        if (geoText) rec.geo = geoText;
+        pendingSpot = '';
+        db.ref('analytics/click_log').push(rec).catch(function (err) { console.warn('[VYS Analytics] 點擊紀錄寫入失敗', err && err.code); });
+    }
+
     // 6. 核心點擊追蹤函式 (全域公開)
     window.VYS_TRACK_CLICK = function (projectKey, projectTitle, targetUrl, category) {
         if (!projectKey) return;
@@ -177,6 +217,7 @@
                 if (err) console.warn('[VYS Analytics] 每日點閱寫入失敗', projectKey, err.code || err);
             });
 
+            logClick(projectKey);
             logRecentEvent('click', projectTitle || projectKey);
         } else {
             // 本機備援
@@ -212,6 +253,7 @@
                 const key = deriveProjectKey(url, title);
                 const category = categoryFor(key, ZONE_LABEL[card.dataset.zone] || GRADE_LABEL[card.dataset.grade] || '教學模組');
                 linkEl.addEventListener('click', function () {
+                    pendingSpot = '作品收集卡片';
                     window.VYS_TRACK_CLICK(key, title, url, category);
                 });
             });
@@ -229,7 +271,25 @@
             const category = categoryFor(key, badgeEl ? badgeEl.textContent.split('·')[0].trim() : '教學實驗室');
 
             card.addEventListener('click', function () {
+                pendingSpot = '教學導覽';
                 window.VYS_TRACK_CLICK(key, title, url, category);
+            });
+        });
+
+        // 對象 D: 首頁推廣（NEW 標籤、精選卡、入口卡）與導覽選單裡的作品連結
+        const SPOTS = [['.news', '首頁 NEW 標籤'], ['.feat', '首頁精選卡'], ['.door', '首頁入口卡'], ['.dropdown-content', '導覽選單']];
+        const defs = window.VYS_DEFAULT_PROJECTS || {};
+        const norm = u => String(u || '').split('#')[0].split('?')[0].replace(/index\.html$/, '').replace(/\/+$/, '').toLowerCase();
+        document.querySelectorAll('a[href^="http"]').forEach(linkEl => {
+            if (linkEl.closest('.pcard, .teaching-card')) return;
+            const hit = SPOTS.find(([sel]) => linkEl.closest(sel) || linkEl.matches(sel));
+            if (!hit) return;
+            const url = linkEl.getAttribute('href');
+            const key = Object.keys(defs).find(k => defs[k].url && norm(defs[k].url) === norm(url));
+            if (!key) return;
+            linkEl.addEventListener('click', function () {
+                pendingSpot = hit[1];
+                window.VYS_TRACK_CLICK(key, defs[key].title, url, categoryFor(key, '教學模組'));
             });
         });
 

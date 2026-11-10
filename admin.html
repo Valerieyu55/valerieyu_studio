@@ -376,6 +376,19 @@
         .vis-switch[aria-checked="false"]::after { left: 3px; }
         .vis-switch:disabled { cursor: not-allowed; opacity: .5; }
 
+
+        /* ── 最近點擊紀錄 ── */
+        .log-panel { margin-bottom: 25px; }
+        .log-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--text-muted); }
+        .log-tools select { font: inherit; padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(130, 104, 157, .3); background: #fff; color: var(--text-heading); }
+        .log-wrap { overflow-x: auto; margin-top: 12px; }
+        .log-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 720px; }
+        .log-table th { text-align: left; font-weight: 500; color: var(--text-muted); padding: 8px 10px; border-bottom: 1px solid rgba(130, 104, 157, .2); white-space: nowrap; }
+        .log-table td { padding: 9px 10px; border-bottom: 1px solid rgba(130, 104, 157, .08); color: var(--text-heading); vertical-align: top; }
+        .log-table td small { display: block; color: var(--text-muted); font-size: 11.5px; }
+        .log-table tr:hover td { background: rgba(130, 104, 157, .04); }
+        .log-empty { padding: 22px; text-align: center; color: var(--text-muted); font-size: 13px; }
+
         /* ── 每日點閱 ── */
         .daily-panel { margin-bottom: 25px; }
         .daily-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
@@ -1066,6 +1079,22 @@
             <div class="vis-list" id="vis-list"></div>
         </section>
 
+        <!-- Click log -->
+        <section class="panel-card log-panel" id="log-panel">
+            <div class="vis-head">
+                <h3 class="panel-title"><i class="fa-solid fa-list-ul"></i> 最近點擊紀錄</h3>
+                <div class="log-tools">
+                    <label>作品 <select id="log-filter"><option value="">全部</option></select></label>
+                    <span id="log-count"></span>
+                </div>
+            </div>
+            <p class="vis-note">每一次點開作品的時間、從網站哪裡點的、大略地區（由網路位址推估到城市，不含精確定位）與裝置瀏覽器。只有用你的 Google 帳號登入（上方「作品顯示管理」）才看得到。</p>
+            <div class="log-wrap"><div class="log-empty" id="log-empty">請先在上方用 Google 登入。</div><table class="log-table" id="log-table" hidden>
+                <thead><tr><th>時間</th><th>作品</th><th>點擊位置</th><th>地區</th><th>裝置／瀏覽器</th></tr></thead>
+                <tbody id="log-body"></tbody>
+            </table></div>
+        </section>
+
         <!-- Daily Clicks -->
         <section class="panel-card daily-panel" id="daily-panel">
             <div class="daily-head">
@@ -1209,7 +1238,42 @@
 
     <!-- Scripts -->
     <script src="firebase-config.js?v=20261110"></script>
-    <script src="tracker.js?v=20261110"></script>
+    <script src="tracker.js?v=20261110b"></script>
+
+    <script>
+    // ── 最近點擊紀錄（analytics/click_log，只有老師的 Google 帳號可讀）──
+    (function () {
+        const body = document.getElementById('log-body'), table = document.getElementById('log-table'), empty = document.getElementById('log-empty');
+        const filter = document.getElementById('log-filter'), count = document.getElementById('log-count');
+        const defs = window.VYS_DEFAULT_PROJECTS || {};
+        Object.entries(defs).forEach(([k, p]) => { if (k !== 'teaching_hub_modal') filter.insertAdjacentHTML('beforeend', `<option value="${k}">${p.title.replace(/</g, '&lt;')}</option>`); });
+        const PAGE = { 'index.html': '首頁', 'works.html': '作品收集', 'works-clay.html': '作品收集（試作）', 'about.html': '關於我', 'moments.html': '課堂風景', 'spotlight-measure-quest.html': '測量遠征亮點' };
+        const esc = t => String(t == null ? '' : t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const fmt = ms => new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(ms));
+        let rows = [], ref = null;
+        function draw() {
+            const f = filter.value, list = rows.filter(r => !f || r.k === f);
+            count.textContent = list.length ? `最近 ${list.length} 筆` : '';
+            if (!list.length) { table.hidden = true; empty.hidden = false; empty.textContent = rows.length ? '這件作品目前沒有紀錄。' : '目前還沒有點擊紀錄。'; return; }
+            table.hidden = false; empty.hidden = true;
+            body.innerHTML = list.map(r => `<tr><td>${esc(fmt(r.t))}</td><td>${esc((defs[r.k] || {}).title || r.k)}</td>` +
+                `<td>${esc(PAGE[r.page] || r.page)}<small>${esc(r.spot)}</small></td><td>${esc(r.geo || '—')}</td>` +
+                `<td>${esc(r.dev)} · ${esc(r.os)}<small>${esc(r.br)}</small></td></tr>`).join('');
+        }
+        filter.addEventListener('change', draw);
+        (window.VYS_FIREBASE_READY || Promise.resolve()).then(() => {
+            if (!window.firebase || !firebase.apps.length) return;
+            firebase.auth().onAuthStateChanged(u => {
+                if (ref) { ref.off(); ref = null; }
+                if (!(u && !u.isAnonymous && u.email)) { rows = []; table.hidden = true; empty.hidden = false; empty.textContent = '請先在上方用 Google 登入。'; return; }
+                ref = firebase.database().ref('analytics/click_log').orderByChild('t').limitToLast(300);
+                ref.on('value', snap => {
+                    rows = []; snap.forEach(c => { rows.push(c.val()); }); rows.reverse(); draw();
+                }, err => { table.hidden = true; empty.hidden = false; empty.textContent = err && err.code === 'PERMISSION_DENIED' ? '這個帳號沒有讀取權限。' : '讀取失敗：' + (err && err.message); });
+            });
+        }).catch(() => { });
+    })();
+    </script>
     <script>
     // ── 作品顯示管理（site/hidden；只有指定的 Google 帳號能寫入，由 Firebase 規則把關）──
     (function () {
